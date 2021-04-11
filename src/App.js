@@ -1,14 +1,12 @@
 import Navbar from "./Navbar";
+import Home from "./Home";
 
 function App() {
-
-  console.log(process.env.REACT_APP_API_URL);
-
   return (
     <div className="App">
       <Navbar/>
       <div className="body container">
-        
+        <Home className="col-12"/>
       </div>
     </div>
   );
