@@ -1,5 +1,5 @@
-import { useEffect } from "react";
 import useFetch from "use-http";
+import ProductPreview from "./ProductPreview";
 
 const ProductsGrid = () => {
 
@@ -7,11 +7,11 @@ const ProductsGrid = () => {
     const { loading, error, data = [] } = useFetch(process.env.REACT_APP_API_URL + "/api/Products", options, [])
     
     return ( 
-        <div className="products-grid container">
+        <div className="products-grid row">
             {error && 'Error!'}
             {loading && 'Loading...'}
             {data.map(product => (
-                <div key={product.id}>{product.name}</div>
+               <ProductPreview product={product} key={product.id}/>
             ))}
         </div>
      );

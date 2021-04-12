@@ -6,7 +6,7 @@ function App() {
     <div className="App">
       <Navbar/>
       <div className="body container">
-        <Home className="col-12"/>
+        <Home/>
       </div>
     </div>
   );
