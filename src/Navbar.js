@@ -1,17 +1,10 @@
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
-
-    const darkMode = false; // TODO: Make it real
-
-    const handleSwitchColorMode = ()=>{
-        
-    }
-
+const Navbar = ({theme, handleSwitchColorMode}) => {
     return ( 
-        <nav className="navbar navbar-light bg-light justify-content-between">
+        <nav className={`navbar navbar-${theme} bg-${theme} justify-content-between theme`}>
             <Link className="navbar-brand" title="Início" to="/">OutOfLens</Link>
-            <button className="btn btn-outline-dark" title={darkMode? "Trocar para Light Mode" : "Trocar para Dark Mode"} onClick={handleSwitchColorMode}><i className="bi bi-circle-half"></i></button>
+            <button className={`btn btn-outline-${theme === "light"? "dark" : "light"}`} title={theme === "light"? "Trocar para Dark Mode" : "Trocar para Light Mode"} onClick={handleSwitchColorMode}><i className="bi bi-circle-half"></i></button>
         </nav>
     );
 }

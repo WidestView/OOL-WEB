@@ -1,0 +1,19 @@
+@import "../node_modules/bootstrap-icons/font/bootstrap-icons.css";
+
+// ThemeSwitcher is responsable to implement the css variables
+
+@mixin basicColoring(){
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.mono{
+  @include basicColoring();
+}
+
+.home{
+  height: 100vh;
+}
+
+
+@import "../node_modules/bootstrap/scss/bootstrap.scss";

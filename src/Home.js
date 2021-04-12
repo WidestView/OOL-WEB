@@ -1,9 +1,9 @@
 import ProductsGrid from "./ProductsGrid";
 
-const Home = () => {
+const Home = ({theme}) => {
     return ( 
-        <div className="home row pt-2">
-            <ProductsGrid/>
+        <div className="home row pt-5">
+            <ProductsGrid theme={theme}/>
         </div>
      );
 }

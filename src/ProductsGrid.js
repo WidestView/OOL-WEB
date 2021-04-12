@@ -7,7 +7,7 @@ const ProductsGrid = () => {
     const { loading, error, data = [] } = useFetch(process.env.REACT_APP_API_URL + "/api/Products", options, [])
     
     return ( 
-        <div className="products-grid col-12 container-fluid">
+        <div className="products-grid col-12 container-fluid theme mono">
             <div className="row">
                 {error && 'Error!'}
                 {loading && 'Loading...'}
