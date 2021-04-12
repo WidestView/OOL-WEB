@@ -1,9 +1,8 @@
 import ProductsGrid from "./ProductsGrid";
 
 const Home = () => {
-
     return ( 
-        <div className="home row container-fluid pt-2">
+        <div className="home row pt-2">
             <ProductsGrid/>
         </div>
      );

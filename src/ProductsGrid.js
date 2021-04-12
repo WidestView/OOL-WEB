@@ -7,12 +7,14 @@ const ProductsGrid = () => {
     const { loading, error, data = [] } = useFetch(process.env.REACT_APP_API_URL + "/api/Products", options, [])
     
     return ( 
-        <div className="products-grid row">
-            {error && 'Error!'}
-            {loading && 'Loading...'}
-            {data.map(product => (
-               <ProductPreview product={product} key={product.id}/>
-            ))}
+        <div className="products-grid col-12 container-fluid">
+            <div className="row">
+                {error && 'Error!'}
+                {loading && 'Loading...'}
+                {data.map(product => (
+                <ProductPreview product={product} key={product.id}/>
+                ))}
+            </div>
         </div>
      );
 }
