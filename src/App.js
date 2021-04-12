@@ -5,7 +5,11 @@ import Home from "./Home";
 import NotFound from "./NotFound";
 
 function App() {
-  const [theme, setTheme] = useState(localStorage.getItem("theme")!==null? localStorage.getItem("theme") : "light");
+
+  // Set default theme to OS theme
+  const osTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches? "dark" : "light";
+
+  const [theme, setTheme] = useState(localStorage.getItem("theme")?? osTheme);
 
   const transition = "background-color 0.5s ease-out, color 0.5s ease-in";
 
