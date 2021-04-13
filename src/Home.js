@@ -1,4 +1,4 @@
-import ProductsGrid from "./ProductsGrid";
+import ProductsGrid from "./components/ProductsGrid";
 
 const Home = ({theme}) => {
     return ( 

@@ -1,8 +1,10 @@
 import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import { useEffect, useState } from "react";
-import Navbar from "./Navbar";
+import Navbar from "./components/Navbar";
 import Home from "./Home";
 import NotFound from "./NotFound";
+import SignUp from "./SignUp";
+import ForgotPassword from "./ForgotPassword";
 
 function App() {
 
@@ -46,6 +48,12 @@ function App() {
           <Switch>
             <Route exact path="/">
               <Home theme={theme}/>
+            </Route>
+            <Route exact path="/signup">
+              <SignUp theme={theme}/>
+            </Route>
+            <Route exact path="/forgot-password">
+              <ForgotPassword theme={theme}/>
             </Route>
             <Route path="*">
               <NotFound theme={theme}/>
