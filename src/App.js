@@ -47,7 +47,6 @@ function App() {
             <Route exact path="/">
               <Home theme={theme}/>
             </Route>
-
             <Route path="*">
               <NotFound theme={theme}/>
             </Route>

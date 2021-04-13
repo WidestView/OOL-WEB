@@ -1,6 +1,6 @@
 @import "../node_modules/bootstrap-icons/font/bootstrap-icons.css";
 
-// ThemeSwitcher is responsable to implement the css variables
+// App is responsable to implement the css variables
 
 @mixin basicColoring(){
   background-color: var(--background-color);
