@@ -1,3 +1,3 @@
 
 
-\* Created using ````npx create-react-app```
+\* Created using ```npx create-react-app```
