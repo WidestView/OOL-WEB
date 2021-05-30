@@ -19,6 +19,9 @@ const ProductsGrid = () => {
 
     return ( 
         <div className="products-grid col-12 container-fluid theme mono">
+
+            <h1 className="text-center mb-5">Nossos pacotes!</h1>
+
             <div className="row">
                 {error && 'Error on fetching data'}
                 {loading && 'Loading...'}

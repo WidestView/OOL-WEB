@@ -10,6 +10,8 @@ import Footer from "./components/Footer";
 
 function App() {
 
+  console.log("API URL SETTED TO: " + process.env.REACT_APP_API_URL)
+
   // Set default theme to OS theme
   const osTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches? "dark" : "light";
 

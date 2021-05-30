@@ -1,10 +1,14 @@
 const ProductPreview = ({product}) => {
     return ( 
-        <div className="product-preview col-12 col-md-6">
-            <h2>{product.name}</h2>
-            <p>{product.description}</p>
+        <div className="product-preview col-4 mb-2">
+             <div className="d-flex justify-content-center">
+                <img className="w-75" src="https://via.placeholder.com/150" alt="product preview"/>
+            </div>
+            <div className="d-flex justify-content-center">
+                <h4 className="card-title mt-3">{product.name}</h4> 
+            </div>
         </div>
-     );
+     );//TODO: ADD DESCRIPTION TO THE CARD
 }
  
 export default ProductPreview;

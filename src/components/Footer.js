@@ -7,25 +7,25 @@ const Footer = ({theme}) => {
                     <a className="btn btn-info mx-2"
                         href="#!"
                         role="button">
-                        <i class="bi bi-instagram"></i>
+                        <i className="bi bi-instagram"></i>
                     </a>
 
                     <a className="btn btn-info mx-2"
                     href="#!"
                     role="button">
-                    <i class="bi bi-facebook"></i>
+                    <i className="bi bi-facebook"></i>
                     </a>
 
                     <a className="btn btn-info mx-2" //FIXME: ADD LEGIT SOCIAL MEDIA INFO
                     href="#!"
                     role="button">
-                    <i class="bi bi-linkedin"></i>
+                    <i className="bi bi-linkedin"></i>
                     </a>
 
                     <a className="btn btn-info mx-2"
                     href="https://github.com/WidestView"
                     role="button">
-                    <i class="bi bi-github"></i>
+                    <i className="bi bi-github"></i>
                     </a>
                 </section>
             </div>
