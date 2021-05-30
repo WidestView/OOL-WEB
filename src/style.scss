@@ -15,5 +15,9 @@
   height: 100vh;
 }
 
+html{
+  @include basicColoring();
+}
+
 
 @import "../node_modules/bootstrap/scss/bootstrap.scss";

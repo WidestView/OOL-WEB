@@ -5,6 +5,8 @@ import Home from "./Home";
 import NotFound from "./NotFound";
 import SignUp from "./SignUp";
 import ForgotPassword from "./ForgotPassword";
+import Banner from "./components/Banner";
+import Footer from "./components/Footer";
 
 function App() {
 
@@ -44,9 +46,9 @@ function App() {
     <div className="App theme mono">
       <Router >
         <Navbar theme={theme} handleSwitchColorMode={handleSwitchColorMode}/>
-        <div className="container">
           <Switch>
             <Route exact path="/">
+              <Banner theme={theme}/>
               <Home theme={theme}/>
             </Route>
             <Route exact path="/signup">
@@ -59,7 +61,7 @@ function App() {
               <NotFound theme={theme}/>
             </Route>
           </Switch>
-        </div>
+          <Footer theme={theme}/>
       </Router>
     </div>
   );

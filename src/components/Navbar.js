@@ -3,7 +3,7 @@ import LoginForm from "./LoginForm";
 
 const Navbar = ({theme, handleSwitchColorMode}) => {
     return ( 
-        <nav className={`navbar navbar-${theme} bg-${theme} justify-content-between theme`}>
+        <nav className={`navbar navbar-${theme} justify-content-between theme`}>
             <Link className="navbar-brand" title="Início" to="/">OutOfLens</Link>
 
             <div className="navbar-buttons d-flex justify-content-between">
