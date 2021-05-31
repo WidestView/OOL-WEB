@@ -23,8 +23,8 @@ const ProductsGrid = () => {
             <h1 className="text-center mb-5">Nossos pacotes!</h1>
 
             <div className="row">
-                {error && 'Error on fetching data'}
-                {loading && 'Loading...'}
+                {error && ''}
+                {loading && <div className="loader"></div>}
                 {data.map(product => (
                 <ProductPreview product={product} key={product.id}/>
                 ))}

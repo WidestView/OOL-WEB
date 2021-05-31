@@ -2,10 +2,11 @@ const Footer = ({theme}) => {
     return ( 
         <footer className="mono theme text-center">
             <hr/>
+            <h3>Contact WidestView:</h3>
             <div className="container p-4 pb-0">
                 <section>
                     <a className="btn btn-info mx-2"
-                        href="#!"
+                        href="https://www.instagram.com/widest_view/?hl=pt-br"
                         role="button">
                         <i className="bi bi-instagram"></i>
                     </a>

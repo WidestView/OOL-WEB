@@ -22,11 +22,12 @@ function App() {
   const handleSwitchColorMode = ()=>{
 
       if(document.querySelector(".theme").style.transition !== transition){
-          let elements = document.getElementsByClassName("theme");
-          
-          for(let i = 0; i < elements.length; i++){
-              elements[i].style.transition = transition;
+
+          let themeElements = document.getElementsByClassName("theme");
+          for(let i = 0; i < themeElements.length; i++){
+            themeElements[i].style.transition = transition;
           }
+          
       }
 
       setTheme(localStorage.getItem("theme") === "light" ? "dark" : "light")
