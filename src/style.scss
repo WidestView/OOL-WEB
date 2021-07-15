@@ -2,9 +2,22 @@
 
 // App is responsable to implement the css variables
 
+:root
+{
+  --link-color: #023859;
+}
+
 @mixin basicColoring(){
   background-color: var(--background-color);
   color: var(--text-color);
+}
+
+.themable-link{
+  color: var(--link-color)!important;
+  &:hover
+  {
+    color: var(--text-color)!important;
+  }
 }
 
 .mono{
@@ -20,6 +33,10 @@ $theme-colors: (
 
 .App{
   height: 100vh;
+}
+
+.no-bullet{
+  list-style-type: none;
 }
 
 .loader {

@@ -39,9 +39,11 @@ function App() {
       if(theme === "light"){
           document.documentElement.style.setProperty('--background-color', '#FFF');
           document.documentElement.style.setProperty('--text-color', '#000');
+          document.documentElement.style.setProperty('--link-color', '#023859');
       }else{
           document.documentElement.style.setProperty('--background-color', '#333');
           document.documentElement.style.setProperty('--text-color', '#FFF');
+          document.documentElement.style.setProperty('--link-color', '#AAA');
       }
   }, [theme])
 
