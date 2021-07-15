@@ -8,6 +8,17 @@ const ProductsGrid = () => {
     const options = {}
     const { loading, error, data = [] } = useFetch(process.env.REACT_APP_API_URL + "/api/Products", options, [])
     
+    const badData = ()=>
+        {
+            Swal.fire({
+                title: 'Data formated wrongly!',
+                text: 'Check console for data received',
+                icon: 'error',
+                confirmButtonText: 'Aff'
+                })
+            console.log(data)
+        }
+
     useEffect(()=>{
         if(!error) return;
         Swal.fire({
@@ -23,11 +34,12 @@ const ProductsGrid = () => {
             <h1 className="text-center mb-5">Nossos pacotes!</h1>
 
             <div className="row">
-                {error && ''}
+                {error && ''+error}
                 {loading && <div className="loader"></div>}
-                {data.map(product => (
+                {Array.isArray(data) && data.map(product => (
                 <ProductPreview product={product} key={product.id}/>
                 ))}
+                {!Array.isArray(data) && badData()}
             </div>
         </div>
      );
