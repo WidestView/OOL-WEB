@@ -1,14 +1,21 @@
-const ProductPreview = ({product}) => {
-    return ( 
-        <div className="product-preview col-6 col-md-4 mb-2">
-             <div className="d-flex justify-content-center">
-                <img className="w-75" src="https://via.placeholder.com/150" alt="product preview"/>
-            </div>
-            <div className="d-flex justify-content-center">
+const ProductPreview = ({product, updateIndex, opened}) => {
+    return (
+        <div className={`product-preview ${opened? 'col-8' : 'col-3'} mx-3 mb-5 pointer rounded p-0`} onClick={()=>updateIndex(opened? -1 : product.id)}>
+
+            {opened && // HORIZONTAL
+            <div className={`product-preview-open d-flex justify-content-between`}>
+                <img className="h-100" src="https://via.placeholder.com/150" alt="product preview"/>
                 <h4 className="card-title mt-3 text-center">{product.name}</h4> 
             </div>
+            }
+
+            {!opened && 
+            <div className={`product-preview-close w-100 h-100 d-flex align-items-end rounded`} style={{backgroundImage:"url(https://via.placeholder.com/150)"}}>
+                <h4 className="text-white text-left text-uppercase pl-2 pb-2 font-weight-bold">{product.name}</h4> 
+            </div>
+            }
         </div>
-     );//TODO: ADD DESCRIPTION TO THE CARD
+     );
 }
  
 export default ProductPreview;
