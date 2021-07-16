@@ -42,7 +42,7 @@ const ProductsGrid = () => {
         let cs = document.getElementsByClassName("product-preview");
         if(cs.length>0)
         {
-            if(sizeClosed==0) setsizeClosed(document.getElementsByClassName("product-preview-close")[0].offsetWidth)
+            if(sizeClosed==0) setsizeClosed(document.getElementsByClassName("product-preview-close")[0].offsetWidth);
 
             for (let i = 0; i < cs.length; i++){
                 cs[i].style.height = `${sizeClosed}px`;
