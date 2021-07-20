@@ -1,13 +1,39 @@
+import { useEffect, useState } from "react";
+
 const Banner = () => {
-    const banner_img_url = "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/8a3bef4a-c371-4370-adaf-ed0cf79fed47/dbcj6ju-5710f4b2-e2b7-423a-9726-175efab68ba2.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzhhM2JlZjRhLWMzNzEtNDM3MC1hZGFmLWVkMGNmNzlmZWQ0N1wvZGJjajZqdS01NzEwZjRiMi1lMmI3LTQyM2EtOTcyNi0xNzVlZmFiNjhiYTIuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.UGf0Lz7ZVfYJueJs3B6orQp4P0XyCA280BKeW963VLE";
+    const banner_urls = 
+    [
+        "https://images.unsplash.com/photo-1524851823820-22796f95efec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1049&q=80",
+        "https://images.unsplash.com/photo-1533746228171-962520811097?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1053&q=80",
+        "https://images.unsplash.com/photo-1601642425511-1e8a7d52a9f0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1187&q=80"
+    ];
+
+    let urls = banner_urls;
+
+    const getRandomBanner = ()=>{
+        urls = banner_urls;
+
+        const last_banner_index = localStorage.getItem("last_banner_index");
+        if(last_banner_index!==null) urls.splice(last_banner_index, 1);
+
+        let index = Math.round(Math.random() * urls.length);
+        localStorage.setItem("last_banner_index", index);
+
+        return index;
+    }
+
+    const [bannerIndex, setBannerIndex] = useState(0);
+
+    useEffect(()=> setBannerIndex(getRandomBanner()), []);
 
     return ( 
         <div className="banner carousel slide" data-ride="carousel">
             <div className="carousel-inner">
                 <div className="carousel-item active w-100" style={{ 
                     height: "60vh",
-                    backgroundImage: `url("${banner_img_url}")`,
-                    backgroundSize: "cover"
+                    backgroundImage: `url("${urls[bannerIndex]}")`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center"
                 }}>
 
                 </div>
