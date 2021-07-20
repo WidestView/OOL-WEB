@@ -1,19 +1,19 @@
 const PackagePreview = ({packageReference, updateIndex, opened}) => {
 
-    packageReference.image = "https://www.stockvault.net/data/2019/08/31/269064/preview16.jpg"; // TODO: REMOVE STOCKPHOTO
+    const IMAGE_URL = `${process.env.REACT_APP_API_URL}/api/Package/${packageReference.id}/image`;
 
     return (
         <div className={`package-preview ${opened? 'col-8' : 'col-3'} mx-3 mb-5 pointer rounded p-0`} onClick={()=>{if(!opened) updateIndex(packageReference.id)}}>
 
             {!opened && // CLOSED 
-            <div className={`package-preview-close w-100 h-100 d-flex align-items-end rounded shadow-sm`}style={{backgroundImage:`url(${packageReference.image})`}}>
+            <div className={`package-preview-close w-100 h-100 d-flex align-items-end rounded shadow-sm`}style={{backgroundImage:`url(${IMAGE_URL})`}}>
                 <h4 className="text-white text-left text-uppercase pl-2 pb-2 font-weight-bold">{packageReference.name}</h4> 
             </div>
             }
 
             {opened && // OPENED
             <div className={`package-preview-open w-100 h-100 d-flex flex-column justify-content-between shadow rounded`}>
-                <div className="image-preview h-100 d-flex align-items-end rounded-top" style={{backgroundImage:`url(${packageReference.image})`}}>
+                <div className="image-preview h-100 d-flex align-items-end rounded-top" style={{backgroundImage:`url(${IMAGE_URL})`}}>
                     <h4 className="text-white text-uppercase pl-3 font-weight-bold">{packageReference.name}</h4>
                 </div>
                 <div className="text-left p-3">
