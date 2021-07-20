@@ -12,6 +12,10 @@
   color: var(--text-color);
 }
 
+.navbar-dark{
+  background-color: #333!important;
+}
+
 .themable-link{
   color: var(--link-color)!important;
   &:hover

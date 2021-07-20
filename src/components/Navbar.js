@@ -3,7 +3,7 @@ import LoginForm from "./LoginForm";
 
 const Navbar = ({theme, handleSwitchColorMode}) => {
     return ( 
-        <nav className={`navbar navbar-${theme} justify-content-between theme`}>
+        <nav className={`navbar navbar-dark justify-content-between`}>
             <Link className="navbar-brand" title="Início" to="/">OutOfLens</Link>
 
             <div className="navbar-buttons d-flex justify-content-between">
@@ -18,7 +18,7 @@ const Navbar = ({theme, handleSwitchColorMode}) => {
                     <Link className="dropdown-item" to="/forgot-password">Forgot password?</Link>
                 </div>
             </div>
-            <button className={`btn btn-outline-${theme === "light"? "dark" : "light"}`} title={theme === "light"? "Trocar para Dark Mode" : "Trocar para Light Mode"} onClick={handleSwitchColorMode}><i className="bi bi-circle-half"></i></button>
+            <button className={`btn btn-outline-light`} title={theme === "light"? "Trocar para Dark Mode" : "Trocar para Light Mode"} onClick={handleSwitchColorMode}><i className="bi bi-circle-half"></i></button>
             </div>
         </nav>
     );
