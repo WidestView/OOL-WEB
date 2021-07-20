@@ -4,7 +4,7 @@ const Home = ({theme}) => {
     return ( 
         <div className="home container">
             <div className="row pt-5">
-                <PackagesGrid theme={theme}/>
+                <PackagesGrid/>
             </div>
         </div>
      );

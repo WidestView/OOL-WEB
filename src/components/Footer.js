@@ -1,4 +1,4 @@
-const Footer = ({theme}) => {
+const Footer = () => {
     return ( 
         <footer className="mono theme container">
             <hr/>

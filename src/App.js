@@ -53,20 +53,20 @@ function App() {
         <Navbar theme={theme} handleSwitchColorMode={handleSwitchColorMode}/>
           <Switch>
             <Route exact path="/">
-              <Banner theme={theme}/>
-              <Home theme={theme}/>
+              <Banner/>
+              <Home/>
             </Route>
             <Route exact path="/signup">
-              <SignUp theme={theme}/>
+              <SignUp/>
             </Route>
             <Route exact path="/forgot-password">
-              <ForgotPassword theme={theme}/>
+              <ForgotPassword/>
             </Route>
             <Route path="*">
-              <NotFound theme={theme}/>
+              <NotFound/>
             </Route>
           </Switch>
-          <Footer theme={theme}/>
+          <Footer/>
       </Router>
     </div>
   );
