@@ -1,10 +1,10 @@
-import ProductsGrid from "./components/ProductsGrid";
+import PackagesGrid from "./components/PackagesGrid";
 
 const Home = ({theme}) => {
     return ( 
         <div className="home container">
             <div className="row pt-5">
-                <ProductsGrid theme={theme}/>
+                <PackagesGrid theme={theme}/>
             </div>
         </div>
      );

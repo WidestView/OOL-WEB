@@ -28,10 +28,10 @@
   @include basicColoring();
 }
 
-.product-preview{
+.package-preview{
   transition: all 0.5s;
   width: 100%;
-  .product-preview-close{
+  .package-preview-close{
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center; 

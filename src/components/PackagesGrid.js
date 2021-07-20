@@ -1,12 +1,12 @@
 import useFetch from "use-http";
-import ProductPreview from "./ProductPreview";
+import PackagePreview from "./PackagePreview";
 import Swal from 'sweetalert2';
 import { useEffect, useState } from "react";
 
-const ProductsGrid = () => {
+const PackagesGrid = () => {
 
     const options = {}
-    const { loading, error, data = [] } = useFetch(process.env.REACT_APP_API_URL + "/api/Products", options, [])
+    const { loading, error, data = [] } = useFetch(process.env.REACT_APP_API_URL + "/api/Package", options, [])
     
     const [CardOpenedIndex, setCardOpenedIndex] = useState(-1);
 
@@ -39,10 +39,10 @@ const ProductsGrid = () => {
     const [sizeClosed, setsizeClosed] = useState(0);
 
     const sizeElements = ()=>{
-        let cs = document.getElementsByClassName("product-preview");
+        let cs = document.getElementsByClassName("package-preview");
         if(cs.length>0)
         {
-            if(sizeClosed==0) setsizeClosed(document.getElementsByClassName("product-preview-close")[0].offsetWidth);
+            if(sizeClosed===0) setsizeClosed(document.getElementsByClassName("package-preview-close")[0].offsetWidth);
 
             for (let i = 0; i < cs.length; i++){
                 cs[i].style.height = `${sizeClosed}px`;
@@ -53,20 +53,20 @@ const ProductsGrid = () => {
     useEffect(sizeElements);
 
     return ( 
-        <div className="products-grid col-12 container-fluid theme mono">
+        <div className="packages-grid col-12 container-fluid theme mono">
 
             <h1 className="text-center mb-5">Nossos pacotes!</h1>
 
             <div className="row justify-content-between">
                 {error && ''+error}
                 {loading && <div className="loader"></div>}
-                {Array.isArray(data) && data.map(product => (
-                <ProductPreview product={product} updateIndex={changeCardOpened} opened={(product.id===CardOpenedIndex)} key={product.id} />
+                {Array.isArray(data) && data.map(p => (
+                <PackagePreview packageReference={p} updateIndex={changeCardOpened} opened={(p.id===CardOpenedIndex)} key={p.id} />
                 ))}
                 {!Array.isArray(data) && badData()}
             </div>
         </div>
      );
 }
- 
-export default ProductsGrid;
+
+export default PackagesGrid;
