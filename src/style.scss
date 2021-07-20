@@ -15,6 +15,11 @@
 .navbar-dark{
   background-color: #333!important;
 }
+.navbar-brand{
+  img{
+    height: 3rem!important;
+  }
+}
 
 .themable-link{
   color: var(--link-color)!important;
