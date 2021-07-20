@@ -6,23 +6,23 @@ const Footer = ({theme}) => {
                 <div className="col-4 text-left">
                     <h6>Ajuda</h6>
                     <ul className="no-bullet text-left p-0">
-                        <li className="mt-3 mb-2"><a className="themable-link" href="">FAQ (Perguntas frequentes)</a></li>
-                        <li><a className="themable-link" href="">SAQ (Atendimento por Whatsapp)</a></li>
+                        <li className="mt-3 mb-2"><a className="themable-link" href="/">FAQ (Perguntas frequentes)</a></li>
+                        <li><a className="themable-link" href="/">SAQ (Atendimento por Whatsapp)</a></li>
                     </ul>
                 </div>
                 <div className="col-4 text-left">
                     <h6>Contato</h6>
                     <ul className="no-bullet text-left p-0">
-                        <li className="mt-3 mb-2"><a className="themable-link" href=""><i className="bi-instagram"></i> Instagram</a></li>
-                        <li className="mb-2"><a className="themable-link" href=""><i className="bi-facebook"></i> Facebook</a></li>
-                        <li><a className="themable-link" href=""><i className="bi-geo-alt"></i> Endereço físico</a></li>
+                        <li className="mt-3 mb-2"><a className="themable-link" href="/"><i className="bi-instagram"></i> Instagram</a></li>
+                        <li className="mb-2"><a className="themable-link" href="/"><i className="bi-facebook"></i> Facebook</a></li>
+                        <li><a className="themable-link" href="/"><i className="bi-geo-alt"></i> Endereço físico</a></li>
                     </ul>
                 </div>
                 <div className="col-4 text-left">
                     <h6>Sobre</h6>
                     <ul className="no-bullet text-left p-0">
-                        <li className="mt-3 mb-2"><a className="themable-link" href="">Política de privacidade</a></li>
-                        <li><a className="themable-link" href="">Termos de serviço</a></li>
+                        <li className="mt-3 mb-2"><a className="themable-link" href="/">Política de privacidade</a></li>
+                        <li><a className="themable-link" href="/">Termos de serviço</a></li>
                         
                     </ul>
                 </div>
