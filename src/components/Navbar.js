@@ -5,7 +5,7 @@ import Logo from "../assets/OOL_Logo.svg";
 const Navbar = ({theme, handleSwitchColorMode}) => {
     return ( 
         <nav className={`navbar navbar-dark justify-content-between`}>
-            <Link className="navbar-brand" title="Início" to="/"><img src={Logo}/></Link>
+            <Link className="navbar-brand" title="Início" to="/"><img src={Logo} alt="OutOfLens"/></Link>
             <div className="navbar-buttons d-flex justify-content-between">
             <div className="dropdown mr-3">
                 <button className={`btn btn-secondary px-3`} type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

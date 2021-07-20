@@ -21,6 +21,7 @@ const Banner = () => {
         return index;
     }
 
+    /*
     const getNextBanner = ()=>{
         urls = banner_urls;
 
@@ -35,12 +36,13 @@ const Banner = () => {
 
         return index;
     }
+    */
 
     const [bannerIndex, setBannerIndex] = useState(0);
 
     const updtBanner = () => setBannerIndex(getRandomBanner());
 
-    useEffect(()=> updtBanner, []);
+    useEffect(updtBanner, [updtBanner]);
 
     return ( 
         <div className="banner carousel slide" data-ride="carousel">
