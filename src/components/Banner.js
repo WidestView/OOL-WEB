@@ -3,9 +3,8 @@ import { useEffect, useState } from "react";
 const Banner = () => {
     const banner_urls = 
     [
-        "https://images.unsplash.com/photo-1524851823820-22796f95efec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1049&q=80",
-        "https://images.unsplash.com/photo-1533746228171-962520811097?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1053&q=80",
-        "https://images.unsplash.com/photo-1601642425511-1e8a7d52a9f0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1187&q=80"
+        "https://images-ext-1.discordapp.net/external/oM8eE8LJGqFAYS8sT6fjhE6k-QUaI5Ajp9w6gYs5EVM/%3Fixlib%3Drb-1.2.1%26ixid%3DMnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8%26auto%3Dformat%26fit%3Dcrop%26w%3D1051%26q%3D80/https/images.unsplash.com/photo-1528876560479-25cf6b6ef33a?width=1014&height=676",
+        "https://images-ext-1.discordapp.net/external/x5I8sj-ah7IautJQ3fIuLkQInDUoK1bu5YjYliHKPwI/%3Fixlib%3Drb-1.2.1%26ixid%3DMnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8%26auto%3Dformat%26fit%3Dcrop%26w%3D1050%26q%3D80/https/images.unsplash.com/photo-1535540878298-a155c6d065ef?width=1014&height=676",
     ];
 
     let urls = banner_urls;
@@ -14,7 +13,7 @@ const Banner = () => {
         urls = banner_urls;
 
         const last_banner_index = localStorage.getItem("last_banner_index");
-        if(last_banner_index!==null) urls.splice(last_banner_index, 1);
+        if(isNaN(last_banner_index) && last_banner_index >= 0 && last_banner_index < urls.length) urls.splice(last_banner_index, 1);
 
         let index = Math.round(Math.random() * urls.length);
         localStorage.setItem("last_banner_index", index);
@@ -22,9 +21,26 @@ const Banner = () => {
         return index;
     }
 
+    const getNextBanner = ()=>{
+        urls = banner_urls;
+
+        const last_banner_index = parseInt(localStorage.getItem("last_banner_index"));
+
+        let index = (last_banner_index + 1) % urls.length !== 0? (last_banner_index + 1) : 0;
+        if (index > urls.length - 1) index = 0;
+
+        console.log(index);
+
+        localStorage.setItem("last_banner_index", index);
+
+        return index;
+    }
+
     const [bannerIndex, setBannerIndex] = useState(0);
 
-    useEffect(()=> setBannerIndex(getRandomBanner()), []);
+    const updtBanner = () => setBannerIndex(getRandomBanner());
+
+    useEffect(()=> updtBanner, []);
 
     return ( 
         <div className="banner carousel slide" data-ride="carousel">
