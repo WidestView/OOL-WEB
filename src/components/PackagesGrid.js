@@ -58,7 +58,7 @@ const PackagesGrid = () => {
 
             <h1 className="text-center mb-5">Nossos pacotes!</h1>
 
-            <div className="row justify-content-between">
+            <div className="row justify-content-center">
                 {error && ''+error}
                 {loading && <div className="loader"></div>}
                 {Array.isArray(data) && data.map(p => (
