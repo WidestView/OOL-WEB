@@ -51,6 +51,7 @@ const PackagesGrid = () => {
     }
 
     useEffect(sizeElements);
+    window.addEventListener('resize', sizeElements);
 
     return ( 
         <div className="packages-grid col-12 container-fluid theme mono">
