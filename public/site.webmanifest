@@ -1,6 +1,6 @@
 {
-    "name": "",
-    "short_name": "",
+    "name": "OutOfLens",
+    "short_name": "OutOfLens",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
