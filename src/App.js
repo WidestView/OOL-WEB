@@ -1,17 +1,16 @@
 import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import { useEffect, useState } from "react";
+
+import Home from "./pages/Home";
+import NotFound from "./pages/NotFound";
+import SignUp from "./pages/SignUp";
+import ForgotPassword from "./pages/ForgotPassword";
+
 import Navbar from "./components/Navbar";
-import Home from "./Home";
-import NotFound from "./NotFound";
-import SignUp from "./SignUp";
-import ForgotPassword from "./ForgotPassword";
-import Banner from "./components/Banner";
 import Footer from "./components/Footer";
 
 function App() {
-
-  console.log("API URL SETTED TO: " + process.env.REACT_APP_API_URL)
-
+  
   // Set default theme to OS theme
   const osTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches? "dark" : "light";
 
@@ -30,7 +29,7 @@ function App() {
           
       }
 
-      setTheme(localStorage.getItem("theme") === "light" ? "dark" : "light")
+      setTheme(localStorage.getItem("theme") === "light" ? "dark" : "light");
   }
 
   useEffect(()=>{
@@ -51,23 +50,22 @@ function App() {
     <div className="App theme mono">
       <Router >
         <Navbar theme={theme} handleSwitchColorMode={handleSwitchColorMode}/>
-          <Switch>
-            <Route exact path="/">
-              <Banner/>
-              <Home/>
-            </Route>
-            <Route exact path="/signup">
-              <SignUp/>
-            </Route>
-            <Route exact path="/forgot-password">
-              <ForgotPassword/>
-            </Route>
-            <Route path="*">
-              <NotFound/>
-            </Route>
-          </Switch>
-          <Footer/>
+        <Switch>
+          <Route exact path="/">
+            <Home/>
+          </Route>
+          <Route exact path="/signup">
+            <SignUp/>
+          </Route>
+          <Route exact path="/forgot-password">
+            <ForgotPassword/>
+          </Route>
+          <Route path="*">
+            <NotFound/>
+          </Route>
+        </Switch>
       </Router>
+      <Footer/>
     </div>
   );
 }

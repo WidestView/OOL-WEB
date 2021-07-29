@@ -1,24 +1,31 @@
-@import "../node_modules/bootstrap-icons/font/bootstrap-icons.css";
+// Bootstrap first, scss second, js when hopeless ಥ_ಥ
+@import "./scss/mixins.scss";
 
-// App is responsable to implement the css variables
+// SETTINGS
 
-:root
-{
+:root{
   --link-color: #023859;
 }
 
-@mixin basicColoring(){
-  background-color: var(--background-color);
-  color: var(--text-color);
+$theme-colors: (
+  "primary": #023859,
+  "secondary": #012840,
+  "info": #0790E6,
+  "dark": #333333
+);
+
+html{
+  @include basicColoring();
 }
 
-.navbar-dark{
-  background-color: #333!important;
+.App{
+  height: 100vh;
 }
-.navbar-brand{
-  img{
-    height: 3rem!important;
-  }
+
+// HELPERS
+
+.mono{
+  @include basicColoring();
 }
 
 .themable-link{
@@ -33,112 +40,22 @@
   cursor: pointer;
 }
 
-.mono{
-  @include basicColoring();
-}
-
-.package-preview{
-  transition: all 0.5s;
-  width: 100%;
-  .package-preview-close{
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center; 
-  }
-  .package-preview-open{
-    .image-preview{
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center; 
-    }
-  }
-}
-
-$theme-colors: (
-  "primary": #023859,
-  "secondary": #012840,
-  "info": #0790E6,
-  "dark": #333333
-);
-
-.App{
-  height: 100vh;
-}
-
 .no-bullet{
   list-style-type: none;
 }
 
-.loader {
-  font-size: 10px;
-  margin: 50px auto;
-  text-indent: -9999em;
-  width: 6em;
-  height: 6em;
-  border-radius: 50%;
-  background: var(--primary-color);
-  background: -moz-linear-gradient(left, var(--text-color) 10%, rgba(255, 255, 255, 0) 42%);
-  background: -webkit-linear-gradient(left, var(--text-color) 10%, rgba(255, 255, 255, 0) 42%);
-  background: -o-linear-gradient(left, var(--text-color) 10%, rgba(255, 255, 255, 0) 42%);
-  background: -ms-linear-gradient(left, var(--text-color) 10%, rgba(255, 255, 255, 0) 42%);
-  background: linear-gradient(to right, var(--text-color) 10%, rgba(255, 255, 255, 0) 42%);
-  position: relative;
-  -webkit-animation: load3 1.4s infinite linear;
-  animation: load3 1.4s infinite linear;
-  -webkit-transform: translateZ(0);
-  -ms-transform: translateZ(0);
-  transform: translateZ(0);
+// BOOTSTRAP OVERRIDE
 
-  &:before{
-    width: 50%;
-    height: 50%;
-    background: var(--text-color);
-    border-radius: 100% 0 0 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    content: '';
-  }
-  &:after{
-    background: var(--background-color);
-    transition: background-color 0.5s ease-out, color 0.5s ease-in;
-    width: 75%;
-    height: 75%;
-    border-radius: 50%;
-    content: '';
-    margin: auto;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-  }
+.navbar-dark{
+  background-color: #333!important;
 }
-@-webkit-keyframes load3 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-@keyframes load3 {
-  0% {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
+.navbar-brand{
+  img{
+    height: 3rem!important;
   }
 }
 
-
-html{
-  @include basicColoring();
-}
-
-
+@import "./scss/loader.scss";
+@import "./scss/components.scss";
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import "../node_modules/bootstrap-icons/font/bootstrap-icons.css";
