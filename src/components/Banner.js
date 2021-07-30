@@ -53,7 +53,6 @@ const Banner = () => {
                     backgroundSize: "cover",
                     backgroundPosition: "center"
                 }}>
-
                 </div>
             </div>
             <div className={`mono theme col-5 col-lg-2 shadow text-center mt-n4 mx-auto p-1`}><h2>Lorem Ipsum!</h2></div>
