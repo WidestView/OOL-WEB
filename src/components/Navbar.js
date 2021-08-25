@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import LoginForm from "./LoginForm";
-import Logo from "../assets/OOL_Logo.svg";
+import Logo from "../assets/svgs/OOL_Logo.svg";
 
 const Navbar = ({theme, handleSwitchColorMode}) => {
     return ( 
