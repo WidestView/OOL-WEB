@@ -51,7 +51,7 @@ const PackagesGrid = () => {
     window.addEventListener('resize', sizeElements);
 
     return ( 
-        <div className="packages-grid col-12 container-fluid theme mono">
+        <div className="packages-grid col-12 container-fluid">
 
             <h1 className="text-center mb-5">Nossos pacotes!</h1>
 
