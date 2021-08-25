@@ -4,7 +4,7 @@ import Logo from "../assets/svgs/OOL_Logo.svg";
 
 const Navbar = ({theme, handleSwitchColorMode}) => {
     return ( 
-        <nav className={`navbar navbar-dark justify-content-between`}>
+        <nav className="navbar navbar-dark bg-dark justify-content-between">
             <Link className="navbar-brand" title="Início" to="/"><img src={Logo} alt="OutOfLens"/></Link>
             <div className="navbar-buttons d-flex justify-content-between">
             <div className="dropdown mr-3">
@@ -18,7 +18,7 @@ const Navbar = ({theme, handleSwitchColorMode}) => {
                     <Link className="dropdown-item" to="/forgot-password">Forgot password?</Link>
                 </div>
             </div>
-            <button className={`btn btn-outline-light`} title={theme === "light"? "Trocar para Dark Mode" : "Trocar para Light Mode"} onClick={handleSwitchColorMode}><i className="bi bi-circle-half"></i></button>
+            {/* <button className={`btn btn-outline-light`} title={theme === "light"? "Trocar para Dark Mode" : "Trocar para Light Mode"} onClick={handleSwitchColorMode}><i className="bi bi-circle-half"></i></button> */}
             </div>
         </nav>
     );
