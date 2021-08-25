@@ -14,27 +14,11 @@ $theme-colors: (
   "dark": #333333
 );
 
-html{
-  @include basicColoring();
-}
-
 .App{
-  height: 100vh;
+  min-height: 100vh;
 }
 
 // HELPERS
-
-.mono{
-  @include basicColoring();
-}
-
-.themable-link{
-  color: var(--link-color)!important;
-  &:hover
-  {
-    color: var(--text-color)!important;
-  }
-}
 
 .short-desc{
   display: -webkit-box;
@@ -50,17 +34,6 @@ html{
 
 .no-bullet{
   list-style-type: none;
-}
-
-// BOOTSTRAP OVERRIDE
-
-.navbar-dark{
-  background-color: #333!important;
-}
-.navbar-brand{
-  img{
-    height: 3rem!important;
-  }
 }
 
 @import "./scss/loader.scss";
