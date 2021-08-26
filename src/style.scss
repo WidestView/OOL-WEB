@@ -38,5 +38,13 @@ $theme-colors: (
 
 @import "./scss/loader.scss";
 @import "./scss/components.scss";
+
+
+// Bootstrap Override
+
+@import "./scss/w.scss";
+
+// Boostrap
+
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 @import "../node_modules/bootstrap-icons/font/bootstrap-icons.css";
