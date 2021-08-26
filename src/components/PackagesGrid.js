@@ -51,31 +51,42 @@ const PackagesGrid = () => {
     window.addEventListener('resize', sizeElements);
 
     return ( 
-        <div className="packages-grid col-12 container-fluid">
+        <div className="packages-grid">
+            {error && ''+error}
 
-            <h1 className="text-center mb-5">Nossos pacotes!</h1>
+            {loading && <div className="loader"></div>}
 
-            <div className="row justify-content-around">
-                {error && ''+error}
-                {loading && <div className="loader"></div>}
-                {Array.isArray(data) && data.map(p => (
-                <PackagePreview packageReference={p} updateIndex={changeCardOpened} opened={(p.id===CardOpenedIndex)} key={p.id} />
-                ))}
-                {!Array.isArray(data) && badData()}
-            </div>
+            {Array.isArray(data) && data.map((p, i) => {
+                
+                let countdown = data.length-(i+1);
+
+                if(i+1%3!=0 && countdown!=0) return;
+
+                let arr_size = data.length%3==0? 3 : data.length%3;
+
+                return (
+                    <div className={`row px-5`}>
+                        {(arr_size==3) && <PackagePreview packageReference={data[i-2]} updateIndex={changeCardOpened} opened={(data[i-2].id===CardOpenedIndex)} key={data[i-2].id} last={arr_size==3} />}
+                        {(arr_size>=2) && <PackagePreview packageReference={data[i-1]} updateIndex={changeCardOpened} opened={(data[i-1].id===CardOpenedIndex)} key={data[i-1].id} last={arr_size==2} />}
+                        <PackagePreview packageReference={p} updateIndex={changeCardOpened} opened={(p.id===CardOpenedIndex)} key={p.id} last={arr_size==1} />
+                    </div>
+                )
+            })}
+
+            {!Array.isArray(data) && badData()}
         </div>
      );
 }
 
-const PackagePreview = ({packageReference, updateIndex, opened}) => {
+const PackagePreview = ({packageReference, updateIndex, opened, last}) => {
 
     const IMAGE_URL = `${process.env.REACT_APP_API_URL}/api/Package/${packageReference.id}/image`;
 
     return (
-        <div className={`package-preview ${opened? 'col-6' : 'col-2'} mx-5 mb-5 pointer rounded p-0`} onClick={()=>{if(!opened) updateIndex(packageReference.id)}}>
+        <div className={`package-preview col-12 ${opened? 'col-lg-6' : 'col-lg-2'} pointer rounded p-0 shadow-sm ${!last? "": "mr-5"}`} onClick={()=>{if(!opened) updateIndex(packageReference.id)}}>
 
             {!opened && // CLOSED 
-            <div className={`package-preview-close w-100 h-100 d-flex align-items-end rounded shadow-sm`}style={{backgroundImage:`url(${IMAGE_URL})`}}>
+            <div className={`package-preview-close h-100 d-flex align-items-end rounded shadow-sm`}style={{backgroundImage:`url(${IMAGE_URL})`}}>
                 <h4 className="text-white text-left text-uppercase pl-2 pb-2 font-weight-bold">{packageReference.name}</h4> 
             </div>
             }
