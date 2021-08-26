@@ -60,15 +60,15 @@ const PackagesGrid = () => {
                 
                 let countdown = data.length-(i+1);
 
-                if(i+1%3!=0 && countdown!=0) return;
+                if(i+1%3!==0 && countdown!==0) return null;
 
-                let arr_size = data.length%3==0? 3 : data.length%3;
+                let arr_size = data.length%3===0? 3 : data.length%3;
 
                 return (
                     <div className={`row px-5`}>
-                        {(arr_size==3) && <PackagePreview packageReference={data[i-2]} updateIndex={changeCardOpened} opened={(data[i-2].id===CardOpenedIndex)} key={data[i-2].id} last={arr_size==3} />}
-                        {(arr_size>=2) && <PackagePreview packageReference={data[i-1]} updateIndex={changeCardOpened} opened={(data[i-1].id===CardOpenedIndex)} key={data[i-1].id} last={arr_size==2} />}
-                        <PackagePreview packageReference={p} updateIndex={changeCardOpened} opened={(p.id===CardOpenedIndex)} key={p.id} last={arr_size==1} />
+                        {(arr_size===3) && <PackagePreview packageReference={data[i-2]} updateIndex={changeCardOpened} opened={(data[i-2].id===CardOpenedIndex)} key={data[i-2].id} last={arr_size===3} />}
+                        {(arr_size>=2) && <PackagePreview packageReference={data[i-1]} updateIndex={changeCardOpened} opened={(data[i-1].id===CardOpenedIndex)} key={data[i-1].id} last={arr_size===2} />}
+                        <PackagePreview packageReference={p} updateIndex={changeCardOpened} opened={(p.id===CardOpenedIndex)} key={p.id} last={arr_size===1} />
                     </div>
                 )
             })}
