@@ -1,14 +1,22 @@
 @mixin swing_animation($name, $start_angle, $max_angle){
     @keyframes #{$name}{
-    0%  { transform: rotate($start_angle); }
-    10% { transform: rotate( random(100) * ($max_angle/100)); }
-    20% { transform: rotate( random(100) * ($max_angle/100)); }
-    30% { transform: rotate( random(100) * ($max_angle/100)); }
-    40% { transform: rotate( random(100) * ($max_angle/100)); }
-    50% { transform: rotate( random(100) * ($max_angle/100)); }
-    60% { transform: rotate( random(100) * ($max_angle/100)); }
-    70% { transform: rotate( random(100) * ($max_angle/100)); }
-    80% { transform: rotate( random(100) * ($max_angle/100)); }
-    100%{ transform: rotate($start_angle); }
+        0%  { transform: rotate($start_angle); }
+        10% { transform: rotate( random(100) * ($max_angle/100)); }
+        20% { transform: rotate( random(100) * ($max_angle/100)); }
+        30% { transform: rotate( random(100) * ($max_angle/100)); }
+        40% { transform: rotate( random(100) * ($max_angle/100)); }
+        50% { transform: rotate( random(100) * ($max_angle/100)); }
+        60% { transform: rotate( random(100) * ($max_angle/100)); }
+        70% { transform: rotate( random(100) * ($max_angle/100)); }
+        80% { transform: rotate( random(100) * ($max_angle/100)); }
+        100%{ transform: rotate($start_angle); }
+    }
+}
+
+@mixin move_x_animation($name, $max_distance){
+    @keyframes #{$name}{
+        0%   { transform: translateX(0) }
+        50%  { transform: translateX($max_distance) }
+        100% { transform: rotate(0); }
     }
 }

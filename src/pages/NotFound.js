@@ -1,17 +1,21 @@
 import { Link } from "react-router-dom";
 
 // Environment
-import leaf from "../assets/svgs/environment/leaf.svg";
-import tree from "../assets/svgs/environment/tree.svg";
 import cloud2 from "../assets/svgs/environment/cloud2.svg";
 import cloud2_light from "../assets/svgs/environment/cloud2_light.svg";
 import cloud2_lighter from "../assets/svgs/environment/cloud2_lighter.svg";
 import cloud3 from "../assets/svgs/environment/cloud3.svg";
 import sun from "../assets/svgs/environment/sun.svg";
+import leaf from "../assets/svgs/environment/leaf.svg";
+import tree from "../assets/svgs/environment/tree.svg";
+import small_plant from "../assets/svgs/environment/small_plant.svg";
+import medium_plant from "../assets/svgs/environment/medium_plant.svg";
+import big_plant from "../assets/svgs/environment/big_plant.svg";
 
 // Creatures
 import calado from "../assets/svgs/creatures/calado.svg";
 import calado_arm from "../assets/svgs/creatures/calado_arm.svg";
+import lentinha from "../assets/svgs/creatures/lentinha.svg";
 
 
 const NotFound = () => {
@@ -25,9 +29,9 @@ const NotFound = () => {
                         <img src={sun} className="cloudy_sun" alt=""/>
                     </div>
 
-                    <img src={cloud2} className="prop" alt="" id="cloud2_1"/>
-                    <img src={cloud2_light} className="prop" alt="" id="cloud2_2"/>
-                    <img src={cloud2_lighter} className="prop" alt="" id="cloud2_3"/>
+                    <img src={cloud2} className="prop" alt="" id="cloud2"/>
+                    <img src={cloud2_light} className="prop" alt="" id="cloud2_light"/>
+                    <img src={cloud2_lighter} className="prop" alt="" id="cloud2_lighter"/>
 
                     <img src={cloud3} className="prop" alt="" id="cloud3"/>
 
@@ -38,22 +42,29 @@ const NotFound = () => {
                         <img src={calado_arm} className="calado_arm" alt="" id=""/>
                     </div>
 
+                    <img src={lentinha} className="prop" id="lentinha" alt=""/>
+
                     <img src={leaf} className="prop" id="leaf" alt=""/>
                     <img src={tree} className="prop-xl" id="tree" alt=""/>
+
+                    <img src={small_plant} className="prop" id="small_plant" alt=""/>
+                    <img src={medium_plant} className="prop" id="medium_plant" alt=""/>
+                    <img src={big_plant} className="prop" id="big_plant" alt=""/>
+
                     <div id="ground"/>
                 </div>
                 <div className="col-12 h-100 scene-body d-flex justify-content-center">
-                    <div className="content col-5 p-5 rounded">
-                        <h1 className="display-1 text-primary text-center font-weight-bold mt-n3">404</h1>
-                        <div className="col-5 mx-auto mt-3">
+                    <div className="content col-12 col-lg-7 p-5 rounded">
+                        <h1 className="display-1 header text-primary text-center font-weight-bold mt-n3">404</h1>
+                        <div className="col-5 mx-auto">
                             <div className="d-flex justify-content-center">
-                                <p className="text-center font-weight-bold text-primary mb-0 pb-0">PROCURAMOS EM TODO CANTO</p>
-                                <p className="text-center text-dark mb-0 pb-0">,</p>
+                                <h4 className="text-center font-weight-bold text-primary mb-0 pb-0">PROCURAMOS EM TODO CANTO</h4>
+                                <h4 className="text-center text-dark mb-0 pb-0">,</h4>
                             </div>
-                            <p className="text-center text-dark mt-0 pt-0">mas essa página não foi encontrada</p>
+                            <h4 className="text-center text-dark mt-0 pt-0">mas essa página não foi encontrada</h4>
                         </div>
-                        <div className="d-flex justify-content-center">
-                            <Link to="/" className="btn btn-primary rounded">Voltar</Link>
+                        <div className="d-flex justify-content-center mt-4">
+                            <Link to="/" className="btn btn-lg btn-primary rounded">Voltar</Link>
                         </div>
                     </div>
                 </div>

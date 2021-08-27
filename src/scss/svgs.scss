@@ -3,7 +3,7 @@
 $sm_height: 2rem;
 $md_height: 5rem;
 $lg_height: 8rem;
-$xl_height: 15rem;
+$xl_height: 20rem;
 
 $scene_height: 55rem;
 $floor_height: 7rem;
@@ -31,7 +31,7 @@ $floor_height: 7rem;
 
 .cloudy{
   position: relative;
-  height: $lg_height;
+  height: $md_height;
   .cloudy_cloud{
     position: absolute;
     bottom: 0;

@@ -5,12 +5,49 @@
 
   // VARIABLES //
 
-  $calado_left: 5rem;
+  $calado_left: 7rem;
 
   $offset_floor: 2rem;
 
   // SKY
 
+  #cloudy{
+    height: $md_height;
+    top: 3rem;
+    left: 30rem;
+    animation: cloud_move_high 60s infinite;
+  }
+
+  #cloud2{
+    top: 5rem;
+    right: 10rem;
+    animation: cloud_move_high 60s infinite;
+  }
+
+  #cloud2_light{
+    height: 0.75 * $md_height;
+    top: 10rem;
+    left: 10rem;
+    animation: cloud_move_lower 60s infinite;
+  }
+
+  #cloud2_lighter{
+    height: 0.75 * $md_height;
+    top: 10rem;
+    right: 35rem;
+    opacity: 0.7;
+    animation: cloud_move_lower 60s infinite;
+  }
+
+  #cloud3{
+    height: 0.75 * $md_height;
+    top: 2rem;
+    right: 52rem;
+    animation: cloud_move_high 60s infinite;
+  }
+
+  @include move_x_animation(cloud_move_high, 2rem);
+  @include move_x_animation(cloud_move_lower, 10rem);
 
   // GROUND
 
@@ -46,6 +83,44 @@
     z-index: 1;
   }
 
+  #big_plant{
+    height: 1.5 * $lg_height;
+    right: 23rem;
+    bottom: $floor_height - 0.1;
+    z-index: 2;
+  }
+
+  #medium_plant{
+    height: 0.9 * $lg_height;
+    right: 20rem;
+    bottom: $floor_height - 0.1;
+    z-index: 2;
+  }
+
+  #small_plant{
+    height: $md_height;
+    right: 17rem;
+    bottom: $floor_height - 0.1;
+    z-index: 2;
+  }
+
+  #lentinha{
+    height:  $lg_height;
+    right: 10rem;
+    bottom: $floor_height - 0.3;
+    z-index: 2;
+    animation: move_lentinha 1s, swing_lentinha 5s infinite;
+    @keyframes swing_lentinha {
+      0%   { transform: rotate(0deg); }
+      50%   { transform: rotate(5deg); }
+      100% { transform: rotate(0deg); }
+    }
+    @keyframes move_lentinha {
+      0%   { transform: translateX(3rem); }
+      100% { transform: translateX(0); }
+    }
+  }
+
   #ground{
     bottom:0;
     left: 0;
@@ -57,11 +132,13 @@
 
 }
 .scene-body{
-  margin-top: ($scene_height * -1) + 12;
+  margin-top: ($scene_height * -1) + 5;
   z-index: 90;
 
   .content{
-    background-color: rgba($color: #EEE, $alpha: 0.4);
     height:100%;
+    .header{
+      font-size: 15rem;
+    }
   }
 }
