@@ -1,6 +1,6 @@
 {
   "name": "ool-web",
-  "homepage": "https://widestview.github.io",
+  "homepage": "https://widestview.github.io/OOL-WEB",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -24,7 +24,7 @@
     "deploy": "gh-pages -d build",
     "start": "cross-env BROWSER=none react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --passWithNoTests",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
