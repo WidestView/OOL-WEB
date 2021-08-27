@@ -7,6 +7,10 @@
   --link-color: #023859;
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 $theme-colors: (
   "primary": #023859,
   "secondary": #012840,

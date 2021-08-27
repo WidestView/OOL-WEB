@@ -3,10 +3,10 @@ import Banner from "../components/Banner";
 import { Link } from "react-router-dom";
 import FAQ from "../components/FAQ";
 
-import photo from "../assets/svgs/photo.svg";
-import camera_photos from "../assets/svgs/camera_photos.svg";
-import woman_photoshoot from "../assets/svgs/woman_photoshoot.svg";
-import woman_polaroid from "../assets/svgs/woman_polaroid.svg";
+import photo from "../assets/svgs/photography/photo.svg";
+import camera_photos from "../assets/svgs/photography/camera_photos.svg";
+import woman_photoshoot from "../assets/svgs/photography/woman_photoshoot.svg";
+import woman_polaroid from "../assets/svgs/photography/woman_polaroid.svg";
 
 
 const Home = () => {
@@ -118,12 +118,12 @@ const Home = () => {
                         <img src={woman_polaroid} className="w-100" alt="" />
                     </div>
                     <div className="col-12">
-                        {/* <PackagesGrid/> TODO: IMPLEMENT NEW DESIGN WHEN IT COMES OUT*/}
+                        {/*TODO: IMPLEMENT NEW DESIGN WHEN IT COMES OUT*/}
                     </div>
                 </div>
 
                 <div className="row my-5 pb-5">
-                    <div className="col">
+                    <div className="col" id="FAQ">
                         <FAQ/>
                     </div>
                 </div>

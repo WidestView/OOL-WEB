@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW 2021 (64-Bit) -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="9.513mm" height="12.8404mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 951.3 1284.04"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .fil4 {fill:#012840}
+    .fil3 {fill:#023859}
+    .fil5 {fill:#0790E6}
+    .fil2 {fill:white}
+    .fil1 {fill:#023859;fill-rule:nonzero}
+    .fil0 {fill:#212121;fill-rule:nonzero}
+    .fil6 {fill:white;fill-opacity:0.501961}
+   ]]>
+  </style>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g id="_2139179686704">
+   <circle class="fil0" cx="523.4" cy="687.59" r="409.81"/>
+   <rect class="fil0" transform="matrix(0.187411 -0.057596 0.057596 0.187411 439.376 1049.88)" width="635" height="1137.71"/>
+   <rect class="fil0" transform="matrix(0.187412 -0.0575952 0.0575952 0.187412 677.381 976.759)" width="635" height="1137.71"/>
+   <ellipse class="fil0" transform="matrix(0.187411 -0.057596 0.057596 0.187411 604.837 1235.1)" rx="529.16" ry="198.44"/>
+   <ellipse class="fil0" transform="matrix(0.187411 -0.057596 0.057596 0.187411 841.325 1157)" rx="529.16" ry="198.44"/>
+   <circle class="fil0" cx="502.84" cy="585.37" r="46.69"/>
+   <path class="fil1" d="M31.46 440.07c-75.17,-131.93 -18.05,-306.14 127.58,-389.11 145.62,-82.96 324.61,-43.26 399.77,88.67 75.17,131.94 -12.4,216.03 -158.03,298.99 -145.62,82.96 -294.16,133.39 -369.32,1.45z"/>
+   <g id="_2297206408704">
+    <circle class="fil2" cx="501.76" cy="583.17" r="133.3"/>
+    <circle class="fil3" cx="501.75" cy="583.18" r="88.33"/>
+    <circle class="fil4" cx="501.76" cy="583.18" r="66.52"/>
+    <circle class="fil3" cx="501.75" cy="583.18" r="46.07"/>
+    <circle class="fil5" cx="501.75" cy="583.17" r="21.35"/>
+    <path class="fil6" d="M479.37 516.18c11.79,0 21.35,9.56 21.35,21.36 0,11.79 -9.56,21.35 -21.35,21.35 -11.79,0 -21.35,-9.56 -21.35,-21.35 0,-11.8 9.56,-21.36 21.35,-21.36z"/>
+   </g>
+  </g>
+ </g>
+</svg>
