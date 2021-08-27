@@ -26,3 +26,11 @@
     height: 3rem!important;
   }
 }
+
+.not-found{
+  .banner-animated{
+    .creature{
+      transform: rotate(180);
+    }
+  }
+}

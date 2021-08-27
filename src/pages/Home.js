@@ -28,14 +28,14 @@ const Home = () => {
                         <img src={camera_photos} className="w-50" alt=""/> {/* Mobile */}
                     </div>
 
-                    <img src={camera_photos} className="d-none d-lg-block col-4" alt=""/> {/* Desktop */}
+                    <img src={camera_photos} className="d-none d-lg-block col-3" alt=""/> {/* Desktop */}
                     <div className="d-none d-lg-block col-1"/>
                     <div className="col-12 col-lg-7">
                         <h3 className="text-center text-lg-left">Lorem ipsum dolor sit amet, consectetur adipiscing 
                         elit, sed do eiusmod tempor incididunt ut labore et 
                         dolore magna aliqua.</h3>
                         <div className="d-flex justify-content-center justify-content-lg-start">
-                            <Link to="/" className="btn btn-outline-primary btn-lg rounded mt-3">Exemplos</Link>
+                            <Link to="/" className="btn btn-outline-primary btn-lg rounded-lg mt-3">Exemplos</Link>
                         </div>
                     </div>
                 </div>
@@ -49,18 +49,18 @@ const Home = () => {
                         elit, sed do eiusmod tempor incididunt ut labore et 
                         dolore magna aliqua.</h3>
                         <div className="d-flex justify-content-center justify-content-lg-end">
-                            <Link to="/" className="btn btn-outline-primary btn-lg rounded mt-3">Pacotes</Link>
+                            <Link to="/" className="btn btn-outline-primary btn-lg rounded-lg mt-3">Pacotes</Link>
                         </div>
                     </div>
                     <div className="d-none d-lg-block col-1"/>
-                    <img src={photo} className="d-none d-lg-block col-4" alt=""/> {/* Desktop */}
+                    <img src={photo} className="d-none d-lg-block col-3" alt=""/> {/* Desktop */}
                 </div>
                 <div className="row mt-5 align-items-center">
                     <div className="col-12 d-flex justify-content-center d-lg-none mb-3">
                         <img src={woman_photoshoot} className="w-50" alt=""/> {/* Mobile */}
                     </div>
 
-                    <img src={woman_photoshoot} className="d-none d-lg-block col-4" alt=""/> {/* Desktop */}
+                    <img src={woman_photoshoot} className="d-none d-lg-block col-3" alt=""/> {/* Desktop */}
                     <div className="d-none d-lg-block col-1"/>
                     <div className="col-12 col-lg-7">
                         <h3 className="text-center text-lg-left">Lorem ipsum dolor sit amet, consectetur adipiscing 
@@ -70,7 +70,7 @@ const Home = () => {
                 </div>
 
 
-                <div className="row mt-5">
+                <div className="row mt-6">
                     <div className="col">
                         <h1 className="text-center">Nosso Trabalho</h1>
                     </div>
@@ -97,7 +97,7 @@ const Home = () => {
                     </div>
                 </div>
 
-                <div className="row mt-5">
+                <div className="row mt-6">
                     <div className="col">
                         <h1 className="text-center">Nossos Pacotes</h1>
                     </div>
