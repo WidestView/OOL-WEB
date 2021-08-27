@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW 2021 (64-Bit) -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="10.8126mm" height="12.3256mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 1081.26 1232.56"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .fil7 {fill:#012840}
+    .fil6 {fill:#023859}
+    .fil8 {fill:#0790E6}
+    .fil5 {fill:white}
+    .fil4 {fill:#023859;fill-rule:nonzero}
+    .fil0 {fill:#2F2E41;fill-rule:nonzero}
+    .fil2 {fill:#3F3D56;fill-rule:nonzero}
+    .fil1 {fill:white;fill-rule:nonzero}
+    .fil3 {fill:#212121;fill-rule:nonzero}
+    .fil9 {fill:white;fill-opacity:0.501961}
+   ]]>
+  </style>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g id="_2138374061424">
+   <circle class="fil0" cx="516.2" cy="682.31" r="382.99"/>
+   <rect class="fil0" x="574.37" y="982.88" width="116.35" height="208.46"/>
+   <rect class="fil0" x="341.67" y="982.88" width="116.35" height="208.46"/>
+   <ellipse class="fil0" cx="593.77" cy="1193.77" rx="96.96" ry="36.36"/>
+   <ellipse class="fil0" cx="361.06" cy="1188.92" rx="96.96" ry="36.36"/>
+   <circle class="fil1" cx="506.5" cy="585.35" r="130.89"/>
+   <circle class="fil2" cx="506.5" cy="585.35" r="43.63"/>
+   <ellipse class="fil0" transform="matrix(-0.168449 -0.0720969 -0.0720969 0.168449 180.647 550.656)" rx="1045.1" ry="328.09"/>
+   <ellipse class="fil0" transform="matrix(-0.168449 -0.0720969 -0.0720969 0.168449 898.141 807.596)" rx="1045.1" ry="328.09"/>
+   <path class="fil1" d="M293.19 793.81c0,37.49 96.52,111.5 203.62,111.5 107.09,0 208.46,-69.17 208.46,-106.65 0,-37.48 -101.37,-29.09 -208.46,-29.09 -107.1,0 -203.62,-13.24 -203.62,24.24z"/>
+   <circle class="fil3" cx="516.2" cy="682.31" r="382.99"/>
+   <path class="fil4" d="M887.71 326.14c30.92,-138.49 -67.93,-278.44 -220.8,-312.57 -152.86,-34.13 -301.85,50.47 -332.78,188.96 -30.92,138.5 70.39,189.57 223.25,223.71 152.87,34.13 299.4,38.39 330.33,-100.1z"/>
+   <rect class="fil3" x="574.37" y="982.88" width="116.35" height="208.46"/>
+   <rect class="fil3" x="341.67" y="982.88" width="116.35" height="208.46"/>
+   <ellipse class="fil3" cx="593.77" cy="1193.77" rx="96.96" ry="36.36"/>
+   <ellipse class="fil3" cx="361.06" cy="1188.92" rx="96.96" ry="36.36"/>
+   <circle class="fil3" cx="506.5" cy="585.35" r="43.63"/>
+   <ellipse class="fil3" transform="matrix(-0.168449 -0.0720969 -0.0720969 0.168449 180.647 550.656)" rx="1045.1" ry="328.09"/>
+   <ellipse class="fil3" transform="matrix(-0.168449 -0.0720969 -0.0720969 0.168449 898.141 807.596)" rx="1045.1" ry="328.09"/>
+   <path class="fil1" d="M293.19 793.81c0,37.49 96.52,111.5 203.62,111.5 107.09,0 208.46,-69.17 208.46,-106.65 0,-37.48 -101.37,-29.09 -208.46,-29.09 -107.1,0 -203.62,-13.24 -203.62,24.24z"/>
+   <g id="_2297206408704">
+    <circle class="fil5" cx="506.5" cy="585.35" r="131.11"/>
+    <circle class="fil6" cx="506.5" cy="585.35" r="86.87"/>
+    <circle class="fil7" cx="506.5" cy="585.35" r="65.42"/>
+    <circle class="fil6" cx="506.5" cy="585.35" r="45.31"/>
+    <circle class="fil8" cx="506.5" cy="585.35" r="21"/>
+    <path class="fil9" d="M484.48 519.46c11.6,0 21.01,9.4 21.01,21 0,11.6 -9.41,21 -21.01,21 -11.59,0 -21,-9.4 -21,-21 0,-11.6 9.41,-21 21,-21z"/>
+   </g>
+  </g>
+ </g>
+</svg>

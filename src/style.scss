@@ -7,6 +7,10 @@
   --link-color: #023859;
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 $theme-colors: (
   "primary": #023859,
   "secondary": #012840,
@@ -39,12 +43,12 @@ $theme-colors: (
 @import "./scss/loader.scss";
 @import "./scss/components.scss";
 
-
-// Bootstrap Override
-
-@import "./scss/w.scss";
-
 // Boostrap
 
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 @import "../node_modules/bootstrap-icons/font/bootstrap-icons.css";
+
+// Bootstrap Override
+
+@import "./scss/w.scss";
+@import "./scss/mt.scss";
