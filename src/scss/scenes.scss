@@ -1,0 +1,67 @@
+#scene_error{
+  // SETUP SCENE
+
+  /* * */
+
+  // VARIABLES //
+
+  $calado_left: 5rem;
+
+  $offset_floor: 2rem;
+
+  // SKY
+
+
+  // GROUND
+
+  #calado{
+    height: $lg_height;
+    bottom: $floor_height - $offset_floor;
+    left: $calado_left;
+
+    .calado_body{
+      z-index: 2;
+      @include swing_animation(creature1_swing, 0deg, -5deg);
+      animation: creature1_swing 5s infinite;
+    }
+    .calado_arm{
+      z-index: 4;
+      @include swing_animation(creature1_swing_arm, 0deg, 20deg);
+      animation: creature1_swing_arm 4s infinite;
+    }
+  }
+
+  #leaf{
+    height: $lg_height - 1.5;
+    bottom: $floor_height - $offset_floor - 0.5;
+    left: $calado_left +  0.6 * $md_height;
+    z-index: 3;
+    @include swing_animation(leaf_swing, 0deg, 1deg);
+    animation: leaf_swing 2s infinite;
+  }
+
+  #tree{
+    bottom: $floor_height - $offset_floor - 0.2;
+    left: $calado_left + 10;
+    z-index: 1;
+  }
+
+  #ground{
+    bottom:0;
+    left: 0;
+    z-index: 1;
+    height: $floor_height;
+    width: 100%;
+    background-color: #333333;
+  }
+
+}
+.scene-body{
+  margin-top: ($scene_height * -1) + 12;
+  z-index: 90;
+
+  .content{
+    background-color: rgba($color: #EEE, $alpha: 0.4);
+    height:100%;
+  }
+}

@@ -1,0 +1,59 @@
+// VARIABLES //
+
+$sm_height: 2rem;
+$md_height: 5rem;
+$lg_height: 8rem;
+$xl_height: 15rem;
+
+$scene_height: 55rem;
+$floor_height: 7rem;
+
+//  OBJECTS  //
+
+.calado{
+  position: relative;
+  height: $lg_height;
+  .calado_body{
+    position: absolute;
+    top: 0rem;
+    left: 0rem;
+    height: 100%;
+    z-index: 1;
+  }
+  .calado_arm{
+    position: absolute;
+    top: 0.6 * $lg_height;
+    left: 0.15 * $lg_height;
+    height: 20%;
+    z-index: 2;
+  }
+}
+
+.cloudy{
+  position: relative;
+  height: $lg_height;
+  .cloudy_cloud{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 70%;
+    z-index: 2;
+  }
+  .cloudy_sun{
+    position: absolute;
+    top: 0;
+    left: 0.1 * $lg_height;
+    height: 100%;
+    z-index: 1;
+  }
+}
+
+.prop-sm { z-index: 1; height: $sm_height; }
+.prop    { z-index: 1; height: $md_height; }
+.prop-md { z-index: 1; height: $md_height; }
+.prop-lg { z-index: 1; height: $lg_height; }
+.prop-xl { z-index: 1; height: $xl_height; }
+
+.ground  { z-index: 0; height: $floor_height; width: 100%;; background-color: #333; }
+
+.scene   { overflow: hidden; height: $scene_height; position: relative; *{ position: absolute;};}
