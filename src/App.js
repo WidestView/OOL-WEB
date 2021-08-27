@@ -28,7 +28,7 @@ function App() {
       <Router >
         <Navbar theme={theme} handleSwitchColorMode={handleSwitchColorMode}/>
         <Switch>
-          <Route exact path={["/", "/home", "/ool-web"]}>
+          <Route exact path={["/", "/home", "/ool-web", "/OOL-WEB"]}>
             <Home/>
           </Route>
           <Route exact path="/signup">
