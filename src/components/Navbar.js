@@ -7,7 +7,8 @@ const Navbar = ({theme, handleSwitchColorMode}) => {
         <nav className="navbar navbar-dark bg-dark justify-content-between">
             <Link className="navbar-brand" title="Início" to="/"><img src={Logo} alt="OutOfLens"/></Link>
             <div className="navbar-buttons d-flex justify-content-between">
-            <div className="dropdown mr-3">
+            <Link className={`btn btn-danger`} title={"Botão de teste da página 404"} to="/nao_tem_url_assim">404</Link>
+            <div className="dropdown ml-3">
                 <button className={`btn btn-secondary px-3`} type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Entrar
                 </button>
