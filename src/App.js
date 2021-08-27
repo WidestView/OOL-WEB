@@ -9,6 +9,8 @@ import ForgotPassword from "./pages/ForgotPassword";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
+const routerBaseName = process.env.PUBLIC_URL;
+
 function App() {
   
   const osTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches? "dark" : "light";
@@ -25,7 +27,7 @@ function App() {
 
   return (
     <div className="App">
-      <Router >
+      <Router basename={routerBaseName}>
         <Navbar theme={theme} handleSwitchColorMode={handleSwitchColorMode}/>
         <Switch>
           <Route exact path={["/", "/home", "/ool-web", "/OOL-WEB"]}>
