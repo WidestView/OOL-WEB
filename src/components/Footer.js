@@ -6,7 +6,7 @@ const Footer = () => {
                 <div className="col-4 text-left">
                     <h6>Ajuda</h6>
                     <ul className="no-bullet text-left p-0">
-                        <li className="mt-3 mb-2"><a href="/">FAQ (Perguntas frequentes)</a></li>
+                        <li className="mt-3 mb-2"><a href="/#FAQ">FAQ (Perguntas frequentes)</a></li>
                         <li><a href="/">SAQ (Atendimento por Whatsapp)</a></li>
                     </ul>
                 </div>
@@ -26,7 +26,7 @@ const Footer = () => {
                         
                     </ul>
                 </div>
-            </div>
+            </div> {/*TODO: Add proper hrefs */}
             <hr className="ml-0 mt-1" style={{width: "8vw"}}/>
             <div className="d-flex justify-content-between pb-2">
                 <h6 className="text-left">
