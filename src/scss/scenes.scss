@@ -1,5 +1,6 @@
 #scene_error{
   // SETUP SCENE
+  $floor_height: 7rem;
 
   /* * */
 
@@ -20,7 +21,7 @@
 
   #cloud2{
     top: 5rem;
-    right: 10rem;
+    left: 95rem;
     animation: cloud_move_high 60s infinite;
   }
 
@@ -34,7 +35,7 @@
   #cloud2_lighter{
     height: 0.75 * $md_height;
     top: 10rem;
-    right: 35rem;
+    left: 70rem;
     opacity: 0.7;
     animation: cloud_move_lower 60s infinite;
   }
@@ -42,7 +43,7 @@
   #cloud3{
     height: 0.75 * $md_height;
     top: 2rem;
-    right: 52rem;
+    left: 52rem;
     animation: cloud_move_high 60s infinite;
   }
 
@@ -85,28 +86,28 @@
 
   #big_plant{
     height: 1.5 * $lg_height;
-    right: 23rem;
+    left: 92rem;
     bottom: $floor_height - 0.1;
     z-index: 2;
   }
 
   #medium_plant{
     height: 0.9 * $lg_height;
-    right: 20rem;
+    left: 95.5rem;
     bottom: $floor_height - 0.1;
     z-index: 2;
   }
 
   #small_plant{
     height: $md_height;
-    right: 17rem;
+    left: 98rem;
     bottom: $floor_height - 0.1;
     z-index: 2;
   }
 
   #lentinha{
     height:  $lg_height;
-    right: 10rem;
+    left: 103rem;
     bottom: $floor_height - 0.3;
     z-index: 2;
     animation: move_lentinha 1s, swing_lentinha 5s infinite;
@@ -138,7 +139,16 @@
   .content{
     height:100%;
     .header{
-      font-size: 15rem;
+      /* Small devices (landscape phones, 576px and up)*/
+      @media (min-width: 576px) {
+        font-size: 2rem;
+      }
+
+      /* Large devices (desktops, 992px and up)*/
+      @media (min-width: 992px) {
+        font-size: 15rem;
+      }
     }
   }
 }
+

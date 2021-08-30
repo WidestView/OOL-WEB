@@ -55,11 +55,11 @@ const NotFound = () => {
                 </div>
                 <div className="col-12 h-100 scene-body d-flex justify-content-center">
                     <div className="content col-12 col-lg-7 p-5 rounded">
-                        <h1 className="display-1 header text-primary text-center font-weight-bold mt-n3">404</h1>
-                        <div className="col-5 mx-auto">
+                        <h1 className="header text-primary text-center font-weight-bold mt-n3">404</h1>
+                        <div className="col-12 col-lg-5 mx-auto">
                             <div className="d-flex justify-content-center">
                                 <h4 className="text-center font-weight-bold text-primary mb-0 pb-0">PROCURAMOS EM TODO CANTO</h4>
-                                <h4 className="text-center text-dark mb-0 pb-0">,</h4>
+                                <h4 className="text-center text-dark d-none d-md-block mb-0 pb-0">,</h4>
                             </div>
                             <h4 className="text-center text-dark mt-0 pt-0">mas essa página não foi encontrada</h4>
                         </div>
