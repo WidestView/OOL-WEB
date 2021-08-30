@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 
 const LoginForm = () => {
 
-    const { get, post, response, loading, error } = useFetch(process.env.REACT_APP_API_URL);
+    const { post, response } = useFetch(process.env.REACT_APP_API_URL);
 
     const [validation_status, setvalidation_status] = useState("");
 
