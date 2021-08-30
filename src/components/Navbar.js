@@ -15,8 +15,8 @@ const Navbar = ({theme, handleSwitchColorMode}) => {
                 <div className="dropdown-menu dropdown-menu-right">
                     <LoginForm/>
                     <div className="dropdown-divider"></div>
-                    <Link className="dropdown-item" to="/signup">New around here? Sign up</Link>
-                    <Link className="dropdown-item" to="/forgot-password">Forgot password?</Link>
+                    <Link className="dropdown-item" to="/signup">Novo aqui? Inscreva-se!</Link>
+                    <Link className="dropdown-item" to="/forgot-password">Esqueceu sua senha?</Link>
                 </div>
             </div>
             {/* <button className={`btn btn-outline-light`} title={theme === "light"? "Trocar para Dark Mode" : "Trocar para Light Mode"} onClick={handleSwitchColorMode}><i className="bi bi-circle-half"></i></button> */}
