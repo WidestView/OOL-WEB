@@ -5,7 +5,7 @@ const Banner = () => {
     return ( 
         <div className="banner d-flex justify-content-center align-items-center" style={{ 
                         backgroundImage: `url("${banner_url}")`}}>
-            <h1 className="display-3 text-white font-weight-bold text-uppercase">ESSE É O MALHA FUNK</h1>
+            <h1 className="display-3 text-white text-center font-weight-bold text-uppercase">ESSE É O MALHA FUNK</h1>
         </div>
      );
 }
