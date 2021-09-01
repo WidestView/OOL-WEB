@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from 'axios';
 import Swal from 'sweetalert2';
 
-const LoginForm = () => {
+const LoginForm = ({callback}) => {
 
     const [validation_status, setvalidation_status] = useState("");
 
@@ -19,6 +19,7 @@ const LoginForm = () => {
                 icon: 'success',
                 confirmButtonText: 'Uhu!'
             });
+            callback();
         }
         catch(error){
             if (error.response && error.response.status===401) setvalidation_status("invalid");
