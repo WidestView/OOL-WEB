@@ -1,28 +1,29 @@
 import { useState } from "react";
-import { useFetch } from "use-http";
+import axios from 'axios';
 import Swal from 'sweetalert2';
 
 const LoginForm = () => {
 
-    const { post, response } = useFetch(process.env.REACT_APP_API_URL);
-
     const [validation_status, setvalidation_status] = useState("");
 
-    async function postData(data) {
-        await post('/api/user/login', data)
-        if (response.ok) { setAuth(response.body.jwt); setvalidation_status(""); Swal.fire({
-            title: 'Login realizado',
-            text: 'Você está logado!',
-            icon: 'success',
-            confirmButtonText: 'Uhu!'
-            })
-        console.log(data)}
-        else if (response.status===400 || response.status===401) setvalidation_status("invalid");
-        else console.log(response)
-    }
+    async function postData(login) {
 
-    const setAuth = (jwt)=>{
-        // TODO: STORE JWT SOMEWHERE AND UPDATE NAVBAR
+        try{
+            const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/user/login`, login);
+            
+            localStorage.setItem("token", res.data.token);
+            setvalidation_status("valid"); 
+            Swal.fire({
+                title: 'Login realizado',
+                text: 'Você está logado!',
+                icon: 'success',
+                confirmButtonText: 'Uhu!'
+            });
+        }
+        catch(error){
+            if (error.response && error.response.status===401) setvalidation_status("invalid");
+            else console.log(error);
+        }
     }
 
     const handleSubmit = (event) => {
@@ -31,7 +32,7 @@ const LoginForm = () => {
         postData({login: event.target.login.value, password: event.target.password.value});
     }
 
-    return ( 
+    return (
         <form className="px-4 py-3" onSubmit={handleSubmit}>
             <div className="form-group">
                 <label htmlFor="login-email">Email ou Login</label>

@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import { useEffect, useState } from "react";
+import axios from 'axios';
 
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
@@ -11,8 +12,23 @@ import Footer from "./components/Footer";
 
 const routerBaseName = process.env.PUBLIC_URL;
 
+axios.interceptors.request.use(
+  config => {
+    const { origin } = new URL(config.url);
+    const allowedOrigins = [process.env.REACT_APP_API_URL];
+    const token = localStorage.getItem('token');    
+    if (allowedOrigins.includes(origin)) {
+      config.headers.authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  error => {
+    return Promise.reject(error);
+  }
+);
+
 function App() {
-  
+
   const osTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches? "dark" : "light";
 
   const [theme, setTheme] = useState(localStorage.getItem("theme")?? osTheme);
