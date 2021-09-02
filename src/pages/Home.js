@@ -1,7 +1,7 @@
 import Banner from "../components/Banner";
 // import PackagesGrid from "../components/PackagesGrid";
 import { Link } from "react-router-dom";
-import FAQ from "../components/FAQ";
+import FAQ from "../components/business/FAQ";
 
 import photo from "../assets/svgs/photography/photo.svg";
 import camera_photos from "../assets/svgs/photography/camera_photos.svg";

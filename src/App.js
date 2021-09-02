@@ -9,6 +9,7 @@ import ForgotPassword from "./pages/ForgotPassword";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Info from "./pages/Info";
 
 const routerBaseName = process.env.PUBLIC_URL;
 
@@ -54,6 +55,9 @@ function App() {
           </Route>
           <Route exact path="/forgot-password">
             <ForgotPassword/>
+          </Route>
+          <Route exact path="/info">
+            <Info/>
           </Route>
           <Route path="*">
             <NotFound/>
