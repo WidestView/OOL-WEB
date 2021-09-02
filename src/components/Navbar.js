@@ -32,7 +32,7 @@ const Navbar = ({theme, handleSwitchColorMode}) => {
         <nav className="navbar navbar-dark bg-dark justify-content-between">
             <Link className="navbar-brand" title="Início" to="/"><img src={Logo} alt="OutOfLens"/></Link>
             <div className="navbar-buttons d-flex justify-content-between">
-            <Link className={`btn btn-danger`} title={"Botão de teste da página 404"} to="/nao_tem_url_assim">404</Link>
+            {/*<Link className={`btn btn-danger`} title={"Botão de teste da página 404"} to="/nao_tem_url_assim">404</Link>*/}
             {
                 !logged &&
                 <div className="dropdown ml-3">
