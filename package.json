@@ -1,6 +1,6 @@
 {
   "name": "ool-web",
-  "homepage": "https://widestview.github.io/OOL-WEB",
+  "homepage": "https://outoflens.herokuapp.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
