@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import axios from 'axios';
 
 import Home from "./pages/Home";
@@ -10,7 +10,9 @@ import ForgotPassword from "./pages/ForgotPassword";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Info from "./pages/Info";
+import Admin from "./pages/Admin/Admin";
 
+// AXIOS CONFIG
 const routerBaseName = process.env.PUBLIC_URL;
 
 axios.interceptors.request.use(
@@ -23,32 +25,42 @@ axios.interceptors.request.use(
     }
     return config;
   },
+  response => response,
   error => {
     return Promise.reject(error);
   }
 );
 
+// App config
 function App() {
 
-  const osTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches? "dark" : "light";
-
-  const [theme, setTheme] = useState(localStorage.getItem("theme")?? osTheme);
-
-  const handleSwitchColorMode = ()=> {
-
-    // console.log(`Theme is now ${theme}`)
-    setTheme(localStorage.getItem("theme") === "light" ? "dark" : "light");
+  const [authorized, setAuthorized] = useState(false);
+  const refreshGreet = async () => {
+      try{
+          await axios.get(`${process.env.REACT_APP_API_URL}/api/user/greet`);
+          setAuthorized(true);
+      }
+      catch(error){
+          if (error.response && error.response.status === 401) { 
+              console.error("Usuário não autorizado!");
+              setAuthorized(false);
+          }
+          else console.error(error);
+      }
   }
 
-  useEffect(()=>localStorage.setItem('theme', theme), [theme])
+  useEffect(()=> refreshGreet(), []);
 
   return (
     <div className="App">
       <Router basename={routerBaseName}>
-        <Navbar theme={theme} handleSwitchColorMode={handleSwitchColorMode}/>
+        <Navbar authorized={authorized} refreshGreet={refreshGreet}/>
         <Switch>
           <Route exact path={["/", "/home", "/ool-web", "/OOL-WEB"]}>
             <Home/>
+          </Route>
+          <Route exact path={["/admin"]}>
+            <Admin authorized={authorized}/>
           </Route>
           <Route exact path="/signup">
             <SignUp/>

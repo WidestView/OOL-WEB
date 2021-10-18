@@ -22,7 +22,7 @@ const LoginForm = ({callback}) => {
             callback();
         }
         catch(error){
-            if (error.response && error.response.status===401) setvalidation_status("invalid");
+            if (error.response && error.response.status === 401) setvalidation_status("invalid");
             else console.log(error);
         }
     }
