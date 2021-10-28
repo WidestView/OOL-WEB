@@ -40,6 +40,8 @@ $theme-colors: (
   list-style-type: none;
 }
 
+.pfp { width: 50px; }
+
 @import "./scss/loader.scss";
 @import "./scss/components.scss";
 @import "./scss/svgs.scss";

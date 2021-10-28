@@ -17,7 +17,7 @@ const Navbar = ({user, refreshUser}) => {
             {
                 !user &&
                 <div className="dropdown ml-3">
-                    <button className={`btn btn-secondary px-3`} type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button className={`btn btn-secondary px-3`} type="button" id="dropdownLogin" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Entrar
                     </button>
                     <div className="dropdown-menu dropdown-menu-right">
@@ -31,12 +31,14 @@ const Navbar = ({user, refreshUser}) => {
             {
                 user &&
                 <div className="dropdown ml-3">
-                    <button className={`btn btn-secondary px-3`} type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i className="bi bi-person-circle"></i>
-                    </button>
+                    <img src="https://www.processindustryforum.com/wp-content/uploads/2018/10/male-placeholder.jpeg" alt="PFP" 
+                        className="rounded-circle mr-3 pfp"
+                        type="button" id="dropdownMenu" data-toggle="dropdown"/>
                     <div className="dropdown-menu dropdown-menu-right">
                         <Link className="dropdown-item" to="/">🏠 Início</Link>
-                        <Link className="dropdown-item" to="/admin">⚙ Administração</Link>
+                        { user && <Link className="dropdown-item" to="/personal">🛒 Minhas compras</Link>}
+                        { user && <Link className="dropdown-item" to="/system">📷 Sistema</Link>}
+                        { user && <Link className="dropdown-item" to="/admin">⚙ Administração</Link>}
                         <div className="dropdown-divider"></div>
                         <button className="dropdown-item text-danger" onClick={logout}>Sair</button>
                     </div>

@@ -10,7 +10,9 @@ import ForgotPassword from "./pages/ForgotPassword";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Info from "./pages/Info";
-import Admin from "./pages/Admin/Admin";
+import Personal from "./pages/Personal";
+import System from "./pages/System/System";
+import Admin from "./pages/System/Admin";
 
 // AXIOS CONFIG
 const routerBaseName = process.env.PUBLIC_URL;
@@ -58,6 +60,12 @@ function App() {
         <Switch>
           <Route exact path={["/", "/home", "/ool-web", "/OOL-WEB"]}>
             <Home/>
+          </Route>
+          <Route exact path={["/personal"]}>
+            <Personal user={user}/>
+          </Route>
+          <Route exact path={["/system"]}>
+            <System user={user}/>
           </Route>
           <Route exact path={["/admin"]}>
             <Admin user={user}/>

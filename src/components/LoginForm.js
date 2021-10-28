@@ -36,8 +36,8 @@ const LoginForm = ({callback}) => {
     return (
         <form className="px-4 py-3" onSubmit={handleSubmit}>
             <div className="form-group">
-                <label htmlFor="login-email">Email ou Login</label>
-                <input type="text" className={`form-control is-${validation_status}`} name="login" id="login-email" placeholder="lentinha123"/>
+                <label htmlFor="login-email">Email</label>
+                <input type="email" className={`form-control is-${validation_status}`} name="login" id="login-email" placeholder="lentinha@legas.com"/>
                 <div className="invalid-feedback">
                     Login ou senha inválidos!
                 </div>
