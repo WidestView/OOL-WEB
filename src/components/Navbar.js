@@ -3,11 +3,11 @@ import LoginForm from "./LoginForm";
 import Logo from "../assets/svgs/OOL_Logo.svg";
 
 
-const Navbar = ({authorized, refreshGreet}) => {
+const Navbar = ({user, refreshUser}) => {
 
     function logout(){
         localStorage.setItem("token", "");
-        refreshGreet();
+        refreshUser();
     }
 
     return ( 
@@ -15,13 +15,13 @@ const Navbar = ({authorized, refreshGreet}) => {
             <Link className="navbar-brand" title="Início" to="/"><img src={Logo} alt="OutOfLens"/></Link>
             <div className="navbar-buttons d-flex justify-content-between">
             {
-                !authorized &&
+                !user &&
                 <div className="dropdown ml-3">
                     <button className={`btn btn-secondary px-3`} type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Entrar
                     </button>
                     <div className="dropdown-menu dropdown-menu-right">
-                        <LoginForm callback={refreshGreet}/>
+                        <LoginForm callback={refreshUser}/>
                         <div className="dropdown-divider"></div>
                         <Link className="dropdown-item" to="/signup">Novo aqui? Inscreva-se!</Link>
                         <Link className="dropdown-item" to="/forgot-password">Esqueceu sua senha?</Link>
@@ -29,7 +29,7 @@ const Navbar = ({authorized, refreshGreet}) => {
                 </div>
             }
             {
-                authorized &&
+                user &&
                 <div className="dropdown ml-3">
                     <button className={`btn btn-secondary px-3`} type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i className="bi bi-person-circle"></i>

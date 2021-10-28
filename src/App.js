@@ -19,7 +19,7 @@ axios.interceptors.request.use(
   config => {
     const { origin } = new URL(config.url);
     const allowedOrigins = [process.env.REACT_APP_API_URL];
-    const token = localStorage.getItem('token');    
+    const token = localStorage.getItem('token');
     if (allowedOrigins.includes(origin)) {
       config.headers.authorization = `Bearer ${token}`;
     }
@@ -33,34 +33,34 @@ axios.interceptors.request.use(
 
 // App config
 function App() {
+  const [user, setUser] = useState();
 
-  const [authorized, setAuthorized] = useState(false);
-  const refreshGreet = async () => {
+  const refreshUser = async () => {
       try{
-          await axios.get(`${process.env.REACT_APP_API_URL}/api/user/greet`);
-          setAuthorized(true);
+          const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/Employee/info`);
+          setUser(res.data);
       }
       catch(error){
           if (error.response && error.response.status === 401) { 
               console.error("Usuário não autorizado!");
-              setAuthorized(false);
+              setUser(null);
           }
           else console.error(error);
       }
   }
 
-  useEffect(()=> refreshGreet(), []);
+  useEffect(()=> refreshUser(), []);
 
   return (
     <div className="App">
       <Router basename={routerBaseName}>
-        <Navbar authorized={authorized} refreshGreet={refreshGreet}/>
+        <Navbar user={user} refreshUser={refreshUser}/>
         <Switch>
           <Route exact path={["/", "/home", "/ool-web", "/OOL-WEB"]}>
             <Home/>
           </Route>
           <Route exact path={["/admin"]}>
-            <Admin authorized={authorized}/>
+            <Admin user={user}/>
           </Route>
           <Route exact path="/signup">
             <SignUp/>
