@@ -22,16 +22,15 @@ const Home = () => {
             </div>
 
             <div className="container pt-5">
-
                 <div className="row mt-5 align-items-center">
                     <div className="col-12 d-flex justify-content-center d-lg-none mb-3">
-                        <img src={camera_photos} className="w-50" alt=""/> {/* Mobile */}
+                        <img src={camera_photos} className="w-50" alt=""/>  {/*Mobile*/} 
                     </div>
 
-                    <img src={camera_photos} className="d-none d-lg-block col-3" alt=""/> {/* Desktop */}
+                    <img src={camera_photos} className="d-none d-lg-block col-3" alt=""/> {/*Desktop*/} 
                     <div className="d-none d-lg-block col-1"/>
-                    <div className="col-12 col-lg-7">
-                        <h3 className="text-center text-lg-left">Lorem ipsum dolor sit amet, consectetur adipiscing 
+                    <div className="col-12 col-lg-7 text-titillium">
+                        <h3 className="text-center text-lg-left font-weight-bold h4">Lorem ipsum dolor sit amet, consectetur adipiscing 
                         elit, sed do eiusmod tempor incididunt ut labore et 
                         dolore magna aliqua.</h3>
                         <div className="d-flex justify-content-center justify-content-lg-start">
@@ -41,11 +40,11 @@ const Home = () => {
                 </div>
                 <div className="row mt-5 align-items-center">
                     <div className="col-12 d-flex justify-content-center d-lg-none mb-3">
-                        <img src={photo} className="w-50" alt=""/> {/* Mobile */}
+                        <img src={photo} className="w-50" alt=""/> {/*Mobile*/} 
                     </div>
 
-                    <div className="col-12 col-lg-7">
-                        <h3 className="text-center text-lg-right">Lorem ipsum dolor sit amet, consectetur adipiscing 
+                    <div className="col-12 col-lg-7 text-titillium">
+                        <h3 className="text-center text-lg-right h4">Lorem ipsum dolor sit amet, consectetur adipiscing 
                         elit, sed do eiusmod tempor incididunt ut labore et 
                         dolore magna aliqua.</h3>
                         <div className="d-flex justify-content-center justify-content-lg-end">
@@ -53,17 +52,17 @@ const Home = () => {
                         </div>
                     </div>
                     <div className="d-none d-lg-block col-1"/>
-                    <img src={photo} className="d-none d-lg-block col-3" alt=""/> {/* Desktop */}
+                    <img src={photo} className="d-none d-lg-block col-3" alt=""/> {/*Desktop*/} 
                 </div>
                 <div className="row mt-5 align-items-center">
                     <div className="col-12 d-flex justify-content-center d-lg-none mb-3">
-                        <img src={woman_photoshoot} className="w-50" alt=""/> {/* Mobile */}
+                        <img src={woman_photoshoot} className="w-50" alt=""/> {/*Mobile*/} 
                     </div>
 
-                    <img src={woman_photoshoot} className="d-none d-lg-block col-3" alt=""/> {/* Desktop */}
+                    <img src={woman_photoshoot} className="d-none d-lg-block col-3" alt=""/>  {/*Desktop*/} 
                     <div className="d-none d-lg-block col-1"/>
-                    <div className="col-12 col-lg-7">
-                        <h3 className="text-center text-lg-left">Lorem ipsum dolor sit amet, consectetur adipiscing 
+                    <div className="col-12 col-lg-7 text-titillium">
+                        <h3 className="text-center text-lg-left h4">Lorem ipsum dolor sit amet, consectetur adipiscing 
                         elit, sed do eiusmod tempor incididunt ut labore et 
                         dolore magna aliqua.</h3>
                     </div>
@@ -72,7 +71,7 @@ const Home = () => {
 
                 <div className="row mt-6">
                     <div className="col">
-                        <h1 className="text-center">Nosso Trabalho</h1>
+                        <h1 className="text-center font-weight-bold text-titillium">Nosso Trabalho</h1>
                     </div>
                 </div>
                 
@@ -99,18 +98,18 @@ const Home = () => {
 
                 <div className="row mt-6">
                     <div className="col">
-                        <h1 className="text-center">Nossos Pacotes</h1>
+                        <h1 className="text-center font-weight-bold text-titillium">Nossos Pacotes</h1>
                     </div>
                 </div>
 
                 <div className="row mt-5">
                     <div className="col-12 col-lg-7">
-                        <div className="col-12">
-                                <h3 className="pb-2 text-center text-lg-left"><span className="text-primary">Lorem ipsum</span> dolor sit amet, consectetur 
+                        <div className="col-12 text-titillium">
+                                <h3 className="pb-2 text-center text-lg-left h4"><span className="text-primary font-weight-bold font-italic">Lorem ipsum</span> dolor sit amet, consectetur 
                                     adipiscing elit, sed do eiusmod tempor 
                                     incididunt ut labore et dolore magna aliqua</h3>
 
-                                <h3 className="mt-5 text-center text-lg-left">Ultrices neque ornare aenean euismod 
+                                <h3 className="mt-3 text-center text-lg-left h4">Ultrices neque ornare aenean euismod 
                                     elementum nisi quis. Convallis a cras semper!</h3>
                         </div>
                     </div>
