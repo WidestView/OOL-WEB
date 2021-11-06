@@ -21,6 +21,12 @@
   background-position: center;
 }
 
+@media screen and (max-width: 900px) {
+  .banner{
+    height: 70vh;
+  }
+}
+
 .navbar-brand{
   img{
     height: 3rem!important;

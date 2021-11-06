@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW 2021 (64-Bit) -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="38.1mm" height="30.7474mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 3810 3074.74"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .fil6 {fill:#012840}
+    .fil5 {fill:#023859}
+    .fil7 {fill:#0790E6}
+    .fil4 {fill:white}
+    .fil3 {fill:#023859;fill-rule:nonzero}
+    .fil1 {fill:#3F3D56;fill-rule:nonzero}
+    .fil0 {fill:white;fill-rule:nonzero}
+    .fil2 {fill:#212121;fill-rule:nonzero}
+    .fil8 {fill:white;fill-opacity:0.501961}
+   ]]>
+  </style>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g id="_1647843562128">
+   <circle class="fil0" cx="1870.48" cy="2066.78" r="466.16"/>
+   <circle class="fil1" cx="1870.48" cy="2066.78" r="155.38"/>
+   <path class="fil2" d="M541.05 2412.08c0,-753.29 610.66,-1363.95 1363.95,-1363.95 753.29,0 1363.95,610.66 1363.95,1363.95 0,241.98 -63.09,469.19 -173.61,666.22l-2380.68 0c-110.52,-197.03 -173.61,-424.24 -173.61,-666.22z"/>
+   <circle class="fil2" cx="1870.48" cy="2066.78" r="155.38"/>
+   <path class="fil3" d="M3228.09 1143.64c110.13,-493.22 -241.92,-991.61 -786.33,-1113.16 -544.41,-121.56 -1075.02,179.73 -1185.16,672.95 -110.13,493.22 250.67,675.13 795.08,796.7 544.41,121.56 1066.27,136.74 1176.41,-356.49z"/>
+   <circle class="fil4" cx="1870.47" cy="2066.78" r="466.93"/>
+   <circle class="fil5" cx="1870.47" cy="2066.78" r="309.38"/>
+   <circle class="fil6" cx="1870.47" cy="2066.78" r="232.99"/>
+   <circle class="fil5" cx="1870.47" cy="2066.78" r="161.37"/>
+   <circle class="fil7" cx="1870.47" cy="2066.78" r="74.79"/>
+   <path class="fil8" d="M1792.06 1832.13c41.31,0 74.8,33.48 74.8,74.79 0,41.31 -33.49,74.79 -74.8,74.79 -41.31,0 -74.79,-33.48 -74.79,-74.79 0,-41.31 33.48,-74.79 74.79,-74.79z"/>
+   <path class="fil0" d="M1749.9 2906.91c12.59,44.93 153.14,101.23 281.5,65.25 128.37,-35.97 226.63,-152.92 214.04,-197.85 -12.59,-44.93 -131.27,-0.82 -259.63,35.16 -128.37,35.97 -248.5,52.51 -235.91,97.44z"/>
+  </g>
+ </g>
+</svg>
