@@ -1,6 +1,23 @@
-import { Link } from "react-router-dom";
+import ChoicesGrid from "../../components/ChoicesGrid";
 
 const Admin = ({user}) => {
+
+    const cadastroChoices = [
+        {
+            name: "Usuários",
+            icon: "person-fill",
+            uri: "/users"
+        }
+    ];
+
+    const relatorioChoices = [
+        {
+            name: "Relatório 1",
+            icon: "file-earmark-text",
+            uri: "/users"
+        }
+    ];
+
     return ( 
         <div className="admin container">
             { !user && 
@@ -16,30 +33,17 @@ const Admin = ({user}) => {
                             <div className="admin-section">
                                 <h6 className="font-weight-bold">Cadastro/Consulta</h6>
                                 <hr />
+                                <ChoicesGrid choices={cadastroChoices}></ChoicesGrid>
                             </div>                
                         </div>
                         <div className="col-4">
                             <div className="admin-section">
                                 <h6 className="font-weight-bold">Relatórios</h6>
                                 <hr />
-                                <Link className="rounded" to="/admin/users">
-                                    <i className="bi bi-person-fill"></i>
-                                </Link>
+                                <ChoicesGrid choices={relatorioChoices} small="true"></ChoicesGrid>
                             </div>
                         </div>    
                     </div>
-                    {
-                    /*
-                    <div className="row">
-                        <div className="col-12">
-                            <div className="admin-section">
-                                <h6 className="font-weight-bold">Configurações</h6>
-                                <hr />
-                                <h6><i className="bi bi-gear-fill"></i> <span className="text-muted">Configurações</span></h6>
-                            </div>
-                        </div>
-                    </div>
-                    */}
                 </div>      
             )}
         </div> 

@@ -39,7 +39,7 @@ function App() {
 
   const refreshUser = async () => {
       try{
-          const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/Employee/info`);
+          const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/user/greet`);
           setUser(res.data);
       }
       catch(error){
@@ -52,6 +52,7 @@ function App() {
   }
 
   useEffect(()=> refreshUser(), []);
+  useEffect(()=> console.log(user), [user]);
 
   return (
     <div className="App">

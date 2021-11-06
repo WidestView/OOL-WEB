@@ -26,3 +26,30 @@
     height: 3rem!important;
   }
 }
+
+.choices-grid{
+  .choice{
+    width: 10rem;
+    height: 10rem;
+
+    .choice-icon{
+      font-size: 5rem;
+    }
+  }
+}
+
+.choices-grid-small{
+  .choice{
+    width: 8rem;
+    height: 8rem;
+    &:hover { 
+      color: white;
+      
+    }
+
+    .choice-icon{
+      font-size: 3rem;
+    }
+  }
+}
+
