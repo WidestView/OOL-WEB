@@ -1,7 +1,6 @@
 const Footer = () => {
 
-    const phone_number = "5511900001111"; // WITH NO MASKS, STAIGHT UP ONLY NUMBERS 
-    /*TODO: Add Valid Number */
+    const phone_number = "5511963945845"; // PLEASE DONT CALL MEEE!!!! 
 
     return ( 
         <footer className="container">

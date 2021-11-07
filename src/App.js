@@ -44,15 +44,12 @@ function App() {
       }
       catch(error){
           if (error.response && error.response.status === 401) { 
-              console.error("Usuário não autorizado!");
               setUser(null);
           }
-          else console.error(error);
       }
   }
 
   useEffect(()=> refreshUser(), []);
-  useEffect(()=> console.log(user), [user]);
 
   return (
     <div className="App">
