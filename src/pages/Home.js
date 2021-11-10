@@ -117,7 +117,7 @@ const Home = () => {
                         <img src={woman_polaroid} className="w-100" alt="" />
                     </div>
                     <div className="col-12">
-                        {/*TODO: IMPLEMENT NEW DESIGN WHEN IT COMES OUT*/}
+                        {/*TODO: IMPLEMENT PACKAGE GRID DESIGN*/}
                     </div>
                 </div>
 
