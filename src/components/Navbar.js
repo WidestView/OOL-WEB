@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import LoginForm from "./LoginForm";
 import Logo from "../assets/svgs/OOL_Logo.svg";
-import ProfileImage from "./ProfileImage";
+import ImageHelper from "./helpers/ImageHelper";
 
 const Navbar = ({user, refreshUser, employee}) => {
 
@@ -31,7 +31,9 @@ const Navbar = ({user, refreshUser, employee}) => {
             {
                 user &&
                 <div className="dropdown ml-3">
-                    <div className="mr-3 rounded-circle pfp" type="button" id="dropdownMenu" data-toggle="dropdown"><ProfileImage className="rounded-circle pfp"/></div>
+                    <div className="mr-3 rounded-circle pfp" type="button" id="dropdownMenu" data-toggle="dropdown">
+                    <ImageHelper className="rounded-circle pfp" url={`${process.env.REACT_APP_API_URL}/api/user/picture`} placeholder="https://www.processindustryforum.com/wp-content/uploads/2018/10/male-placeholder.jpeg"/>
+                    </div>
                     <div className="dropdown-menu dropdown-menu-right">
                         <Link className="dropdown-item" to="/">🏠 Início</Link>
                         { user && <Link className="dropdown-item" to="/user">🛒 Meu usuário e compras</Link>}

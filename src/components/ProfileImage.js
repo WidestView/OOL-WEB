@@ -8,7 +8,7 @@ const ProfileImage = ({user, className}) => {
     useEffect(() => {
         const getImage = async () => {
             try{
-                const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/user/picture`);
+                const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/user/picture`, { responseType: 'arraybuffer' });
                 console.log(res);
                 let data = `data:${res.headers["content-type"]};base64,${Buffer.from(res.data, "binary").toString("base64")}`;
                 setImgSrc(data);

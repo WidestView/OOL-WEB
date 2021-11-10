@@ -1,5 +1,5 @@
 import  { Redirect } from 'react-router-dom'
-import ProfileImage from '../../components/ProfileImage';
+import ImageHelper from "../../components/helpers/ImageHelper";
 
 const UserView = ({user}) => {
 
@@ -8,7 +8,7 @@ const UserView = ({user}) => {
         <div className="container">
             <div className="row">
                 <div className="col-3">
-                    <ProfileImage className="w-100"/>
+                    <ImageHelper className="w-100" url={`${process.env.REACT_APP_API_URL}/api/user/picture`} placeholder="https://www.processindustryforum.com/wp-content/uploads/2018/10/male-placeholder.jpeg"/>
                     <p className="text-right mt-n4 mr-2"><span className={`badge badge-${user.active? "success" : "danger"} ml-auto`}>Usuário {user.active? "ativo" : "inativo"}</span></p>
                 </div>
                 <div className="col-3">
