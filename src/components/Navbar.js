@@ -31,9 +31,9 @@ const Navbar = ({user, refreshUser}) => {
             {
                 user &&
                 <div className="dropdown ml-3">
-                    <img src="https://www.processindustryforum.com/wp-content/uploads/2018/10/male-placeholder.jpeg" alt="PFP" 
-                        className="rounded-circle mr-3 pfp"
-                        type="button" id="dropdownMenu" data-toggle="dropdown"/>
+                    <img src={`${process.env.REACT_APP_API_URL}/api/user/picture`} alt="📸 PFP" className="rounded-circle mr-3 pfp"
+                            onError={(e)=>{e.target.onerror = null; e.target.src="https://www.processindustryforum.com/wp-content/uploads/2018/10/male-placeholder.jpeg"}}
+                            type="button" id="dropdownMenu" data-toggle="dropdown"/>
                     <div className="dropdown-menu dropdown-menu-right">
                         <Link className="dropdown-item" to="/">🏠 Início</Link>
                         { user && <Link className="dropdown-item" to="/personal">🛒 Minhas compras</Link>}

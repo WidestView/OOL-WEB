@@ -1,21 +1,21 @@
 import { Link } from "react-router-dom";
 
 // Environment
-import cloud2 from "../assets/svgs/environment/cloud2.svg";
-import cloud2_light from "../assets/svgs/environment/cloud2_light.svg";
-import cloud2_lighter from "../assets/svgs/environment/cloud2_lighter.svg";
-import cloud3 from "../assets/svgs/environment/cloud3.svg";
-import sun from "../assets/svgs/environment/sun.svg";
-import leaf from "../assets/svgs/environment/leaf.svg";
-import tree from "../assets/svgs/environment/tree.svg";
-import small_plant from "../assets/svgs/environment/small_plant.svg";
-import medium_plant from "../assets/svgs/environment/medium_plant.svg";
-import big_plant from "../assets/svgs/environment/big_plant.svg";
+import cloud2 from "../../assets/svgs/environment/cloud2.svg";
+import cloud2_light from "../../assets/svgs/environment/cloud2_light.svg";
+import cloud2_lighter from "../../assets/svgs/environment/cloud2_lighter.svg";
+import cloud3 from "../../assets/svgs/environment/cloud3.svg";
+import sun from "../../assets/svgs/environment/sun.svg";
+import leaf from "../../assets/svgs/environment/leaf.svg";
+import tree from "../../assets/svgs/environment/tree.svg";
+import small_plant from "../../assets/svgs/environment/small_plant.svg";
+import medium_plant from "../../assets/svgs/environment/medium_plant.svg";
+import big_plant from "../../assets/svgs/environment/big_plant.svg";
 
 // Creatures
-import calado from "../assets/svgs/creatures/calado.svg";
-import calado_arm from "../assets/svgs/creatures/calado_arm.svg";
-import lentinha from "../assets/svgs/creatures/lentinha.svg";
+import calado from "../../assets/svgs/creatures/calado.svg";
+import calado_arm from "../../assets/svgs/creatures/calado_arm.svg";
+import lentinha from "../../assets/svgs/creatures/lentinha.svg";
 
 
 const NotFound = () => {

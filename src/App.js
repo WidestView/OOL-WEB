@@ -3,16 +3,16 @@ import { useState, useEffect } from "react";
 import axios from 'axios';
 
 import Home from "./pages/Home";
-import NotFound from "./pages/NotFound";
+import NotFound from "./pages/Errors/NotFound";
 import SignUp from "./pages/SignUp";
 import ForgotPassword from "./pages/ForgotPassword";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Info from "./pages/Info";
-import Personal from "./pages/Personal";
-import System from "./pages/System/System";
+import Workspace from "./pages/System/Workspace";
 import Admin from "./pages/System/Admin";
+import UserView from "./pages/System/UserView";
 
 // AXIOS CONFIG
 const routerBaseName = process.env.PUBLIC_URL;
@@ -60,10 +60,10 @@ function App() {
             <Home/>
           </Route>
           <Route exact path={["/personal"]}>
-            <Personal user={user}/>
+            <UserView user={user}/>
           </Route>
           <Route exact path={["/system"]}>
-            <System user={user}/>
+            <Workspace user={user}/>
           </Route>
           <Route exact path={["/admin"]}>
             <Admin user={user}/>

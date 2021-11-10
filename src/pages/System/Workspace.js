@@ -1,9 +1,10 @@
-const System = ({user}) => {
+import Unauthorized from '../Errors/Unauthorized';
+
+const Workspace = ({user}) => {
+
+    if (!user) return <Unauthorized/>;
     return ( 
         <div className="system container">
-            { !user && 
-                <h1 className="text-center my-5 text-danger">NÃO AUTORIZADO!</h1>
-            }
             { user && (
                 <div className="system-authorized">
                 </div>      
@@ -12,4 +13,4 @@ const System = ({user}) => {
      );
 }
  
-export default System;
+export default Workspace;
