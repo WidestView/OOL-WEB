@@ -1,8 +1,6 @@
-import { useEffect } from "react";
 import  { Redirect } from 'react-router-dom'
 
 const UserView = ({user}) => {
-    useEffect(() => console.log(user), [user]);
 
     if (!user) return <Redirect to='/'/>;
     return ( 

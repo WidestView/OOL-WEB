@@ -36,37 +36,65 @@ axios.interceptors.request.use(
 // App config
 function App() {
   const [user, setUser] = useState();
+  const [employee, setEmployee] = useState();
 
-  const refreshUser = async () => {
+  const refreshUser = () => {
+    async function fetchUser() {
       try{
-          const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/user/greet`);
-          setUser(res.data);
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/user/greet`);
+        setUser(res.data);
       }
       catch(error){
-          if (error.response && error.response.status === 401) { 
-              setUser(null);
-          }
+        if (error.response && error.response.status === 401) { 
+          setUser(null);
+        }
       }
+    }
+    fetchUser();
   }
 
-  useEffect(()=> refreshUser(), []);
+  useEffect(refreshUser, []);
+
+  useEffect(() => {
+    async function fetchEmployee() {
+      try{
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/Employee/info`);
+        setEmployee(res.data);
+      }
+      catch(error){
+        if (error.response && error.response.status === 401) { 
+          setEmployee(null);
+        }
+      }
+    }
+    if (user) {
+      console.info(user);
+      if (user.kind === "employee") fetchEmployee();
+    }
+  }, [user]);
+
+  useEffect(() => {
+    if (employee) {
+      console.info(employee);
+    }
+  }, [employee]);
 
   return (
     <div className="App">
       <Router basename={routerBaseName}>
-        <Navbar user={user} refreshUser={refreshUser}/>
+        <Navbar user={user} refreshUser={refreshUser} employee={employee}/>
         <Switch>
           <Route exact path={["/", "/home", "/ool-web", "/OOL-WEB"]}>
             <Home/>
           </Route>
-          <Route exact path={["/personal"]}>
+          <Route exact path={["/user"]}>
             <UserView user={user}/>
           </Route>
-          <Route exact path={["/system"]}>
-            <Workspace user={user}/>
+          <Route exact path={["/workspace"]}>
+            <Workspace employee={employee}/>
           </Route>
           <Route exact path={["/admin"]}>
-            <Admin user={user}/>
+            <Admin employee={employee}/>
           </Route>
           <Route exact path="/signup">
             <SignUp/>

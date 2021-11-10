@@ -1,7 +1,7 @@
 import Unauthorized from '../Errors/Unauthorized';
 import ChoicesGrid from "../../components/ChoicesGrid";
 
-const Admin = ({user}) => {
+const Admin = ({employee}) => {
 
     const cadastroChoices = [
         {
@@ -19,7 +19,7 @@ const Admin = ({user}) => {
         }
     ];
 
-    if (!user) return <Unauthorized/>;
+    if (!employee || employee.accessLevel !== 0) return <Unauthorized/>;
     return ( 
         <div className="admin-authorized container">
                     <div className="row">

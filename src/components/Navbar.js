@@ -3,7 +3,7 @@ import LoginForm from "./LoginForm";
 import Logo from "../assets/svgs/OOL_Logo.svg";
 
 
-const Navbar = ({user, refreshUser}) => {
+const Navbar = ({user, refreshUser, employee}) => {
 
     function logout(){
         localStorage.setItem("token", "");
@@ -36,9 +36,9 @@ const Navbar = ({user, refreshUser}) => {
                             type="button" id="dropdownMenu" data-toggle="dropdown"/>
                     <div className="dropdown-menu dropdown-menu-right">
                         <Link className="dropdown-item" to="/">🏠 Início</Link>
-                        { user && <Link className="dropdown-item" to="/personal">🛒 Minhas compras</Link>}
-                        { user && <Link className="dropdown-item" to="/system">📷 Sistema</Link>}
-                        { user && <Link className="dropdown-item" to="/admin">⚙ Administração</Link>}
+                        { user && <Link className="dropdown-item" to="/user">🛒 Meu usuário e compras</Link>}
+                        { employee && employee.occupation && <Link className="dropdown-item" to="/workspace">📷 Área de Trabalho</Link> }
+                        { employee && employee.accessLevel === 0 && <Link className="dropdown-item" to="/admin">⚙ Administração</Link>}
                         <div className="dropdown-divider"></div>
                         <button className="dropdown-item text-danger" onClick={logout}>Sair</button>
                     </div>
