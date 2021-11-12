@@ -35,25 +35,30 @@ axios.interceptors.request.use(
 
 // App config
 function App() {
-  const [user, setUser] = useState();
-  const [employee, setEmployee] = useState();
 
-  const refreshUser = () => {
+  const [user, setUser] = useState(undefined);
+  const [employee, setEmployee] = useState(undefined);
+  const [badLogin, setBadLogin] = useState(false);
+
+  const refreshLogin = () => {
     async function fetchUser() {
+      setBadLogin(false);
+
       try{
         const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/user/greet`);
         setUser(res.data);
       }
       catch(error){
         if (error.response && error.response.status === 401) { 
-          setUser(null);
+          setUser(undefined);
         }
+        setBadLogin(true);
       }
     }
-    fetchUser();
+    return fetchUser();
   }
 
-  useEffect(refreshUser, []);
+  useEffect(refreshLogin, []);
 
   useEffect(() => {
     async function fetchEmployee() {
@@ -68,6 +73,7 @@ function App() {
       }
     }
     if (user) {
+      console.info("USER INFO:");
       console.info(user);
       if (user.kind === "employee") fetchEmployee();
     }
@@ -75,6 +81,7 @@ function App() {
 
   useEffect(() => {
     if (employee) {
+      console.info("EMPLOYEE INFO:");
       console.info(employee);
     }
   }, [employee]);
@@ -82,19 +89,19 @@ function App() {
   return (
     <div className="App">
       <Router basename={routerBaseName}>
-        <Navbar user={user} refreshUser={refreshUser} employee={employee}/>
+        <Navbar user={user} employee={employee} refreshLogin={refreshLogin}/>
         <Switch>
           <Route exact path={["/", "/home", "/ool-web", "/OOL-WEB"]}>
             <Home/>
           </Route>
           <Route exact path={["/user"]}>
-            <UserView user={user}/>
+            <UserView user={user} badLogin={badLogin}/>
           </Route>
           <Route exact path={["/workspace"]}>
-            <Workspace employee={employee}/>
+            <Workspace user={user} employee={employee} badLogin={badLogin}/>
           </Route>
           <Route exact path={["/admin"]}>
-            <Admin employee={employee}/>
+            <Admin user={user} employee={employee} badLogin={badLogin}/>
           </Route>
           <Route exact path="/signup">
             <SignUp/>

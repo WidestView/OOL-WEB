@@ -1,11 +1,15 @@
+import { Redirect } from 'react-router';
+import Loading from '../../components/Loading';
 import Unauthorized from '../Errors/Unauthorized';
 
-const Workspace = ({employee}) => {
+const Workspace = ({user, employee, badLogin}) => {
     
-    if (!employee || !employee.occupation) return <Unauthorized/>;
+    if (badLogin) return <Redirect to="/"/>;
+    if (!user || (user.kind === "employee" && !employee)) return <Loading/>;
+    if (!employee) return <Unauthorized/>;
+
     return ( 
         <div className="workspace container">
-
         </div> 
      );
 }

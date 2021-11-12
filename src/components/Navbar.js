@@ -3,11 +3,11 @@ import LoginForm from "./LoginForm";
 import Logo from "../assets/svgs/OOL_Logo.svg";
 import ImageHelper from "./helpers/ImageHelper";
 
-const Navbar = ({user, refreshUser, employee}) => {
+const Navbar = ({user, employee, refreshLogin}) => {
 
     function logout(){
         localStorage.setItem("token", "");
-        refreshUser();
+        refreshLogin();
     }
 
     return ( 
@@ -21,7 +21,7 @@ const Navbar = ({user, refreshUser, employee}) => {
                         Entrar
                     </button>
                     <div className="dropdown-menu dropdown-menu-right">
-                        <LoginForm callback={refreshUser}/>
+                        <LoginForm callback={refreshLogin}/>
                         <div className="dropdown-divider"></div>
                         <Link className="dropdown-item" to="/signup">Novo aqui? Inscreva-se!</Link>
                         <Link className="dropdown-item" to="/forgot-password">Esqueceu sua senha?</Link>

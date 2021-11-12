@@ -1,11 +1,14 @@
 import  { Redirect } from 'react-router-dom'
 import ImageHelper from "../../components/helpers/ImageHelper";
+import Loading from '../../components/Loading';
 import UploadProfileModal from '../../components/UploadProfileModal';
 
-const UserView = ({user}) => {
+const UserView = ({user, badLogin}) => {
 
-    if (!user) return <Redirect to='/'/>;
-    return ( 
+    if (badLogin) return <Redirect to="/"/>;
+    if (!user) return <Loading/>;
+
+    return ( user &&
         <div className="container userview">
             <div className="row mt-3">
                 <div className="col-3">

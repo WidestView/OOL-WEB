@@ -1,7 +1,9 @@
 import Unauthorized from '../Errors/Unauthorized';
 import ChoicesGrid from "../../components/ChoicesGrid";
+import { Redirect } from 'react-router';
+import Loading from '../../components/Loading';
 
-const Admin = ({employee}) => {
+const Admin = ({user, employee, badLogin}) => {
 
     const cadastroChoices = [
         {
@@ -19,7 +21,10 @@ const Admin = ({employee}) => {
         }
     ];
 
+    if (badLogin) return <Redirect to="/"/>;
+    if (!user || (user.kind === "employee" && !employee)) return <Loading/>;
     if (!employee || employee.accessLevel !== 0) return <Unauthorized/>;
+
     return ( 
         <div className="admin-authorized container">
                     <div className="row">
