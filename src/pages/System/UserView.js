@@ -1,14 +1,10 @@
-import  { Redirect } from 'react-router-dom'
+import { UserAuthHelper } from "../../components/helpers/AuthHelper";
 import ImageHelper from "../../components/helpers/ImageHelper";
-import Loading from '../../components/Loading';
 import UploadProfileModal from '../../components/UploadProfileModal';
 
 const UserView = ({user, badLogin}) => {
 
-    if (badLogin) return <Redirect to="/"/>;
-    if (!user) return <Loading/>;
-
-    return ( user &&
+    return UserAuthHelper(user, badLogin)?? ( 
         <div className="container userview">
             <div className="row mt-3">
                 <div className="col-3">

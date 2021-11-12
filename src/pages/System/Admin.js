@@ -1,7 +1,5 @@
-import Unauthorized from '../Errors/Unauthorized';
 import ChoicesGrid from "../../components/ChoicesGrid";
-import { Redirect } from 'react-router';
-import Loading from '../../components/Loading';
+import {AdminAuthHelper} from '../../components/helpers/AuthHelper';
 
 const Admin = ({user, employee, badLogin}) => {
 
@@ -21,11 +19,7 @@ const Admin = ({user, employee, badLogin}) => {
         }
     ];
 
-    if (badLogin) return <Redirect to="/"/>;
-    if (!user || (user.kind === "employee" && !employee)) return <Loading/>;
-    if (!employee || employee.accessLevel !== 0) return <Unauthorized/>;
-
-    return ( 
+    return AdminAuthHelper(user, employee, badLogin)?? ( 
         <div className="admin-authorized container">
                     <div className="row">
                         <div className="col-12"><h5 className="my-5">Boas-vindas ao setor de Administração</h5></div>

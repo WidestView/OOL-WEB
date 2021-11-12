@@ -1,22 +1,16 @@
-import { Redirect } from 'react-router';
-import Loading from '../../components/Loading';
+import { AdminAuthHelper } from '../../components/helpers/AuthHelper';
 import PhotographerWorkspace from '../../components/workspaces/PhotographerWorkspace';
-import Unauthorized from '../Errors/Unauthorized';
 
 const Workspace = ({user, employee, badLogin}) => {
-
-    if (badLogin) return <Redirect to="/"/>;
-    if (!user || (user.kind === "employee" && !employee)) return <Loading/>;
-    if (!employee) return <Unauthorized/>;
 
     const Workspaces = [
         null,                                           // 0
         <PhotographerWorkspace employee={employee}/>    // 1
     ]
 
-    return ( 
+    return AdminAuthHelper(user, employee, badLogin)?? ( 
         <div className="workspace container">
-            {Workspaces[employee.occupation.id]?? <h1 className="text-danger text-center">A sua ocupação ainda não é suportada pelo sistema, entre em contato com o adminstrator!</h1>}
+            {Workspaces[employee.occupation? employee.occupation.id : 0]?? <h1 className="text-danger text-center">A sua ocupação ainda não é suportada pelo sistema, entre em contato com o adminstrator!</h1>}
         </div> 
      );
 }
