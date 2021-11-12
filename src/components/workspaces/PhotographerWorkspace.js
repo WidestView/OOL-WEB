@@ -1,7 +1,6 @@
 import { useState } from "react";
 import NavigationLayout from "../layouts/NavigationLayout"
 import { Greeting } from "../helpers/PronoumHelper";
-import PackageForm from "../forms/PackageForm";
 
 const PhotographerWorkspace = ({employee}) => {
 
@@ -9,7 +8,7 @@ const PhotographerWorkspace = ({employee}) => {
 
     const ViewsDict = {};
     ViewsDict["Default"] = <DefaultView employee={employee} setView={setView}/>;
-    ViewsDict["Package"] = <PackageForm/>;
+    ViewsDict["Calendar"] = <CalendarView employee={employee}/>;
 
     return (
         <NavigationLayout home={view==="Default"} onClick={() => setView("Default")}>
@@ -22,7 +21,7 @@ const DefaultView = ({employee, setView}) => {
     return ( 
         <div>
             <h1>{Greeting(employee.gender)}</h1>
-            <button className="btn btn-link" onClick={()=> setView("Package")}>
+            <button className="btn btn-link" onClick={()=> setView("Calendar")}>
                 Ver calendário
             </button>
         </div>
