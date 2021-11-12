@@ -87,7 +87,7 @@ function App() {
   }, [employee]);
 
   return (
-    <div className="App">
+    <div className="App bg-light">
       <Router basename={routerBaseName}>
         <Navbar user={user} employee={employee} refreshLogin={refreshLogin}/>
         <Switch>

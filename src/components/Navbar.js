@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import LoginForm from "./LoginForm";
+import LoginForm from "./forms/LoginForm";
 import Logo from "../assets/svgs/OOL_Logo.svg";
 import ImageHelper from "./helpers/ImageHelper";
 

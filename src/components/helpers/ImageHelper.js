@@ -18,7 +18,7 @@ const ImageHelper = ({url, placeholder, urlOnError, className}) => {
         getImage();
     }, [url, placeholder, urlOnError, className]);
 
-    return ( <img src={ImgSrc} alt="❌" className={className}
+    return ( <img src={ImgSrc} alt="" className={className}
                 onError={(e)=>{console.error("IMAGE LOADING PROBLEM!"); console.error(ImgSrc); e.target.onerror = null; e.target.src=urlOnError??placeholder}} /> );
 }
  
