@@ -6,7 +6,9 @@ const PageFormLayout = (props) => {
                     <h1><i className={`bi bi-${props.icon}`}></i> {props.title}</h1>
                 </div>
                 <div>
-                    {/* TOOLBOX */}
+                    { typeof props.onEdit === "function" && 
+                        <button className="btn btn-sm rounded"><i className="bi bi-pencil-square"></i></button>
+                    }
                 </div>
             </div>
             <form className="bg-white rounded p-4">
