@@ -10,9 +10,9 @@ import ForgotPassword from "./pages/ForgotPassword";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Info from "./pages/Info";
-import Workspace from "./pages/System/Workspace";
-import Admin from "./pages/System/Admin";
-import UserView from "./pages/System/UserView";
+import Workspace from "./pages/Workspace";
+import Admin from "./pages/Admin";
+import UserView from "./pages/UserView";
 
 // AXIOS CONFIG
 const routerBaseName = process.env.PUBLIC_URL;

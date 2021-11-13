@@ -35,43 +35,32 @@
 
 .choices-grid{
   .choice{
-    width: 10rem;
-    height: 10rem;
-
-    .choice-icon{
-      font-size: 5rem;
-    }
-  }
-}
-
-.choices-grid-small{
-  .choice{
-    width: 8rem;
-    height: 8rem;
-    &:hover { 
-      color: white;
-      
-    }
-
-    .choice-icon{
-      font-size: 3rem;
+    transition: transform 0.4s ease-out;
+    &:hover{
+      transition: transform 0.4s ease-out;
+      transform: scale(1.1);
     }
   }
 }
 
 .userview{
-  .userimage{
-    opacity: 1;
-    &:hover{
-      opacity: 0.1;
-      z-index: -2;
+  .userImageButton{
+    .userimage{
+      opacity: 1;
+      position: relative;
+      z-index: 1;
+      transition: opacity 0.3s ease-in;
     }
-    transition: opacity 0.3s ease-in;
-  }
-  .upload-text{
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    z-index: -1;
+    .upload-text{
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      z-index: 0;
+    }
+    &:hover{
+      .userimage{
+        opacity: 0.1;
+      }
+    }
   }
 }

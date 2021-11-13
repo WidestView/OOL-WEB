@@ -1,5 +1,5 @@
-import { AdminAuthHelper } from '../../components/helpers/AuthHelper';
-import PhotographerWorkspace from '../../components/workspaces/PhotographerWorkspace';
+import { AdminAuthHelper } from '../components/helpers/AuthHelper';
+import PhotographerWorkspace from '../components/workspaces/PhotographerWorkspace';
 
 const Workspace = ({user, employee, badLogin}) => {
 
