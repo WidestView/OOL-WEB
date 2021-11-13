@@ -13,6 +13,9 @@ import Info from "./pages/Info";
 import Workspace from "./pages/Workspace";
 import Admin from "./pages/Admin";
 import UserView from "./pages/UserView";
+import Users from "./pages/Admin/Users";
+import Equipments from "./pages/Admin/Equipments";
+import { PackagesView, PackageView } from "./pages/Admin/PackagesView";
 
 // AXIOS CONFIG
 const routerBaseName = process.env.PUBLIC_URL;
@@ -94,14 +97,29 @@ function App() {
           <Route exact path={["/", "/home", "/ool-web", "/OOL-WEB"]}>
             <Home/>
           </Route>
-          <Route exact path={["/user"]}>
+          <Route exact path="/user">
             <UserView user={user} badLogin={badLogin}/>
           </Route>
-          <Route exact path={["/workspace"]}>
+          <Route exact path="/workspace">
             <Workspace user={user} employee={employee} badLogin={badLogin}/>
           </Route>
-          <Route exact path={["/admin"]}>
+          <Route exact path="/admin">
             <Admin user={user} employee={employee} badLogin={badLogin}/>
+          </Route>
+          <Route exact path="/admin/users">
+            <Users/>
+          </Route>
+          <Route exact path="/admin/equipments">
+            <Equipments/>
+          </Route>
+          <Route exact path="/admin/packages">
+            <PackagesView/>
+          </Route>
+          <Route exact path="/admin/packages/view">
+            <PackageView/>
+          </Route>
+          <Route exact path="/admin/packages/view/:id">
+            <PackageView/>
           </Route>
           <Route exact path="/signup">
             <SignUp/>
