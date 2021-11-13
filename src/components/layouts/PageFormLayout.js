@@ -7,18 +7,20 @@ const PageFormLayout = (props) => {
                 </div>
                 <div>
                     { typeof props.onEdit === "function" && 
-                        <button className="btn btn-sm rounded"><i className="bi bi-pencil-square"></i></button>
+                        <button className="btn btn-sm rounded" onClick={props.onEdit}><i className="bi bi-pencil-square"></i></button>
                     }
                 </div>
             </div>
-            <form className="bg-white rounded p-4">
-                {props.children}
-            </form>
-            { typeof props.onSubmit === "function" && 
+            <form onSubmit={props.onSubmit}>
+                <div className="bg-white rounded p-4">
+                    {props.children}
+                </div>
+                { typeof props.onSubmit === "function" && 
                 <div className="d-flex justify-content-end">
-                    <button className="btn btn-outline-primary mt-3" onClick={props.onSubmit}>Enviar</button>
+                    <button type="submit" className="btn btn-outline-primary mt-3">Enviar</button>
                 </div>
             }
+            </form>
         </div> 
     );
 }

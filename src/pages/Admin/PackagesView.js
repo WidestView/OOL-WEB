@@ -77,13 +77,13 @@ export const PackageView = () => {
             try{
                 const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/package/${id?? -1}`);
                 setPack(res.data);
-              }
-              catch(error){
+            }
+            catch(error){
                 if (error.response && error.response.status === 401) { 
                     setPack(undefined);
                 }
                 setError(error);
-              }
+            }
         }
         return fetchPacks();
     }
