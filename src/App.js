@@ -15,6 +15,7 @@ import AdminView from "./pages/AdminView";
 import UserView from "./pages/UserView";
 import { PackagesView, PackageView } from "./pages/admin/PackagesView";
 import Auth from "./util/Auth";
+import UnauthorizedView from "./pages/errors/UnauthorizedView";
 
 // AXIOS CONFIG
 const routerBaseName = process.env.PUBLIC_URL;
@@ -66,6 +67,7 @@ function App() {
           <Route exact path="/signup" component={SignUpView}/>
           <Route exact path="/forgot-password" component={ForgotPasswordView}/>
           <Route exact path="/info" component={InfoView}/>
+          <Route exact path="/401" component={UnauthorizedView}/>
           <Route path="*" component={NotFound}/>
         </Switch>
         <Footer/>

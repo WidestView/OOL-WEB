@@ -1,5 +1,5 @@
 import ChoicesGrid from "../components/ChoicesGrid";
-import {AdminAuthHelper} from '../components/helpers/AuthHelper';
+import Auth from "../util/Auth";
 
 const AdminView = ({user, employee, badLogin}) => {
 
@@ -29,7 +29,7 @@ const AdminView = ({user, employee, badLogin}) => {
         }
     ];
 
-    return AdminAuthHelper(user, employee, badLogin)?? ( 
+    return Auth.adminAuth(user, employee, badLogin)?? ( 
         <div className="admin-authorized container">
             <div className="row">
                 <div className="col-12"><h5 className="my-5">Boas-vindas ao setor de Administração</h5></div>

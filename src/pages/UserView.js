@@ -1,10 +1,10 @@
-import { UserAuthHelper } from "../components/helpers/AuthHelper";
 import ImageHelper from "../components/helpers/ImageHelper";
 import UploadProfileModal from '../components/UploadProfileModal';
+import Auth from "../util/Auth";
 
 const UserView = ({user, badLogin}) => {
 
-    return UserAuthHelper(user, badLogin)?? ( 
+    return Auth.userAuth(user, badLogin)?? ( 
         <div className="container userview">
             <div className="row mt-3">
                 <div className="col-3">

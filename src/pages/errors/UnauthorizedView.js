@@ -17,7 +17,7 @@ import calado from "../../assets/svgs/creatures/calado.svg";
 import calado_arm from "../../assets/svgs/creatures/calado_arm.svg";
 import lentinha from "../../assets/svgs/creatures/lentinha.svg";
 
-const Unauthorized = () => {
+const UnauthorizedView = () => {
     return ( 
         <div className="unauthorized container-fluid bg-white mt-3">
             <div className="row">
@@ -71,4 +71,4 @@ const Unauthorized = () => {
      );
 }
  
-export default Unauthorized;
+export default UnauthorizedView;
