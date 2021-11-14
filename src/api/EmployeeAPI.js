@@ -1,5 +1,5 @@
 import axios from "axios";
-import isDev from "../util/EnvCheck";
+import { isDev } from "../util/Env";
 
 class EmployeeAPI {
     static async getEmployee(){

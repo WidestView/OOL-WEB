@@ -1,8 +1,8 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import PackageForm from "../../components/forms/PackageForm";
 import Loading from "../../components/Loading";
+import PackageAPI from "../../api/PackageAPI";
 
 export const PackagesView = () => {
 
@@ -12,15 +12,15 @@ export const PackagesView = () => {
     const getPacks = () => {
         const fetchPacks = async () => {
             try{
-                const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/package`);
-                setPacks(res.data);
-              }
-              catch(error){
+                setPacks(await PackageAPI.getPackages());
+            }
+            catch(error){
+                console.log(error);
                 if (error.response && error.response.status === 401) { 
                     setPacks(undefined);
                 }
                 setError(error);
-              }
+            }
         }
         return fetchPacks();
     }
@@ -75,8 +75,7 @@ export const PackageView = () => {
     const getPacks = () => {
         const fetchPacks = async () => {
             try{
-                const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/package/${id?? -1}`);
-                setPack(res.data);
+                setPack(await PackageAPI.getPackage(id));
             }
             catch(error){
                 if (error.response && error.response.status === 401) { 
