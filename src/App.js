@@ -2,20 +2,20 @@ import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from 'axios';
 
-import HomeView from "./pages/HomeView";
-import NotFound from "./pages/errors/NotFoundView";
-import SignUpView from "./pages/SignUpView";
-import ForgotPasswordView from "./pages/ForgotPasswordView";
+import HomeView from "./views/HomeView";
+import NotFound from "./views/errors/NotFoundView";
+import SignUpView from "./views/SignUpView";
+import ForgotPasswordView from "./views/ForgotPasswordView";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import InfoView from "./pages/InfoView";
-import WorkspaceView from "./pages/WorkspaceView";
-import AdminView from "./pages/AdminView";
-import UserView from "./pages/UserView";
-import { PackagesView, PackageView } from "./pages/admin/PackagesView";
+import InfoView from "./views/InfoView";
+import WorkspaceView from "./views/WorkspaceView";
+import AdminView from "./views/AdminView";
+import UserView from "./views/UserView";
+import { PackagesView, PackageView } from "./views/admin/PackagesView";
 import Auth from "./util/Auth";
-import UnauthorizedView from "./pages/errors/UnauthorizedView";
+import UnauthorizedView from "./views/errors/UnauthorizedView";
 
 // AXIOS CONFIG
 const routerBaseName = process.env.PUBLIC_URL;
