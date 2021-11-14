@@ -62,8 +62,8 @@ function App() {
             <AdminView user={user} employee={employee} badLogin={badLogin}/>
           </Route>
           <Route exact path="/admin/packages" component={PackagesView}/>
-          <Route exact path="/admin/packages/view" component={PackageView}/>
-          <Route exact path="/admin/packages/view/:id" component={PackageView}/>
+          <Route exact path="/admin/packages/add" component={PackageView}/>
+          <Route exact path="/admin/packages/:id" component={PackageView}/>
           <Route exact path="/signup" component={SignUpView}/>
           <Route exact path="/forgot-password" component={ForgotPasswordView}/>
           <Route exact path="/info" component={InfoView}/>

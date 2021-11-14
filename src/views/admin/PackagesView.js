@@ -11,14 +11,11 @@ export const PackagesView = () => {
 
     const getPacks = () => {
         const fetchPacks = async () => {
-            try{
+            try {
                 setPacks(await PackageAPI.getPackages());
             }
             catch(error){
-                console.log(error);
-                if (error.response && error.response.status === 401) { 
-                    setPacks(undefined);
-                }
+                if (error.response && error.response.status === 401) setPacks(undefined)
                 setError(error);
             }
         }
@@ -26,13 +23,6 @@ export const PackagesView = () => {
     }
 
     useEffect(getPacks, []);
-
-    useEffect(() => {
-        if(packs) {
-            console.info("PACKAGES INFO:");
-            console.info(packs);
-        }
-    }, [packs]); 
 
     if (error) return <h1 className="text-danger text-center">Algo deu errado....</h1>
     if (!packs) return <Loading/>
@@ -44,7 +34,7 @@ export const PackagesView = () => {
                     <div className="d-flex justify-content-between align-items-baseline">
                         <h3 className="font-weight-bold m-0"><i className="bi bi-box mr-2"></i> Pacotes</h3>
                         <Link className="pointer text-secondary h4 text-decoration-none m-0 text-reset"
-                            to="/admin/packages/view">
+                            to="/admin/packages/add">
                             Adicionar Pacote<i className="bi bi-plus font-weight-bold h3"></i>
                         </Link>
                     </div>
@@ -54,7 +44,7 @@ export const PackagesView = () => {
             <div className="row">
                 {packs.map((pack)=> (
                     <Link className="package-link bg-white col-3 m-3 rounded border border-primary text-decoration-none text-reset" key={pack.id}
-                        to={`/admin/packages/view/${pack.id}`}>
+                        to={`/admin/packages/${pack.id}`}>
                         <h5 className="text-muted">{pack.id}</h5>
                         <h2 className="text-center"><i className="bi bi-box"></i></h2>
                         <h3 className="text-center">{pack.name}</h3>
@@ -72,29 +62,29 @@ export const PackageView = () => {
     const [pack, setPack] = useState();
     const [error, setError] = useState();
 
-    const getPacks = () => {
-        const fetchPacks = async () => {
+    const getPack = () => {
+        const fetchPack = async () => {
             try{
                 setPack(await PackageAPI.getPackage(id));
             }
             catch(error){
-                if (error.response && error.response.status === 401) { 
-                    setPack(undefined);
-                }
+                if (error.response && error.response.status === 401) setPack();
                 setError(error);
             }
         }
-        return fetchPacks();
+
+        if(id) fetchPack();
     }
 
-    useEffect(getPacks, [id]);
+    useEffect(getPack, [id]);
 
     if (error) return <h1 className="text-danger text-center">Algo deu errado....</h1>
-    if (!pack) return <Loading/>
+    if (!pack && id) return <Loading/>
 
     return (
         <div className="container">
-            <PackageForm packageProp={pack}/>
+            {pack && <PackageForm packageProp={pack}/>}
+            {!pack && <PackageForm/>}
         </div>
     );
 }
