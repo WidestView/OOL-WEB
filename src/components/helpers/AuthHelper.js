@@ -1,5 +1,5 @@
 import { Redirect } from "react-router";
-import Unauthorized from "../../pages/Errors/Unauthorized";
+import Unauthorized from "../../pages/errors/Unauthorized";
 import Loading from "../Loading";
 
 export const AdminAuthHelper = (user, employee, badLogin) => {

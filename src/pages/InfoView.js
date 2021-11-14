@@ -2,7 +2,7 @@ import FAQ from "../components/business/FAQ"
 import PRIVACY from "../components/business/PRIVACY";
 import TERMS from "../components/business/TERMS";
 
-const Info = () => {
+const InfoView = () => {
     return ( 
         <div className="container">
             <div className="row mt-5">
@@ -30,4 +30,4 @@ const Info = () => {
      );
 }
  
-export default Info;
+export default InfoView;

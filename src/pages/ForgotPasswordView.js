@@ -1,4 +1,4 @@
-const ForgotPassword = () => {
+const ForgotPasswordView = () => {
     return (
         <div className="forgot-password">
             <div className="container">
@@ -12,4 +12,4 @@ const ForgotPassword = () => {
      );
 }
  
-export default ForgotPassword;
+export default ForgotPasswordView;

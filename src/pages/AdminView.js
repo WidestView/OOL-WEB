@@ -1,7 +1,7 @@
 import ChoicesGrid from "../components/ChoicesGrid";
 import {AdminAuthHelper} from '../components/helpers/AuthHelper';
 
-const Admin = ({user, employee, badLogin}) => {
+const AdminView = ({user, employee, badLogin}) => {
 
     const cadastroChoices = [
         {
@@ -57,4 +57,4 @@ const Admin = ({user, employee, badLogin}) => {
     );
 }
  
-export default Admin;
+export default AdminView;

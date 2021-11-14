@@ -2,22 +2,19 @@ import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from 'axios';
 
-import Home from "./pages/Home";
-import NotFound from "./pages/Errors/NotFound";
-import SignUp from "./pages/SignUp";
-import ForgotPassword from "./pages/ForgotPassword";
+import HomeView from "./pages/HomeView";
+import NotFound from "./pages/errors/NotFoundView";
+import SignUpView from "./pages/SignUpView";
+import ForgotPasswordView from "./pages/ForgotPasswordView";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import Info from "./pages/Info";
-import Workspace from "./pages/Workspace";
-import Admin from "./pages/Admin";
+import InfoView from "./pages/InfoView";
+import WorkspaceView from "./pages/WorkspaceView";
+import AdminView from "./pages/AdminView";
 import UserView from "./pages/UserView";
-import Users from "./pages/Admin/Users";
-import Equipments from "./pages/Admin/Equipments";
-import { PackagesView, PackageView } from "./pages/Admin/PackagesView";
-import UserAPI from "./api/UserAPI";
-import EmployeeAPI from "./api/EmployeeAPI";
+import { PackagesView, PackageView } from "./pages/admin/PackagesView";
+import Auth from "./util/Auth";
 
 // AXIOS CONFIG
 const routerBaseName = process.env.PUBLIC_URL;
@@ -42,87 +39,34 @@ axios.interceptors.request.use(
 function App() {
 
   const [user, setUser] = useState();
-  const [employee, setEmployee] = useState();
   const [badLogin, setBadLogin] = useState(false);
+  const [employee, setEmployee] = useState();
 
-  const refreshLogin = () => {
-    async function fetchUser() {
-      setBadLogin(false);
-
-      try {
-        setUser(await UserAPI.getUser());
-      }
-      catch(error){
-        if (error.response && error.response.status === 401) setUser();
-        setBadLogin(true);
-      } 
-    }
-
-    return fetchUser();
-  }
-
-  useEffect(refreshLogin, []);
-
-  useEffect(() => {
-    async function fetchEmployee() {
-      try {
-        setEmployee(await EmployeeAPI.getEmployee());
-      }
-      catch(error) {
-        if (error.response && error.response.status === 401) { 
-          setEmployee(null);
-        }
-      }
-    }
-
-    if (user && UserAPI.isEmployee(user)) fetchEmployee();
-
-  }, [user]);
+  useEffect(() => Auth.refreshLogin(setUser, setBadLogin), []);
+  useEffect(() => Auth.checkAndFetchEmployee(user, setEmployee), [user]);
 
   return (
     <div className="App bg-light">
       <Router basename={routerBaseName}>
-        <Navbar user={user} employee={employee} refreshLogin={refreshLogin}/>
+        <Navbar user={user} employee={employee} refreshLogin={() => Auth.refreshLogin(setUser, setBadLogin)}/>
         <Switch>
-          <Route exact path={["/", "/home", "/ool-web", "/OOL-WEB"]}>
-            <Home/>
-          </Route>
+          <Route exact path={["/", "/home"]} component={HomeView}/>
           <Route exact path="/user">
             <UserView user={user} badLogin={badLogin}/>
           </Route>
           <Route exact path="/workspace">
-            <Workspace user={user} employee={employee} badLogin={badLogin}/>
+            <WorkspaceView user={user} employee={employee} badLogin={badLogin}/>
           </Route>
           <Route exact path="/admin">
-            <Admin user={user} employee={employee} badLogin={badLogin}/>
+            <AdminView user={user} employee={employee} badLogin={badLogin}/>
           </Route>
-          <Route exact path="/admin/users">
-            <Users/>
-          </Route>
-          <Route exact path="/admin/equipments">
-            <Equipments/>
-          </Route>
-          <Route exact path="/admin/packages">
-            <PackagesView/>
-          </Route>
-          <Route exact path="/admin/packages/view">
-            <PackageView/>
-          </Route>
-          <Route exact path="/admin/packages/view/:id">
-            <PackageView/>
-          </Route>
-          <Route exact path="/signup">
-            <SignUp/>
-          </Route>
-          <Route exact path="/forgot-password">
-            <ForgotPassword/>
-          </Route>
-          <Route exact path="/info">
-            <Info/>
-          </Route>
-          <Route path="*">
-            <NotFound/>
-          </Route>
+          <Route exact path="/admin/packages" component={PackagesView}/>
+          <Route exact path="/admin/packages/view" component={PackageView}/>
+          <Route exact path="/admin/packages/view/:id" component={PackageView}/>
+          <Route exact path="/signup" component={SignUpView}/>
+          <Route exact path="/forgot-password" component={ForgotPasswordView}/>
+          <Route exact path="/info" component={InfoView}/>
+          <Route path="*" component={NotFound}/>
         </Switch>
         <Footer/>
       </Router>

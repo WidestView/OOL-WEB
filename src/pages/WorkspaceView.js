@@ -1,7 +1,7 @@
 import { AdminAuthHelper } from '../components/helpers/AuthHelper';
 import PhotographerWorkspace from '../components/workspaces/PhotographerWorkspace';
 
-const Workspace = ({user, employee, badLogin}) => {
+const WorkspaceView = ({user, employee, badLogin}) => {
 
     const Workspaces = [
         null,                                           // 0
@@ -15,4 +15,4 @@ const Workspace = ({user, employee, badLogin}) => {
      );
 }
  
-export default Workspace;
+export default WorkspaceView;

@@ -9,7 +9,7 @@ import woman_photoshoot from "../assets/svgs/photography/woman_photoshoot.svg";
 import woman_polaroid from "../assets/svgs/photography/woman_polaroid.svg";
 
 
-const Home = () => {
+const HomeView = () => {
     return ( 
         <div className="home">
             
@@ -131,4 +131,4 @@ const Home = () => {
      );
 }
  
-export default Home;
+export default HomeView;

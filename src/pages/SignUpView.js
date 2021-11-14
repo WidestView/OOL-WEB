@@ -1,4 +1,4 @@
-const SignUp = () => {
+const SignUpView = () => {
     return ( 
         <div className="signup">
             <div className="container">
@@ -12,4 +12,4 @@ const SignUp = () => {
      );
 }
  
-export default SignUp;
+export default SignUpView;
