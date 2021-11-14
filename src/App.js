@@ -16,6 +16,8 @@ import UserView from "./pages/UserView";
 import Users from "./pages/Admin/Users";
 import Equipments from "./pages/Admin/Equipments";
 import { PackagesView, PackageView } from "./pages/Admin/PackagesView";
+import UserAPI from "./api/UserAPI";
+import EmployeeAPI from "./api/EmployeeAPI";
 
 // AXIOS CONFIG
 const routerBaseName = process.env.PUBLIC_URL;
@@ -39,25 +41,23 @@ axios.interceptors.request.use(
 // App config
 function App() {
 
-  const [user, setUser] = useState(undefined);
-  const [employee, setEmployee] = useState(undefined);
+  const [user, setUser] = useState();
+  const [employee, setEmployee] = useState();
   const [badLogin, setBadLogin] = useState(false);
 
   const refreshLogin = () => {
     async function fetchUser() {
       setBadLogin(false);
 
-      try{
-        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/user/greet`);
-        setUser(res.data);
+      try {
+        setUser(await UserAPI.getUser());
       }
       catch(error){
-        if (error.response && error.response.status === 401) { 
-          setUser(undefined);
-        }
+        if (error.response && error.response.status === 401) setUser();
         setBadLogin(true);
-      }
+      } 
     }
+
     return fetchUser();
   }
 
@@ -65,29 +65,19 @@ function App() {
 
   useEffect(() => {
     async function fetchEmployee() {
-      try{
-        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/Employee/info`);
-        setEmployee(res.data);
+      try {
+        setEmployee(await EmployeeAPI.getEmployee());
       }
-      catch(error){
+      catch(error) {
         if (error.response && error.response.status === 401) { 
           setEmployee(null);
         }
       }
     }
-    if (user) {
-      console.info("USER INFO:");
-      console.info(user);
-      if (user.kind === "employee") fetchEmployee();
-    }
-  }, [user]);
 
-  useEffect(() => {
-    if (employee) {
-      console.info("EMPLOYEE INFO:");
-      console.info(employee);
-    }
-  }, [employee]);
+    if (user && UserAPI.isEmployee(user)) fetchEmployee();
+
+  }, [user]);
 
   return (
     <div className="App bg-light">
