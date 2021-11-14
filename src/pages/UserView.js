@@ -1,15 +1,14 @@
-import ImageHelper from "../components/helpers/ImageHelper";
+import ImageFromUrl from "../components/ImageFromUrl";
 import UploadProfileModal from '../components/UploadProfileModal';
 import Auth from "../util/Auth";
 
 const UserView = ({user, badLogin}) => {
-
     return Auth.userAuth(user, badLogin)?? ( 
         <div className="container userview">
             <div className="row mt-3">
                 <div className="col-3">
                     <div type="button" className="userImageButton" data-toggle="modal" data-target="#uploadProfileModal">
-                        <ImageHelper className="w-100 userimage" url={`${process.env.REACT_APP_API_URL}/api/user/picture`} placeholder="https://www.processindustryforum.com/wp-content/uploads/2018/10/male-placeholder.jpeg"/>
+                        <ImageFromUrl className="w-100 userimage" url={`${process.env.REACT_APP_API_URL}/api/user/picture`} placeholderSrc="https://www.processindustryforum.com/wp-content/uploads/2018/10/male-placeholder.jpeg"/>
                         <div className="upload-text d-flex align-items-center w-100 h-100">
                             <h2 className="text-center w-100">Enviar foto <i className="bi bi-upload"></i></h2>
                         </div>
