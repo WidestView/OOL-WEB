@@ -7,7 +7,7 @@ class Auth {
     static refreshLogin = (setUser, setBadLogin) => {
         async function fetchUser() {
             setBadLogin(false);
-            try { setUser(await UserAPI.getUser()) }
+            try { setUser(await UserAPI.getSessionUser()) }
             catch(error){
                 if (error.response && error.response.status === 401) setUser();
                 setBadLogin(true);

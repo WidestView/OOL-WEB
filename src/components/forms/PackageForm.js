@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useEffect } from "react/cjs/react.development";
+import Swal from "sweetalert2";
 import PackageAPI from "../../api/PackageAPI";
 import ErrorPopup from "../ErrorPopup";
 import NavigationLayout from "../layouts/NavigationLayout";
@@ -42,6 +43,12 @@ const PackageForm = ({packageProp}) => {
         try {
             if (updating) setPack(await PackageAPI.putPackage(pack.id, newPack)); // Update
             else setPack(await PackageAPI.postPackage(newPack)); // Create
+            Swal.fire({
+                title: 'Prontinho!',
+                text: 'Seu pacote está lindo 🤩',
+                icon: 'success',
+                confirmButtonText: 'Uhull!!'
+            }).then(handleToggle);
         }
         catch(error) {
             setError(error);
@@ -95,7 +102,7 @@ const PackageForm = ({packageProp}) => {
                                 <div className="input-group-prepend">
                                 <div className="input-group-text">R$</div>
                                 </div>
-                                <input type="number" name="pricePerPhoto" min="1" step="any" readOnly={reading} defaultValue={pack.pricePerPhoto} className="form-control" id="pricePerPhotoInput" placeholder="Preço por foto"/>
+                                <input type="number" name="pricePerPhoto" min="0" step="any" readOnly={reading} defaultValue={pack.pricePerPhoto} className="form-control" id="pricePerPhotoInput" placeholder="Preço por foto"/>
                             </div>
                         </div>
                     </div>

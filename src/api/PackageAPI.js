@@ -12,11 +12,6 @@ class PackageAPI {
         }
         return packs;
     }
-    
-    static postPackage = async (pack) => {
-        let res = await axios.post(`${process.env.REACT_APP_API_URL}/api/package`, pack);
-        return res.data;
-    }
 
     static getPackage = async (id) => {
         let res = await axios.get(`${process.env.REACT_APP_API_URL}/api/package/${id}`);
@@ -27,10 +22,25 @@ class PackageAPI {
         }
         return pack;
     }
+    
+    static postPackage = async (newPack) => {
+        let res = await axios.post(`${process.env.REACT_APP_API_URL}/api/package`, newPack);
+        let pack = res.data;
+        if(pack && isDev()){
+            console.info("PACKAGE CREATED INFO:");
+            console.info(pack);
+        }
+        return pack;
+    }
 
-    static putPackage = async (id, pack) => { //TODO: ADD PUT ON API
-        let res = await axios.put(`${process.env.REACT_APP_API_URL}/api/package/${id}`, pack);
-        return res.data;
+    static putPackage = async (id, newPack) => {
+        let res = await axios.put(`${process.env.REACT_APP_API_URL}/api/package/${id}`, newPack);
+        let pack = res.data;
+        if(pack && isDev()){
+            console.info("PACKAGE UPDATED INFO:");
+            console.info(pack);
+        }
+        return pack;
     }
 }
 

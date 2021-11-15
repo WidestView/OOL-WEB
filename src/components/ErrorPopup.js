@@ -1,7 +1,14 @@
+import { useHistory } from "react-router";
 import Swal from "sweetalert2";
 
 const ErrorPopup = ({error}) => {
     
+    const history = useHistory();
+
+    const handleGoBack = () => {
+        history.goBack();
+    }
+
     console.error(error);
 
     Swal.fire({
@@ -9,9 +16,9 @@ const ErrorPopup = ({error}) => {
         text: 'Não temos certeza do que rolou',
         icon: 'error',
         confirmButtonText: 'Ok :('
-    });
+    }).then(handleGoBack);
 
-    return;
+    return null;
 }
  
 export default ErrorPopup;
