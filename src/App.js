@@ -13,7 +13,8 @@ import InfoView from "./views/InfoView";
 import WorkspaceView from "./views/WorkspaceView";
 import AdminView from "./views/AdminView";
 import UserView from "./views/UserView";
-import { PackagesView, PackageView } from "./views/admin/PackagesView";
+import PackagesView from "./views/admin/PackagesView";
+import PackageView from "./views/admin/PackageView";
 import Auth from "./util/Auth";
 import UnauthorizedView from "./views/errors/UnauthorizedView";
 

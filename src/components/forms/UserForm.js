@@ -27,7 +27,7 @@ const UserForm = ({userProp}) => {
         const target = event.target;
         const newUser = user;
 
-        // NEW USER BLEND  
+        //TODO: NEW USER BLEND  
 
         try {
             if (updating) setUser(await UserAPI.putUser(user.id, newUser)); // Update
