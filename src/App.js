@@ -17,6 +17,7 @@ import PackagesView from "./views/admin/PackagesView";
 import PackageView from "./views/admin/PackageView";
 import Auth from "./util/Auth";
 import UnauthorizedView from "./views/errors/UnauthorizedView";
+import UsersView from "./views/admin/UsersView";
 
 // AXIOS CONFIG
 const routerBaseName = process.env.PUBLIC_URL;
@@ -62,6 +63,9 @@ function App() {
           <Route exact path="/admin">
             <AdminView user={user} employee={employee} badLogin={badLogin}/>
           </Route>
+          <Route exact path="/admin/users" component={UsersView}/>
+          <Route exact path="/admin/users/add" component={UserView}/>
+          <Route exact path="/admin/users/:id" component={UserView}/>
           <Route exact path="/admin/packages" component={PackagesView}/>
           <Route exact path="/admin/packages/add" component={PackageView}/>
           <Route exact path="/admin/packages/:id" component={PackageView}/>
