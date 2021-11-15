@@ -32,11 +32,6 @@ class PackageAPI {
         let res = await axios.put(`${process.env.REACT_APP_API_URL}/api/package/${id}`, pack);
         return res.data;
     }
-
-    static delPackage = async (id) => { //TODO: ADD DELETE ON API
-        let res = await axios.delete(`${process.env.REACT_APP_API_URL}/api/package/${id}`);
-        return res.data;
-    }
 }
 
 export default PackageAPI;
