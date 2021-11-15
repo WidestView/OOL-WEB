@@ -17,10 +17,10 @@ const PackageForm = ({packageProp}) => {
         description: "",
         baseValue: 0.00,
         pricePerPhoto: 0.00,
-        imageQuantity: 0,
+        imageQuantity: 10,
         quantityMultiplier: null,
         maxInterations: null,
-        available: false
+        available: true
     });
 
     useEffect(() => {
@@ -39,6 +39,7 @@ const PackageForm = ({packageProp}) => {
         newPack.description = target.description.value;
         newPack.baseValue = Number(target.baseValue.value);
         newPack.pricePerPhoto = Number(target.pricePerPhoto.value);
+        newPack.imageQuantity = Number(target.imageQuantity.value);
 
         try {
             if (updating) setPack(await PackageAPI.putPackage(pack.id, newPack)); // Update
@@ -105,6 +106,14 @@ const PackageForm = ({packageProp}) => {
                                 <input type="number" name="pricePerPhoto" min="0" step="any" readOnly={reading} defaultValue={pack.pricePerPhoto} className="form-control" id="pricePerPhotoInput" placeholder="Preço por foto"/>
                             </div>
                         </div>
+                        <div className="form-group col-3">
+                            <label htmlFor="imageQuantityInput">Quantidade de fotos</label>
+                            <input type="text" name="imageQuantity" readOnly={reading} defaultValue={pack.imageQuantity} className="form-control" id="imageQuantityInput" aria-describedby="imageQuantityHelp" placeholder="Quantidade de imagens no pacote" required/>
+                            <small id="imageQuantityHelp" className="form-text text-muted"></small>
+                        </div>
+                        {
+                            //TODO: IMPLEMENT MAXINTERATIONS AND QUANTITYMULTIPLIER
+                        }
                     </div>
                 </PageFormLayout>
         </NavigationLayout>
