@@ -6,7 +6,7 @@ const InfoView = () => {
     return ( 
         <div className="container">
             <div className="row mt-5">
-                <div className="col-12">
+                <div className="col-12 text-titillium">
                     <h1 className="text-center display-3">Página de Informação</h1>
                     <h6 className="text-center mt-3">Encontre aqui nossas <a href="#FAQ">Perguntas frequentes</a>, <a href="#TERMS">Termos de serviço</a> e <a href="#PRIVACY">Política de privacidade</a></h6>
                 </div>

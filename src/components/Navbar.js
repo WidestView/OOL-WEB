@@ -16,8 +16,8 @@ const Navbar = ({user, employee, refreshLogin}) => {
             <div className="navbar-buttons d-flex justify-content-between">
             {
                 !user &&
-                <div className="dropdown ml-3">
-                    <button className={`btn btn-secondary px-3`} type="button" id="dropdownLogin" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div className="dropdown ml-3 text-titillium">
+                    <button className={`btn btn-secondary px-3 font-weight-bold`} type="button" id="dropdownLogin" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Entrar
                     </button>
                     <div className="dropdown-menu dropdown-menu-right">

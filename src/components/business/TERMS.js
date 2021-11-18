@@ -1,8 +1,8 @@
 import personal from "../../assets/svgs/business/personal_data.svg";
 
 const TERMS = () => {
-    return ( <div>
-        <h1 className="text-center mb-5">Termos de serviço</h1>
+    return ( <div className="text-titillium">
+        <h2 className="text-center mb-5 font-weight-bold">Termos de serviço</h2>
         <p>
             Consequat culpa commodo pariatur consequat est laboris occaecat. Non in adipisicing cillum id veniam aute fugiat. Incididunt est est proident consequat in eu anim sint eiusmod id voluptate. Nostrud reprehenderit fugiat adipisicing fugiat aliqua. Consequat ullamco deserunt nostrud id id ad cillum deserunt nisi incididunt aliquip. Non tempor nulla Lorem sint mollit consectetur et eu ea dolore magna irure esse.
         </p>
