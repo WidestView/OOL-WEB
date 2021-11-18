@@ -1,8 +1,8 @@
 import privacy from "../../assets/svgs/business/privacy.svg";
 
 const PRIVACY = () => {
-    return ( <div>
-        <h1 className="text-center mb-5">Nossa política de privacidade</h1>
+    return ( <div className="text-titillium">
+        <h2 className="text-center mb-5 font-weight-bold">Nossa política de privacidade</h2>
         <div className="row ">
             <div className="col-12 col-lg-4 d-flex justify-content-center pb-3">
                 <img src={privacy} className="w-75" alt="Your data is yours"/>
