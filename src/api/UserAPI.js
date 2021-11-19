@@ -3,7 +3,7 @@ import { isDev } from "../util/Env";
 
 class UserAPI {
 
-    static getUsers = async () => {
+    static get = async () => {
         let res = await axios.get(`YET TO IMPLEMENT`); //TODO: IMPLEMENT ON API
         let user = res.data;
         if(user && isDev()){
@@ -13,7 +13,7 @@ class UserAPI {
         return user;
     }
 
-    static getUser = async (id) => {
+    static get = async (id) => {
         let res = await axios.get(`YET TO IMPLEMENT`); //TODO: IMPLEMENT ON API
         let user = res.data;
         if(user && isDev()){
@@ -33,8 +33,8 @@ class UserAPI {
         return user;
     }
 
-    static postUser = async (newUser) => {
-        let res = await axios.post(`YET TO IMPLEMENT`, newUser); //TODO: IMPLEMENT ON API
+    static post = async (newUser) => {
+        let res = await axios.post(`${process.env.REACT_APP_API_URL}/api/user`, newUser);
         let user = res.data;
         if(user && isDev()){
             console.info("USER CREATED INFO:");
@@ -43,7 +43,7 @@ class UserAPI {
         return user;
     }
 
-    static putUser = async (id, newUser) => {
+    static put = async (id, newUser) => {
         let res = await axios.put(`YET TO IMPLEMENT`, newUser); //TODO: IMPLEMENT ON API
         let user = res.data;
         if(user && isDev()){

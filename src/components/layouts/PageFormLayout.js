@@ -1,25 +1,141 @@
-const PageFormLayout = (props) => {
+import { useEffect, useState } from "react";
+import Swal from "sweetalert2";
+
+const PageFormLayout = ({title, icon, formStruct, api, id, successMessage = "Tudo certinho 😁", defaultReading = false, editable = false}) => {
+
+    const $ = window.$;
+
+    const [reading, setReading] = useState(defaultReading);
+    
+    const [data, setData] = useState({id: id});
+    const [validId, setValidId] = useState(true);
+
+    useEffect(()=> {
+        const fetch = async () => {
+            try { 
+                setData(await api.get(data? data.id : null));
+                setValidId(true);
+            }
+            catch (e) { setValidId(false); }
+        }
+
+        fetch()
+    }, [api, data]);
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+
+        const newData = data;
+
+        formStruct.forEach(row => {
+            formStruct.forEach(item => {
+                if (event.target[item.name]) {
+                    switch (item.type) { //TODO: ADD CHECKBOX AND SPINNER
+                        case "number":
+                            newData[item.name] = Number(event.taget[item.name].value);
+                            break;
+                        default:
+                            newData[item.name] = event.taget[item.name].value;
+                            break;
+                    }
+                }
+            });
+        });
+
+        try {
+
+            if (validId) await api.put(id, newData) // Update
+            else await api.post(newData) // Create
+
+            const fetch = async () => {
+                try { 
+                    setData(await api.get(data? data.id : null));
+                    setValidId(true);
+                }
+                catch (e) { setValidId(false); }
+            }
+            
+            await fetch();
+
+            Swal.fire({
+                title: 'Tudo certo!',
+                text: successMessage,
+                icon: 'success',
+                confirmButtonText: 'Ebaa!!'
+            }).then(toggleReading);
+        }
+        catch(e) {            
+            let res = e.response;
+
+            if (res.status === 400) {
+                let errors = res.data.errors;
+
+                console.log(errors);
+
+                if(errors) {
+
+                    formStruct.forEach(row => {
+                        row.forEach(field => {
+                            let input = $(`#${field.name}Input`)
+                            let validator = $(`#${field.name}Validation`);
+
+                            let error = errors[field.name];
+
+                            if (input) input.addClass(`is-${error? "invalid" : "valid"}`);
+                            if (validator) validator.text(error? error : "");
+                        })
+                    })
+
+                }
+            }
+        }
+    }
+
+    const toggleReading = () => {
+        setReading(!reading);
+    }
+
     return ( 
         <div className="mt-3">
             <div className="d-flex justify-content-lg-between mb-2">
+                <div><h1><i className={`bi bi-${icon}`}></i> {title}</h1></div>
                 <div>
-                    <h1><i className={`bi bi-${props.icon}`}></i> {props.title}</h1>
-                </div>
-                <div>
-                    { typeof props.onEdit === "function" && 
-                        <button className="btn btn-sm rounded" onClick={props.onEdit}><i className="bi bi-pencil-square"></i></button>
-                    }
+                    { editable && data && data.id && <button className="btn btn-sm rounded" onClick={toggleReading}><i className="bi bi-pencil-square"></i></button> }
                 </div>
             </div>
-            <form onSubmit={props.onSubmit}>
+            <form onSubmit={handleSubmit}>
                 <div className="bg-white rounded p-4">
-                    {props.children}
+                    {
+                        formStruct.map((row, rowIndex) => (
+                            <div className="form-row" key={`row-${rowIndex}`}>
+                                {
+                                    row.map((field, fieldIndex) => (
+                                        <div className={`form-group col-${field.colSize? field.colSize : ""}`} key={`field-${fieldIndex}`}>
+                                            <label htmlFor={field.name + "Input"}>{field.displayName?? field.name}</label>
+                                            <input 
+                                                type={field.type} 
+                                                name={field.name} 
+                                                id={field.name + "Input"}
+                                                defaultValue={field.defaultValue}
+                                                readOnly={reading}
+                                                className="form-control" 
+                                                aria-describedby={field.help? field.name + "Help" : undefined} 
+                                                placeholder={field.placeholder} 
+                                                required={field.required}/>
+                                            <div className="invalid-feedback" id={field.name + "Validation"}></div>
+                                            {field.help && <small id={field.name + "Help"} className="form-text text-muted">{field.help}</small> }
+                                        </div>
+                                    ))
+                                }
+                            </div>
+                        ))
+                    }
                 </div>
-                { typeof props.onSubmit === "function" && 
-                <div className="d-flex justify-content-end">
-                    <button type="submit" className="btn btn-outline-primary mt-3">Enviar</button>
-                </div>
-            }
+                { !reading && 
+                    <div className="d-flex justify-content-end">
+                        <button type="submit" className="btn btn-outline-primary mt-3">Enviar</button>
+                    </div>
+                }
             </form>
         </div> 
     );
