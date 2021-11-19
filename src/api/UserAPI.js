@@ -53,7 +53,22 @@ class UserAPI {
         return user;
     }
 
-    static isEmployee = (user) => (user.kind === "employee")
+    static isEmployee = (user) => (user.kind === "employee");
+
+    static getFormStruct = () => [
+        [
+            { 
+                name: "Name", 
+                value: null, 
+                displayName: "Nome", 
+                type: "text", 
+                placeholder: "Nome do usuário", 
+                help: null, 
+                required: false,
+                colSize: null
+            }
+        ]     
+    ]
 }
 
 export default UserAPI;

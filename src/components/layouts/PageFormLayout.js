@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 
-const PageFormLayout = ({title, icon, formStruct, api, id, successMessage = "Tudo certinho 😁", defaultReading = false, editable = false}) => {
+const PageFormLayout = ({title, icon, api, id, successMessage = "Tudo certinho 😁", defaultReading = false, editable = false}) => {
 
     const $ = window.$;
+
+    const formStruct = api.getFormStruct();
 
     const [reading, setReading] = useState(defaultReading);
     
@@ -28,14 +30,14 @@ const PageFormLayout = ({title, icon, formStruct, api, id, successMessage = "Tud
         const newData = data;
 
         formStruct.forEach(row => {
-            formStruct.forEach(item => {
+            row.forEach(item => {
                 if (event.target[item.name]) {
                     switch (item.type) { //TODO: ADD CHECKBOX AND SPINNER
                         case "number":
-                            newData[item.name] = Number(event.taget[item.name].value);
+                            newData[item.name] = Number(event.target[item.name].value);
                             break;
                         default:
-                            newData[item.name] = event.taget[item.name].value;
+                            newData[item.name] = event.target[item.name].value;
                             break;
                     }
                 }
@@ -70,8 +72,6 @@ const PageFormLayout = ({title, icon, formStruct, api, id, successMessage = "Tud
             if (res.status === 400) {
                 let errors = res.data.errors;
 
-                console.log(errors);
-
                 if(errors) {
 
                     formStruct.forEach(row => {
@@ -81,7 +81,11 @@ const PageFormLayout = ({title, icon, formStruct, api, id, successMessage = "Tud
 
                             let error = errors[field.name];
 
-                            if (input) input.addClass(`is-${error? "invalid" : "valid"}`);
+                            if (input) {
+                                input.removeClass("is-valid");
+                                input.removeClass("is-invalid");
+                                input.addClass(`is-${error? "invalid" : "valid"}`)
+                            };
                             if (validator) validator.text(error? error : "");
                         })
                     })
