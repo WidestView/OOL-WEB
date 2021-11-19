@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
+import Loading from "../Loading";
 
 const PageFormLayout = ({title, icon, api, id, successMessage = "Tudo certinho ðŸ˜", defaultReading = false, editable = false}) => {
 
@@ -9,25 +10,25 @@ const PageFormLayout = ({title, icon, api, id, successMessage = "Tudo certinho ð
 
     const [reading, setReading] = useState(defaultReading);
     
-    const [data, setData] = useState({id: id});
+    const [data, setData] = useState();
     const [validId, setValidId] = useState(true);
 
     useEffect(()=> {
         const fetch = async () => {
             try { 
-                setData(await api.get(data? data.id : null));
+                setData(await api.get(id));
                 setValidId(true);
             }
-            catch (e) { setValidId(false); }
+            catch (e) { setData(); setValidId(false); }
         }
 
-        fetch()
-    }, [api, data]);
+        if(id) fetch();
+    }, [id, api]);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        const newData = data;
+        const newData = data?? {};
 
         formStruct.forEach(row => {
             row.forEach(item => {
@@ -46,18 +47,30 @@ const PageFormLayout = ({title, icon, api, id, successMessage = "Tudo certinho ð
 
         try {
 
-            if (validId) await api.put(id, newData) // Update
+            if (data && data.id) await api.put(data.id, newData) // Update
             else await api.post(newData) // Create
 
             const fetch = async () => {
                 try { 
-                    setData(await api.get(data? data.id : null));
+                    setData(await api.get(id));
                     setValidId(true);
                 }
-                catch (e) { setValidId(false); }
+                catch (e) { setData(); setValidId(false); }
             }
             
             await fetch();
+
+            formStruct.forEach(row => {
+                row.forEach(field => {
+
+                    let input = $(`#${field.name}Input`)
+
+                    if (input) {
+                        input.removeClass(`is-invalid`);
+                        input.addClass(`is-valid`);
+                    };
+                })
+            })
 
             Swal.fire({
                 title: 'Tudo certo!',
@@ -82,9 +95,9 @@ const PageFormLayout = ({title, icon, api, id, successMessage = "Tudo certinho ð
                             let error = errors[field.name];
 
                             if (input) {
-                                input.removeClass("is-valid");
-                                input.removeClass("is-invalid");
-                                input.addClass(`is-${error? "invalid" : "valid"}`)
+                                input.removeClass(`is-valid`);
+                                input.removeClass(`is-invalid`);
+                                input.addClass(`is-${error? "invalid" : "valid"}`);
                             };
                             if (validator) validator.text(error? error : "");
                         })
@@ -98,6 +111,8 @@ const PageFormLayout = ({title, icon, api, id, successMessage = "Tudo certinho ð
     const toggleReading = () => {
         setReading(!reading);
     }
+
+    if (id && validId && !data) return <Loading/>
 
     return ( 
         <div className="mt-3">
@@ -120,7 +135,7 @@ const PageFormLayout = ({title, icon, api, id, successMessage = "Tudo certinho ð
                                                 type={field.type} 
                                                 name={field.name} 
                                                 id={field.name + "Input"}
-                                                defaultValue={field.defaultValue}
+                                                defaultValue={data? (data[field.name.toLowerCase()]? data[field.name.toLowerCase()] : undefined) : undefined}
                                                 readOnly={reading}
                                                 className="form-control" 
                                                 aria-describedby={field.help? field.name + "Help" : undefined} 

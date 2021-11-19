@@ -11,7 +11,7 @@ const PackagesView = () => {
     const getPacks = () => {
         const fetchPacks = async () => {
             try {
-                setPacks(await PackageAPI.getPackages());
+                setPacks(await PackageAPI.get());
             }
             catch(error){
                 if (error.response && error.response.status === 401) setPacks(undefined)
