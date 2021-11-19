@@ -1,23 +1,22 @@
 import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from 'axios';
-
-import HomeView from "./views/HomeView";
-import NotFound from "./views/errors/NotFoundView";
-import SignUpView from "./views/SignUpView";
-import ForgotPasswordView from "./views/ForgotPasswordView";
+import Auth from "./util/Auth";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import InfoView from "./views/InfoView";
-import WorkspaceView from "./views/WorkspaceView";
-import AdminView from "./views/AdminView";
-import UserView from "./views/UserView";
+import HomeView from "./views/home/HomeView";
+import InfoView from "./views/home/InfoView";
+import ProfileView from "./views/user/ProfileView";
+import SignUpView from "./views/user/SignUpView";
+import WorkspaceView from "./views/employee/WorkspaceView";
+import AdminView from "./views/admin/AdminView";
 import PackagesView from "./views/admin/PackagesView";
 import PackageView from "./views/admin/PackageView";
-import Auth from "./util/Auth";
-import UnauthorizedView from "./views/errors/UnauthorizedView";
 import UsersView from "./views/admin/UsersView";
+import UserView from "./views/admin/UserView";
+import NotFoundView from "./views/errors/NotFoundView";
+import UnauthorizedView from "./views/errors/UnauthorizedView";
 
 // AXIOS CONFIG
 const routerBaseName = process.env.PUBLIC_URL;
@@ -55,7 +54,7 @@ function App() {
         <Switch>
           <Route exact path={["/", "/home"]} component={HomeView}/>
           <Route exact path="/user">
-            <UserView user={user} badLogin={badLogin}/>
+            <ProfileView user={user} badLogin={badLogin}/>
           </Route>
           <Route exact path="/workspace">
             <WorkspaceView user={user} employee={employee} badLogin={badLogin}/>
@@ -70,10 +69,9 @@ function App() {
           <Route exact path="/admin/packages/add" component={PackageView}/>
           <Route exact path="/admin/packages/:id" component={PackageView}/>
           <Route exact path="/signup" component={SignUpView}/>
-          <Route exact path="/forgot-password" component={ForgotPasswordView}/>
           <Route exact path="/info" component={InfoView}/>
           <Route exact path="/401" component={UnauthorizedView}/>
-          <Route path="*" component={NotFound}/>
+          <Route path="*" component={NotFoundView}/>
         </Switch>
         <Footer/>
       </Router>

@@ -1,8 +1,8 @@
-import ImageFromUrl from "../components/ImageFromUrl";
-import UploadProfileModal from '../components/UploadProfileModal';
-import Auth from "../util/Auth";
+import ImageFromUrl from "../../components/ImageFromUrl";
+import UploadProfileModal from '../../components/UploadProfileModal';
+import Auth from "../../util/Auth";
 
-const UserView = ({user, badLogin}) => {
+const ProfileView = ({user, badLogin}) => {
     return Auth.userAuth(user, badLogin)?? ( 
         <div className="container userview">
             <div className="row mt-3">
@@ -29,4 +29,4 @@ const UserView = ({user, badLogin}) => {
         </div> );
 }
  
-export default UserView;
+export default ProfileView;

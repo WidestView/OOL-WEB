@@ -24,7 +24,6 @@ const Navbar = ({user, employee, refreshLogin}) => {
                         <LoginForm callback={refreshLogin}/>
                         <div className="dropdown-divider"></div>
                         <Link className="dropdown-item" to="/signup">Novo aqui? Inscreva-se!</Link>
-                        <Link className="dropdown-item" to="/forgot-password">Esqueceu sua senha?</Link>
                     </div>
                 </div>
             }

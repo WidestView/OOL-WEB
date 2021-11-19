@@ -1,6 +1,6 @@
-import FAQ from "../components/business/FAQ"
-import PRIVACY from "../components/business/PRIVACY";
-import TERMS from "../components/business/TERMS";
+import FAQ from "../../components/business/FAQ"
+import PRIVACY from "../../components/business/PRIVACY";
+import TERMS from "../../components/business/TERMS";
 
 const InfoView = () => {
     return ( 

@@ -1,5 +1,5 @@
-import ChoicesGrid from "../components/ChoicesGrid";
-import Auth from "../util/Auth";
+import ChoicesGrid from "../../components/ChoicesGrid";
+import Auth from "../../util/Auth";
 
 const AdminView = ({user, employee, badLogin}) => {
 

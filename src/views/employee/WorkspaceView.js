@@ -1,5 +1,5 @@
-import PhotographerWorkspace from '../components/workspaces/PhotographerWorkspace';
-import Auth from '../util/Auth';
+import PhotographerWorkspace from '../../components/workspaces/PhotographerWorkspace';
+import Auth from '../../util/Auth';
 
 const WorkspaceView = ({user, employee, badLogin}) => {
 

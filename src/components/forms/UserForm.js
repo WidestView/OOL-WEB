@@ -24,7 +24,7 @@ const UserForm = ({userProp}) => {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        const target = event.target;
+        // const target = event.target;
         const newUser = user;
 
         //TODO: NEW USER BLEND  

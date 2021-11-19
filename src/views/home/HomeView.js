@@ -1,12 +1,12 @@
-import Banner from "../components/Banner";
+import Banner from "../../components/Banner";
 // import PackagesGrid from "../components/PackagesGrid";
 import { Link } from "react-router-dom";
-import FAQ from "../components/business/FAQ";
+import FAQ from "../../components/business/FAQ";
 
-import photo from "../assets/svgs/photography/photo.svg";
-import camera_photos from "../assets/svgs/photography/camera_photos.svg";
-import woman_photoshoot from "../assets/svgs/photography/woman_photoshoot.svg";
-import woman_polaroid from "../assets/svgs/photography/woman_polaroid.svg";
+import photo from "../../assets/svgs/photography/photo.svg";
+import camera_photos from "../../assets/svgs/photography/camera_photos.svg";
+import woman_photoshoot from "../../assets/svgs/photography/woman_photoshoot.svg";
+import woman_polaroid from "../../assets/svgs/photography/woman_polaroid.svg";
 
 
 const HomeView = () => {
