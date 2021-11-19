@@ -3,7 +3,18 @@ import { isDev } from "../util/Env";
 
 class PackageAPI {
 
-    static getPackages = async () => {
+    static get = async (id) => {
+
+        if (id) {
+            let res = await axios.get(`${process.env.REACT_APP_API_URL}/api/package/${id}`);
+            let pack = res.data;
+            if(pack && isDev()){
+                console.info("PACKAGE INFO:");
+                console.info(pack);
+            }
+            return pack;
+        }
+        
         let res = await axios.get(`${process.env.REACT_APP_API_URL}/api/package`);
         let packs = res.data;
         if(packs && isDev()){
@@ -12,18 +23,8 @@ class PackageAPI {
         }
         return packs;
     }
-
-    static getPackage = async (id) => {
-        let res = await axios.get(`${process.env.REACT_APP_API_URL}/api/package/${id}`);
-        let pack = res.data;
-        if(pack && isDev()){
-            console.info("PACKAGE INFO:");
-            console.info(pack);
-        }
-        return pack;
-    }
     
-    static postPackage = async (newPack) => {
+    static post = async (newPack) => {
         let res = await axios.post(`${process.env.REACT_APP_API_URL}/api/package`, newPack);
         let pack = res.data;
         if(pack && isDev()){
@@ -33,7 +34,7 @@ class PackageAPI {
         return pack;
     }
 
-    static putPackage = async (id, newPack) => {
+    static put = async (id, newPack) => {
         let res = await axios.put(`${process.env.REACT_APP_API_URL}/api/package/${id}`, newPack);
         let pack = res.data;
         if(pack && isDev()){
@@ -42,6 +43,31 @@ class PackageAPI {
         }
         return pack;
     }
+
+    static getFormStruct = () => [
+        [
+            { 
+                name: "Name", 
+                value: null, 
+                displayName: "Nome", 
+                type: "text", 
+                placeholder: "Nome do pacote", 
+                help: "Coloque o nome do pacote", 
+                required: false,
+                colSize: 5
+            },
+            { 
+                name: "Description", 
+                value: null, 
+                displayName: "Descrição", 
+                type: "text", 
+                placeholder: "Descrição do pacote", 
+                help: "Descreva o pacote", 
+                required: false,
+                colSize: 5
+            },
+        ]     
+    ]
 }
 
 export default PackageAPI;

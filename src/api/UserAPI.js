@@ -3,21 +3,22 @@ import { isDev } from "../util/Env";
 
 class UserAPI {
 
-    static get = async () => {
-        let res = await axios.get(`YET TO IMPLEMENT`); //TODO: IMPLEMENT ON API
-        let user = res.data;
-        if(user && isDev()){
-            console.info("USER INFO:");
-            console.info(user);
-        }
-        return user;
-    }
-
     static get = async (id) => {
+
+        if (id) {
+            let res = await axios.get(`YET TO IMPLEMENT`); //TODO: IMPLEMENT ON API
+            let user = res.data;
+            if(user && isDev()){
+                console.info("USER INFO:");
+                console.info(user);
+            }
+            return user;
+        }
+
         let res = await axios.get(`YET TO IMPLEMENT`); //TODO: IMPLEMENT ON API
         let user = res.data;
         if(user && isDev()){
-            console.info("USER INFO:");
+            console.info("USERS INFO:");
             console.info(user);
         }
         return user;
