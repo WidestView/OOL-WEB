@@ -16,14 +16,67 @@
 }
 
 .banner{
-  height: 60vh;
+  height: 55vh;
   background-size: cover;
   background-position: center;
 }
 
-@media screen and (max-width: 900px) {
+#banner_creature_body{
+  position: absolute;
+  width: 25vw;
+  bottom: 0;
+  right: 20%;
+}
+
+#banner_creature_arm1{
+  position: absolute;
+  width: 5vw;
+  bottom: -2%;
+  right: 40%; 
+  transform: rotate(-10deg);
+}
+
+#banner_creature_arm2{
+  position: absolute;
+  width: 5vw;
+  bottom: -2%;
+  right: 20%; 
+  transform: rotate(10deg);
+}
+
+@media screen and (max-width: 1200px) {
+  #banner_message{
+    margin-bottom: 20%;
+  }
   .banner{
-    height: 70vh;
+    height: 80vh;
+  }
+  #banner_creature_body{
+    position: absolute;
+    width: 35vw;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  #banner_creature_arm1{
+    position: absolute;
+    width: 7vw;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: -2%;
+    left: 0;
+    right: 27%;
+  }
+  #banner_creature_arm2{
+    position: absolute;
+    width: 7vw;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: -2%;
+    left: 27%;
+    right: 0;
   }
 }
 

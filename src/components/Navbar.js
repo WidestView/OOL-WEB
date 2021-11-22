@@ -11,7 +11,7 @@ const Navbar = ({user, employee, refreshLogin}) => {
     }
 
     return ( 
-        <nav className="navbar navbar-dark bg-dark justify-content-between">
+        <nav className="navbar navbar-dark bg-dark justify-content-between text-titillium">
             <Link className="navbar-brand" title="Início" to="/"><img src={Logo} alt="OutOfLens"/></Link>
             <div className="navbar-buttons d-flex justify-content-between">
             {
@@ -34,12 +34,12 @@ const Navbar = ({user, employee, refreshLogin}) => {
                     <ImageFromUrl className="rounded-circle pfp" url={`${process.env.REACT_APP_API_URL}/api/user/picture`} placeholderSrc="https://www.processindustryforum.com/wp-content/uploads/2018/10/male-placeholder.jpeg"/>
                     </div>
                     <div className="dropdown-menu dropdown-menu-right">
-                        <Link className="dropdown-item" to="/">🏠 Início</Link>
-                        { user && <Link className="dropdown-item" to="/user">🛒 Meu usuário e compras</Link>}
-                        { employee && employee.occupation && <Link className="dropdown-item" to="/workspace">📷 Área de Trabalho</Link> }
-                        { employee && employee.accessLevel === 0 && <Link className="dropdown-item" to="/admin">⚙ Administração</Link>}
+                        <Link className="dropdown-item" to="/"><i class="bi bi-house-door-fill mr-1"></i> Início</Link>
+                        { user && <Link className="dropdown-item" to="/user"><i class="bi bi-cart-fill mr-1"></i> Meu usuário e compras</Link>}
+                        { employee && employee.occupation && <Link className="dropdown-item" to="/workspace"><i class="bi bi-camera-fill mr-1"></i> Área de Trabalho</Link> }
+                        { employee && employee.accessLevel === 0 && <Link className="dropdown-item" to="/admin"><i class="bi bi-gear-fill mr-1"></i> Administração</Link>}
                         <div className="dropdown-divider"></div>
-                        <button className="dropdown-item text-danger" onClick={logout}>Sair</button>
+                        <button className="dropdown-item text-danger font-weight-bold" onClick={logout}><i class="bi bi-box-arrow-left mr-1"></i> Sair</button>
                     </div>
                 </div>
             }
