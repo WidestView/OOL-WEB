@@ -4,6 +4,13 @@ import UserAPI from "../api/UserAPI";
 import Loading from "../components/Loading";
 
 class Auth {
+
+    static isUser = (user) => user !== undefined;
+
+    static isEmployee = (employee) => employee !== undefined && employee.occupation !== undefined;
+
+    static isAdmin = (employee) => employee !== undefined && Number(employee.accessLevel) === 0;
+
     static refreshLogin = (setUser, setBadLogin) => {
         async function fetchUser() {
             setBadLogin(false);
@@ -22,11 +29,12 @@ class Auth {
                 setEmployee(await EmployeeAPI.getEmployee());
             }
             catch(error) {
-                if (error.response && error.response.status === 401) setEmployee(null);
+                if (error.response && error.response.status === 401) setEmployee();
             }
         }
       
         if (user && UserAPI.isEmployee(user)) fetchEmployee();
+        else setEmployee();
     }
 
     static userAuth = (user, badLogin) => {
