@@ -1,6 +1,5 @@
 import { useState } from "react";
 import axios from 'axios';
-import Swal from 'sweetalert2';
 
 const LoginForm = ({callback}) => {
 
@@ -13,12 +12,6 @@ const LoginForm = ({callback}) => {
             
             localStorage.setItem("token", res.data.token);
             setvalidation_status("valid"); 
-            Swal.fire({
-                title: 'Login realizado',
-                text: 'Você está logado!',
-                icon: 'success',
-                confirmButtonText: 'Uhu!'
-            });
             callback();
         }
         catch(error){
