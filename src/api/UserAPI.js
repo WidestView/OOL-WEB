@@ -6,7 +6,7 @@ class UserAPI {
     static get = async (id) => {
 
         if (id) {
-            let res = await axios.get(`YET TO IMPLEMENT`); //TODO: IMPLEMENT ON API
+            let res = await axios.get(`YET TO IMPLEMENT`);
             let user = res.data;
             if(user && isDev()){
                 console.info("USER INFO:");
@@ -15,7 +15,7 @@ class UserAPI {
             return user;
         }
 
-        let res = await axios.get(`YET TO IMPLEMENT`); //TODO: IMPLEMENT ON API
+        let res = await axios.get(`YET TO IMPLEMENT`);
         let user = res.data;
         if(user && isDev()){
             console.info("USERS INFO:");
@@ -45,7 +45,7 @@ class UserAPI {
     }
 
     static put = async (id, newUser) => {
-        let res = await axios.put(`YET TO IMPLEMENT`, newUser); //TODO: IMPLEMENT ON API
+        let res = await axios.put(`YET TO IMPLEMENT`, newUser);
         let user = res.data;
         if(user && isDev()){
             console.info("USER UPDATED INFO:");
