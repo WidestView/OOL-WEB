@@ -34,7 +34,7 @@ const ProfileView = ({user, badLogin}) => {
             <div className="row text-titillium">
                 <div className="col-12">
                     <h3 className="text-center mb-4 font-weight-bold">Histórico de compras</h3>
-                    <table class="table text-center">
+                    <table className="table text-center">
                     <thead>
                         <tr>
                         <th scope="col">Imagem</th>
