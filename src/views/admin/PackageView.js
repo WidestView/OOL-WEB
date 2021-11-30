@@ -15,7 +15,8 @@ const PackageView = () => {
                         icon="box"
                         api={PackageAPI}
                         id={id}
-                        successMessage="Seu pacote está lindo 🤩"/>
+                        successMessage="Seu pacote está lindo 🤩" 
+                        editable={true} />
             </NavigationLayout>
         </div>
     );
