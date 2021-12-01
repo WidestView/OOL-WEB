@@ -59,13 +59,73 @@ class UserAPI {
     static getFormStruct = () => [
         [
             { 
+                name: "Cpf", 
+                value: null, 
+                displayName: "CPF", 
+                type: "text", 
+                placeholder: "O seu cpf", 
+                help: null, 
+                required: true,
+                colSize: null
+            },
+            { 
                 name: "Name", 
                 value: null, 
                 displayName: "Nome", 
                 type: "text", 
-                placeholder: "Nome do usuário", 
+                placeholder: "O seu nome", 
+                help: null, 
+                required: true,
+                colSize: null
+            },
+            { 
+                name: "SocialName", 
+                value: null, 
+                displayName: "Nome social", 
+                type: "text", 
+                placeholder: "Caso não deseje, manter em branco", 
                 help: null, 
                 required: false,
+                colSize: null
+            },
+            { 
+                name: "BirthDate", 
+                value: null, 
+                displayName: "Data de Nascimento", 
+                type: "date", 
+                placeholder: "Nome do usuário", 
+                help: null, 
+                required: true,
+                colSize: null
+            },
+            { 
+                name: "Phone", 
+                value: null, 
+                displayName: "Telefone Celular", 
+                type: "text", 
+                placeholder: "Nome do usuário", 
+                help: null, 
+                required: true,
+                colSize: null
+            },
+            { 
+                name: "Email", 
+                value: null, 
+                displayName: "Email", 
+                type: "email", 
+                placeholder: "Nome do usuário", 
+                help: null, 
+                required: true,
+                colSize: null
+            },
+            { 
+                name: "Password", 
+                value: null, 
+                displayName: "Senha", 
+                type: "password", 
+                placeholder: "Nome do usuário", 
+                help: null, 
+                required: true,
                 colSize: null
             }
         ]     
