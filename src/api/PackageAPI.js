@@ -44,6 +44,8 @@ class PackageAPI {
         return pack;
     }
 
+    static getImageUrl = (id) => `${process.env.REACT_APP_API_URL}/api/package/${id}/image`;
+
     static getFormStruct = () => [
         [
             { 

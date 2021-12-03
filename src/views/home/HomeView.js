@@ -1,5 +1,4 @@
 import Banner from "../../components/Banner";
-// import PackagesGrid from "../components/PackagesGrid";
 import { Link } from "react-router-dom";
 import FAQ from "../../components/business/FAQ";
 
@@ -7,9 +6,15 @@ import photo from "../../assets/svgs/photography/photo.svg";
 import camera_photos from "../../assets/svgs/photography/camera_photos.svg";
 import woman_photoshoot from "../../assets/svgs/photography/woman_photoshoot.svg";
 import woman_polaroid from "../../assets/svgs/photography/woman_polaroid.svg";
+import PackagesGrid from "../../components/PackagesGrid";
+import PackageModal from "../../components/modals/PackageModal";
+import { useState } from "react";
 
 
 const HomeView = () => {
+
+    const [pack, setPack] = useState();
+
     return ( 
         <div className="home">
             
@@ -116,16 +121,17 @@ const HomeView = () => {
                         <img src={woman_polaroid} className="w-100" alt="" />
                     </div>
                     <div className="col-12">
-                        {/*TODO: IMPLEMENT PACKAGE GRID DESIGN*/}
+                        <PackagesGrid setPack={setPack} />
                     </div>
                 </div>
 
                 <div className="row my-5 pb-5">
                     <div className="col" id="FAQ">
-                        <FAQ/>
+                        <FAQ />
                     </div>
                 </div>
             </div>
+            { pack !== undefined ? <PackageModal pack={pack} /> : undefined}
         </div>
      );
 }
