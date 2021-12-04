@@ -4,13 +4,16 @@ const TERMS = () => {
     return ( <div className="text-titillium">
         <h2 className="text-center mb-5 font-weight-bold">Termos de serviço</h2>
         <p>
-            Consequat culpa commodo pariatur consequat est laboris occaecat. Non in adipisicing cillum id veniam aute fugiat. Incididunt est est proident consequat in eu anim sint eiusmod id voluptate. Nostrud reprehenderit fugiat adipisicing fugiat aliqua. Consequat ullamco deserunt nostrud id id ad cillum deserunt nisi incididunt aliquip. Non tempor nulla Lorem sint mollit consectetur et eu ea dolore magna irure esse.
+            Do uso dos sites sob o domínio INSIRA AQUI O DOMÍNIO
         </p>
         <div className="row">
             <div className="col-12 col-lg-8 d-flex">
-                <div className="mb-auto">
-                    <p>Consectetur magna aliquip veniam cillum veniam esse laboris nisi magna. In dolore quis tempor do ullamco. Id cillum dolore exercitation veniam anim ipsum consectetur irure. Dolore ut ipsum est excepteur minim velit incididunt Lorem aliqua ex do.</p>
-                    <p>Proident eiusmod consequat nulla commodo et nisi consectetur quis enim irure adipisicing commodo. Duis cupidatat cillum irure in commodo. Voluptate mollit nostrud ad non eiusmod in id eiusmod anim mollit deserunt. Et aute aute veniam eu consectetur consequat dolore elit tempor ad sunt aute. Adipisicing dolor ex enim tempor voluptate. Nulla ex cupidatat qui culpa.</p>
+                <div className="mb-5 mb-lg-auto">
+                    <p>A <i> Out Of Lens </i>, através das condições e termos impostos nessa área, possibilita o acesso organizado e claro do usuário sobre o sistema.</p>
+                    <p>Por favor, leia com atenção as condições descritas abaixo para que a fluidez da navegação ocorra da melhor possível e que potenciais desentendimentos sejam evitados. A utilização do site e contratação de seus serviços presumem a consciência do utilizador sobre os Termos de Uso aqui descritos e a consequente permissão de suas cláusulas e condições.</p>
+                    <h5 className="font-weight-bold">1. Dos Serviços</h5>
+                    <p>1.1 A Out Of Lens, um estúdio independente de fotografia, disponibiliza uma plataforma online no formato de e-commerce para o anúncio e compra de pacotes de fotografia entre empresa e usuário. Além disso, também há a possibilidade de administração por parte dos funcionários e organização do ambiente de trabalho pelos fotógrafos.</p>
+                    <p style={{marginTop: "-10px"}}>1.1.1 As compras são majoritariamente intermediadas pelo site, onde os produtos são comprados, com seus preços acertados e especificações definidas pelo próprio usuário. A partir do momento de compra, os meios de contato com os fotógrafos responsáveis pelo pacote serão disponibilizados ao cliente, que deve ter a liberdade de estabelecer diálogo profissional e esclarecedor com seus prestadores de serviço.</p>
                 </div>
             </div>
             <div className="col-12 col-lg-4 d-flex justify-content-center">

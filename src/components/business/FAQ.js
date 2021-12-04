@@ -5,9 +5,10 @@ const FAQ = () => {
     const [opened, setopened] = useState(-1);
 
     const items = [
-        {question: "Lorem ipsum dolor sit amet, consectetur adipiscing elit?", answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"},
-        {question: "Lorem ipsum dolor sit amet, consectetur adipiscing elit?", answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"},
-        {question: "Lorem ipsum dolor sit amet, consectetur adipiscing elit?", answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"}
+        {question: "Quais tipos de fotos a empresa cobre?", answer: "A Out Of Lens cobre uma extensa variedade de pacotes para as mais diversas situações: eventos de diferentes portes, ensaios individuais e em grupo, registro de acervos artísticos e mais. Confira nossa seção de pacotes na página inicial!"},
+        {question: "Quantas fotos vocês entregam?", answer: "A quantidade de fotos depende do pedido realizado, sendo esse customizável e sujeito a alterações de acordo com a vontade do usuário."},
+        {question: "Vocês fazem ensaios fora de estúdio?", answer: "Sim! A locação do estúdio é opcional, sendo possível a negociação do cenário de registro entre o próprio usuário e fotógrafo, através do contato disponibilizado. É importante salientar que a necessidade de transporte de longas distâncias por parte dos profissionais pode encarecer o produto final."},
+        {question: "O que exatamente está incluso no preço dos pacotes?", answer: "Os números de profissionais envolvidos e de equipamentos utilizados, bem como a logística e gestão necessárias para o cumprimento do combinado, estão sujeitos a aumento de acordo com o porte do pacote. Por isso, o valor deles varia com a magnitude do serviço contratado."}
     ]
 
     return ( 
