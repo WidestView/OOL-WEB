@@ -64,29 +64,39 @@ const PhotoshootView = ({employee, user, badLogin}) => {
     }
 
     const upload = async (index) => {
+        console.log(images[index]);
         let formData = new FormData();
         formData.append('file', images[index]);
-        let statusArray = imagesStatus;
-        statusArray[index] = "UPLOADING";
-        setImagesStatus(statusArray);
 
         try {
+            let statusArray = imagesStatus;
+            statusArray[index] = "UPLOADING";
+            setImagesStatus(statusArray);
+
             let res = await axios.post(PhotoshootAPI.getImageUploadUrl(photoshoot), formData); //FIXME: FIX BAD REQUEST
             if (res.status === 201 || res.status === 200){
                 let statusArray = imagesStatus;
                 statusArray[index] = "UPLOADED";
-                setImagesStatus(statusArray)
+                setImagesStatus(statusArray);
+                try {
+                    setPhotoshoot(await PhotoshootAPI.get(id));
+                }
+                catch (error) {
+                    setError(error);
+                }
             }
         }
         catch(error){
             console.error(error);
+            let statusArray = imagesStatus;
+            statusArray[index] = "ERROR";
+            setImagesStatus(statusArray);
             Swal.fire({
                 title: 'Algo deu errado...',
                 text: 'A imagem não pode ser enviada!',
                 icon: 'error',
                 confirmButtonText: ':('
             });
-            statusArray[index] = "ERROR";
         }
     }
 
@@ -136,24 +146,24 @@ const PhotoshootView = ({employee, user, badLogin}) => {
                     {
                         Array.isArray(photoshoot.images) && photoshoot.images.length !== 0 && (
                             <div className="col-12">
-                            <Gallery>
-                                {
-                                    photoshoot.images.map(image => (
-                                        <Item
-                                            key={"image-" + image.id}
-                                            original="https://placekitten.com/1024/768?image=1"
-                                            thumbnail="https://placekitten.com/80/60?image=1"
-                                            width="1024"
-                                            height="768"
-                                        >
-                                        {({ ref, open }) => (
-                                            <img ref={ref} alt="" onClick={open} src="https://placekitten.com/80/60?image=1" />
-                                        )}
-                                        </Item>
-                                    ))
-                                }
-                            </Gallery>
-                        </div>
+                                <Gallery>
+                                    {
+                                        photoshoot.images.map(image => (
+                                            <Item
+                                                key={"image-" + image.id}
+                                                original={PhotoshootAPI.getImageUrl(image)}
+                                                thumbnail={PhotoshootAPI.getImageUrl(image)}
+                                                width="1024"
+                                                height="768"
+                                            >
+                                            {({ ref, open }) => (
+                                                <img className="col-2" ref={ref} alt="" onClick={open} src={PhotoshootAPI.getImageUrl(image)} />
+                                            )}
+                                            </Item>
+                                        ))
+                                    }
+                                </Gallery>
+                            </div>
                         )
                     }
                     {

@@ -18,7 +18,8 @@ const PhotographerWorkspace = ({employee}) => {
                 events.push({
                     id: photoshoot.id,
                     title: photoshoot.address,
-                    start: photoshoot.start
+                    start: photoshoot.start,
+                    color: photoshoot.images.length === 0? "#dc3545" : "#28a745"
                 });
             });
             setEvents(events);
@@ -27,6 +28,7 @@ const PhotographerWorkspace = ({employee}) => {
     }, [setEvents]);
 
     const handleEventClick = (clickInfo) => {
+        setSelectedId();
         setSelectedId(clickInfo.event.id);
     }
 
