@@ -11,13 +11,13 @@ const InfoView = () => {
                     <h6 className="text-center mt-3">Encontre aqui nossas <a href="#FAQ">Perguntas frequentes</a>, <a href="#TERMS">Termos de serviço</a> e <a href="#PRIVACY">Política de privacidade</a></h6>
                 </div>
             </div>
-            <div className="row mt-4">
-                <div className="col-12" id="FAQ">
+            <div className="row">
+                <div className="col-12 mb-3 mb-lg-auto" id="FAQ">
                     <FAQ/>
                 </div>
             </div>
             <div className="row mt-5">
-                <div className="col-12" id="TERMS">
+                <div className="col-12 mb-3 mb-lg-auto" id="TERMS">
                     <TERMS/>
                 </div>
             </div>

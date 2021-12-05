@@ -37,14 +37,19 @@ const PhotoshootModal = ({id}) => {
                 
                 {
                     error === undefined && photoshoot !== undefined && 
-                    <div className="modal-content text-titillium">
-                        <div className="modal-header">
+                    <div className="modal-content">
+                        <div className="modal-header mb-2">
                             <h5 className="modal-title font-weight-bold">{Title}</h5>
                             <button type="button" className="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         </div>
                         <div className="modal-body">
-                            <h5 className="font-weight-bold text-uppercase text-center my-2">{photoshoot.id}</h5>
-                            <Link onClick={closeModal} to={`/photoshoot/${photoshoot.id}`}>{photoshoot.images.length > 0? "Ver/Alterar Imagens" : "Subir Imagens"}</Link>
+                            <h6 className="text-center">ID da Sessão:</h6>
+                            <h5 className="font-weight-bold text-uppercase text-center mb-4">{photoshoot.id}</h5>
+                            <h6 className="font-weight-bold mx-3">Endereço:</h6>
+                            <p className="mx-3 mb-3">{photoshoot.address}</p>
+                            <h6 className="font-weight-bold mx-3">Horário de início:</h6>
+                            <p className="mx-3 mb-3">{photoshoot.start}</p>
+                            <Link className="btn btn-primary float-right my-2" onClick={closeModal} to={`/photoshoot/${photoshoot.id}`}>{photoshoot.images.length > 0? "Ver/Alterar Imagens" : "Subir Imagens"}</Link>
                         </div>
                     </div>
                 }

@@ -9,14 +9,14 @@ const PRIVACY = () => {
             </div>
             <div className="col-12 col-lg-8 d-flex">
                 <div className="mt-auto">
-                    <p>Consectetur magna aliquip veniam cillum veniam esse laboris nisi magna. In dolore quis tempor do ullamco. Id cillum dolore exercitation veniam anim ipsum consectetur irure. Dolore ut ipsum est excepteur minim velit incididunt Lorem aliqua ex do.</p>
-                    <p>Proident eiusmod consequat nulla commodo et nisi consectetur quis enim irure adipisicing commodo. Duis cupidatat cillum irure in commodo. Voluptate mollit nostrud ad non eiusmod in id eiusmod anim mollit deserunt. Et aute aute veniam eu consectetur consequat dolore elit tempor ad sunt aute. Adipisicing dolor ex enim tempor voluptate. Nulla ex cupidatat qui culpa.</p>
+                    <p>A Out Of Lens tem como um de seus principais pilares a segurança dos dados de seus usuários, que os confiam à nossa empresa para uma gestão transparente e responsável. Por isso, a presente Política de Privacidade estabelece o procedimento de coleta, transferência e manipulação dos dados dos clientes.</p>
+                    <p>Ao utilizar nossos serviços, o usuário deve entender que as informações concedidas à Out Of Lens serão coletados e utilizados da forma como descrita nesta Política, sob as normas de Poteção de Dados (LGPD, Lei Federal 13.709/2018), das disposições consumeristas da Lei Federal 8078/1990 e as demais normas do ordenamento jurídico brasileiro aplicáveis</p>
+                    <p>Dessa maneira, a Out Of Lens LTDA, denominada simplesmente como "Out Of Lens", inscrita no CNPJ/MF sob o nº 12.345.678/0001-70, no papel de Controladora de Dados, obriga-se ao disposto na presente Política de Privacidade</p>
                 </div>
             </div>
         </div>
-        <p>
-            Consequat culpa commodo pariatur consequat est laboris occaecat. Non in adipisicing cillum id veniam aute fugiat. Incididunt est est proident consequat in eu anim sint eiusmod id voluptate. Nostrud reprehenderit fugiat adipisicing fugiat aliqua. Consequat ullamco deserunt nostrud id id ad cillum deserunt nisi incididunt aliquip. Non tempor nulla Lorem sint mollit consectetur et eu ea dolore magna irure esse.
-        </p>
+        <h5 className="font-weight-bold">1. Quais dados coletamos sobre você e para qual finalidade?</h5>
+        <p>Nosso sistema coleta alguns dados seus (de maneira fornecida ou automática) para viabilizar a prestação de serviços e o fechamento de contratos de maneira legal</p>
     </div> );
 }
 

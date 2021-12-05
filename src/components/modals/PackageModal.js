@@ -16,7 +16,13 @@ const PackageModal = ({pack}) => {
                     <h5 className="font-weight-bold text-uppercase text-center my-2">{pack.name}</h5>
                         <img src={`${PackageAPI.getImageUrl(pack.id)}`} className="w-100" alt="" />
                         <p className="mx-3 mt-4">{pack.description}</p>
-                        <p className="mx-3"><b>Valor final:</b> {pack.baseValue}</p>
+                        <div className="form-group col-5">
+                            <label htmlFor="inputState" className="font-weight-bold">Quantidade de Fotos</label>
+                            <select id="inputState" className="form-control" defaultValue={'Choose...'}>
+                                <option value="Choose..."> Choose...</option>
+                            </select>
+                        </div>
+                        <h6 className="mx-3"><b>Valor final:</b> {pack.baseValue}</h6>
                         <button type="button" className="btn btn-primary mx-3 mb-2 float-right">Comprar</button>
                     </div>
                 </div>

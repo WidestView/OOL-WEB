@@ -98,7 +98,13 @@ const PhotoshootView = ({employee, user, badLogin}) => {
             { error && <ErrorPopup error={error}/> }
             <div className="row">
                 <div className="col">
-                    <h1>Sessão de fotos</h1>
+                    <h1 className="mt-5 text-center text-md-left">Sessão de fotos</h1>
+                    <div className="row">
+                        <div className="col-12">
+                            <h5 className="mt-3 text-center text-md-left">Boas-vindas à página da sessão de fotos!</h5>
+                            <p className="mb-5 text-center text-md-left">Carregue as imagens do respectivo serviço no campo abaixo e, após isso, clique no botão para enviar. Simples assim!</p>
+                        </div>
+                    </div>
                     <hr />
                 </div>
             </div>
@@ -106,7 +112,7 @@ const PhotoshootView = ({employee, user, badLogin}) => {
                 <form method="post" action={photoshoot !== undefined? PhotoshootAPI.getImageUploadUrl(photoshoot) : ""} encType="multipart/form-data">
                     <div className="row">
                         <div className="col-8">
-                            <input type="file" onChange={onImageChange} className="form-control" accept="image/jpeg" multiple={true}/><br/>
+                            <input type="file" onChange={onImageChange} className="form-control" accept="image/jpeg" multiple={true} style={{height: "4.5vh"}}/><br/>
                         </div>
                         <div className="col-4 d-flex justify-content-end">
                             <div><input type="button" className={`btn btn-primary ${buttonDisabled? "disabled":""}`} value="Enviar todas" id="btn_upload" onClick={submitEvent}/></div>
