@@ -29,16 +29,25 @@ const PhotoshootView = ({employee, user, badLogin}) => {
 
     const [images, setImages] = useState([]);
     const [imagesURL, setImagesURL] = useState([]);
+    const [imagesStatus, setImagesStatus] = useState([]); // "SELECTED", "UPLOADING", "UPLOADED", "ERROR"
     const [buttonDisabled, setButtonDisabled] = useState(true);
+
+    const StatusDict = {};
+    StatusDict["SELECTED"] = <i className="bi bi-upload h1 text-primary"></i>;
+    StatusDict["UPLOADING"] = <div className="spinner-border text-primary" role="status"><span className="sr-only">Loading...</span></div>;
+    StatusDict["UPLOADED"] = undefined;
+    StatusDict["ERROR"] = <i className="bi bi-x-circle h1 text-danger"></i>;
 
     const onImageChange = (e) => {
         setButtonDisabled(true);
         setImages([]);
         setImagesURL([]);
+        setImagesStatus([]);
         if (e.target.files) {
             for (let i = 0; i < e.target.files.length; i++) {
                 setImages(oldArray => [...oldArray, e.target.files[i]]);
                 setImagesURL(oldArray => [...oldArray, URL.createObjectURL(e.target.files[i])]);
+                setImagesStatus(oldArray => [...oldArray, "SELECTED"]);
             }
             setButtonDisabled(false);
         }
@@ -46,20 +55,27 @@ const PhotoshootView = ({employee, user, badLogin}) => {
 
     const submitEvent = async () => {
         if (buttonDisabled) return;
-        let formData = new FormData();
-        images.forEach(image => {
-            formData.append('file', image);
-        });
         
-        try{
-            let res = await axios.post(PhotoshootAPI.getImageUploadUrl(photoshoot), formData);
+        images.forEach( async (image, i) => {
+            if (imagesStatus[i] === "SELECTED") upload(i);
+        });
+
+        setButtonDisabled(true);
+    }
+
+    const upload = async (index) => {
+        let formData = new FormData();
+        formData.append('file', images[index]);
+        let statusArray = imagesStatus;
+        statusArray[index] = "UPLOADING";
+        setImagesStatus(statusArray);
+
+        try {
+            let res = await axios.post(PhotoshootAPI.getImageUploadUrl(photoshoot), formData); //FIXME: FIX BAD REQUEST
             if (res.status === 201 || res.status === 200){
-                Swal.fire({
-                    title: 'Prontinho...',
-                    text: 'Imagens enviadas!',
-                    icon: 'success',
-                    confirmButtonText: 'Ebaa!!!'
-                }).then(()=> {window.location.reload(false);});
+                let statusArray = imagesStatus;
+                statusArray[index] = "UPLOADED";
+                setImagesStatus(statusArray)
             }
         }
         catch(error){
@@ -70,8 +86,10 @@ const PhotoshootView = ({employee, user, badLogin}) => {
                 icon: 'error',
                 confirmButtonText: ':('
             });
+            statusArray[index] = "ERROR";
         }
     }
+
 
     if (notfound) return <Redirect to="not-found" />
 
@@ -91,15 +109,22 @@ const PhotoshootView = ({employee, user, badLogin}) => {
                             <input type="file" onChange={onImageChange} className="form-control" accept="image/jpeg" multiple={true}/><br/>
                         </div>
                         <div className="col-4 d-flex justify-content-end">
-                            <div><input type="button" className={`btn btn-primary ${buttonDisabled? "disabled":""}`} value="Enviar" id="btn_upload" onClick={submitEvent}/></div>
-                            
+                            <div><input type="button" className={`btn btn-primary ${buttonDisabled? "disabled":""}`} value="Enviar todas" id="btn_upload" onClick={submitEvent}/></div>
                         </div>
                     </div>
                     <div className="preview row">
                         {
                             images.map((image, index) => (
-                                <div className="col-2" key={"image-preview-" + index}>
-                                    <img src={imagesURL[index]} className="grey-image w-100" alt="" /> 
+                                <div className="col-2" key={"image-preview-" + index} >
+                                    {
+                                        imagesStatus[index] !== "UPLOADED" && 
+                                        <div className={`d-flex justify-content-center align-items-center ${imagesStatus[index] === "SELECTED"? "pointer" : ""}`} onClick={() => upload(index)}>
+                                            <img src={imagesURL[index]} className={`w-100 ${imagesStatus[index] === "SELECTED"? "grey-image" : ""}`} alt="" style={{zIndex: 1}} />
+                                            <div className="position-absolute" style={{zIndex: 2}}>
+                                                {StatusDict[imagesStatus[index]]}
+                                            </div>
+                                        </div>
+                                    }
                                 </div>                           
                             ))
                         }
