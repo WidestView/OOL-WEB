@@ -66,6 +66,14 @@ $theme-colors: (
   color:white;
 }
 
+.grey-image {
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+   -ms-filter: grayscale(100%);
+       filter: grayscale(100%); 
+}
+
 // Full Calendar
 
 .fc-event{
@@ -76,6 +84,11 @@ $theme-colors: (
 @import "./scss/components.scss";
 @import "./scss/svgs.scss";
 @import "./scss/scenes.scss";
+
+// Photoswipe
+
+@import '../node_modules/photoswipe/dist/photoswipe.css';
+@import '../node_modules/photoswipe/dist/default-skin/default-skin.css';
 
 // Boostrap
 

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import PhotoshootAPI from "../../api/PhotoshootAPI";
 import ErrorPopup from "../ErrorPopup";
 import Loading from "../Loading";
@@ -21,7 +22,9 @@ const PhotoshootModal = ({id}) => {
             }
         }
         if (id !== undefined) fetch();
-    }, [id]);
+    }, [id, $]);
+
+    const closeModal = ()=> $('#photoshootModal').modal('hide');
 
     const Title = "Sessão de fotografia";
 
@@ -41,6 +44,7 @@ const PhotoshootModal = ({id}) => {
                         </div>
                         <div className="modal-body">
                             <h5 className="font-weight-bold text-uppercase text-center my-2">{photoshoot.id}</h5>
+                            <Link onClick={closeModal} to={`/photoshoot/${photoshoot.id}`}>{photoshoot.images.length > 0? "Ver/Alterar Imagens" : "Subir Imagens"}</Link>
                         </div>
                     </div>
                 }

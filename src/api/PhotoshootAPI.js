@@ -33,6 +33,8 @@ class PhotoshootAPI {
         }
         return photoshoots;
     }
+
+    static getImageUploadUrl = (photoshoot) => `${process.env.REACT_APP_API_URL}/api/PhotoShootImage/upload/${photoshoot.id}`;
 }
 
 export default PhotoshootAPI;
