@@ -66,6 +66,12 @@ $theme-colors: (
   color:white;
 }
 
+// Full Calendar
+
+.fc-event{
+  cursor: pointer;
+}
+
 @import "./scss/loader.scss";
 @import "./scss/components.scss";
 @import "./scss/svgs.scss";

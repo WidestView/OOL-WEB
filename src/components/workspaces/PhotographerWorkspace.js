@@ -1,37 +1,46 @@
-import { useState } from "react";
-import NavigationLayout from "../layouts/NavigationLayout"
+import { useEffect, useState } from "react";
 import Gender from "../../util/Gender";
+import FullCalendar from '@fullcalendar/react';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import PhotoshootAPI from "../../api/PhotoshootAPI";
+import PhotoshootModal from "../modals/PhotoshootModal";
 
 const PhotographerWorkspace = ({employee}) => {
 
-    const [view, setView] = useState("Default");
+    const [events, setEvents] = useState();
+    const [selectedId, setSelectedId] = useState();
 
-    const ViewsDict = {};
-    ViewsDict["Default"] = <DefaultView employee={employee} setView={setView}/>;
-    ViewsDict["Calendar"] = <CalendarView employee={employee}/>;
+    useEffect(() => {
+        const fetch = async () => { 
+            const photoshoots = await PhotoshootAPI.getCurrent();
+            const events = [];
+            if(Array.isArray(photoshoots)) photoshoots.forEach(photoshoot => {
+                events.push({
+                    id: photoshoot.id,
+                    title: photoshoot.address,
+                    start: photoshoot.start
+                });
+            });
+            setEvents(events);
+        }
+        fetch();
+    }, [setEvents]);
 
-    return (
-        <NavigationLayout home={view==="Default"} onClick={() => setView("Default")}>
-            {ViewsDict[view]}
-        </NavigationLayout>
-    );
-}
+    const handleEventClick = (clickInfo) => {
+        setSelectedId(clickInfo.event.id);
+    }
 
-const DefaultView = ({employee, setView}) => {
     return ( 
         <div>
             <h1>{new Gender(employee.gender).Greeting}</h1>
-            <button className="btn btn-link" onClick={()=> setView("Calendar")}>
-                Ver calendário
-            </button>
-        </div>
-    );
-}
-
-const CalendarView = ({employee}) => {
-    return ( 
-        <div>
-            <h1>Seu calendário!</h1>
+            <hr />
+            <FullCalendar
+                plugins={[ dayGridPlugin ]}
+                initialView="dayGridMonth"
+                events={events}
+                eventClick={handleEventClick}
+            />
+            <PhotoshootModal id={selectedId} />
         </div>
     );
 }
