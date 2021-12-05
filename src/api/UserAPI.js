@@ -81,9 +81,9 @@ class UserAPI {
             { 
                 name: "SocialName", 
                 value: null, 
-                displayName: "Nome social", 
+                displayName: "Nome social*", 
                 type: "text", 
-                placeholder: "Caso não deseje, manter em branco", 
+                placeholder: "Seu nome social*", 
                 help: null, 
                 required: false,
                 colSize: null
@@ -93,7 +93,7 @@ class UserAPI {
                 value: null, 
                 displayName: "Data de Nascimento", 
                 type: "date", 
-                placeholder: "Nome do usuário", 
+                placeholder: "Sua data de nascimento", 
                 help: null, 
                 required: true,
                 colSize: null
@@ -103,7 +103,7 @@ class UserAPI {
                 value: null, 
                 displayName: "Telefone Celular", 
                 type: "text", 
-                placeholder: "Nome do usuário", 
+                placeholder: "Seu telefone celular", 
                 help: null, 
                 required: true,
                 colSize: null
@@ -113,7 +113,7 @@ class UserAPI {
                 value: null, 
                 displayName: "Email", 
                 type: "email", 
-                placeholder: "Nome do usuário", 
+                placeholder: "Seu email", 
                 help: null, 
                 required: true,
                 colSize: null
@@ -123,7 +123,7 @@ class UserAPI {
                 value: null, 
                 displayName: "Senha", 
                 type: "password", 
-                placeholder: "Nome do usuário", 
+                placeholder: "Sua senha", 
                 help: null, 
                 required: true,
                 colSize: null

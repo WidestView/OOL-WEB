@@ -31,8 +31,9 @@ const AdminView = ({user, employee, badLogin}) => {
 
     return Auth.adminAuth(user, employee, badLogin)?? ( 
         <div className="admin-authorized container">
+            <h1 className="mt-5">Administração</h1>
             <div className="row">
-                <div className="col-12"><h5 className="my-5">Boas-vindas ao setor de Administração</h5></div>
+                <div className="col-12"><h5 className="mt-3 mb-5">Boas-vindas ao setor de Administração</h5></div>
             </div>
             <div className="row">
                 <div className="col-8">

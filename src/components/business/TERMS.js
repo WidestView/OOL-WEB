@@ -3,9 +3,6 @@ import personal from "../../assets/svgs/business/personal_data.svg";
 const TERMS = () => {
     return ( <div className="text-titillium">
         <h2 className="text-center mb-5 font-weight-bold">Termos de serviço</h2>
-        <p>
-            Do uso dos sites sob o domínio INSIRA AQUI O DOMÍNIO
-        </p>
         <div className="row">
             <div className="col-12 col-lg-8 d-flex">
                 <div className="mb-5 mb-lg-auto">

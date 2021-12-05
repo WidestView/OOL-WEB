@@ -34,7 +34,7 @@ const PhotographerWorkspace = ({employee}) => {
 
     return ( 
         <div>
-            <h1>{new Gender(employee.gender).Greeting}</h1>
+            <h1 className="mt-5">{new Gender(employee.gender).Greeting}</h1>
             <hr />
             <FullCalendar
                 plugins={[ dayGridPlugin ]}
