@@ -9,7 +9,7 @@ const InputField = ({name, className, type, help, displayName, placeholder, requ
     useEffect(() => {
         var im = new Inputmask(mask);
         im.mask(inputRef.current);
-    }, []);
+    }, [mask]);
 
     return (
         <div className={"form-group " + className}>
