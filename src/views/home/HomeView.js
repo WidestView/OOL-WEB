@@ -10,6 +10,13 @@ import PackagesGrid from "../../components/PackagesGrid";
 import PackageModal from "../../components/modals/PackageModal";
 import { useState } from "react";
 
+import art from "../../assets/tests/art.jpg"
+import friends from "../../assets/tests/friends.jpg"
+import trip from "../../assets/tests/trip.jpg"
+import city from "../../assets/tests/city.jpg"
+import marriage from "../../assets/tests/marriage.jpg"
+import model from "../../assets/tests/model.jpg"
+
 
 const HomeView = () => {
 
@@ -50,7 +57,7 @@ const HomeView = () => {
                         para cada pacote
                         </h4>
                         <div className="d-flex justify-content-center justify-content-lg-end">
-                            <Link to="/" className="btn btn-outline-primary btn-lg rounded-lg mt-3">Exemplos</Link>
+                            <a href="#work" className="btn btn-outline-primary btn-lg rounded-lg mt-3">Exemplos</a>
                         </div>
                     </div>
                     <div className="d-none d-lg-block col-1"/>
@@ -68,7 +75,7 @@ const HomeView = () => {
                         <h4 className="text-center text-lg-left">Pacotes variados e que atendem os mais diversos interesses: ensaios internos,
                         externos, longos, curtos, individuais, cobertura de eventos e muito mais!</h4>
                         <div className="d-flex justify-content-center justify-content-lg-start">
-                            <Link to="/" className="btn btn-outline-primary btn-lg rounded-lg mt-3">Pacotes</Link>
+                            <a href="#packages" className="btn btn-outline-primary btn-lg rounded-lg mt-3">Pacotes</a>
                         </div>
                     </div>
                 </div>
@@ -76,39 +83,37 @@ const HomeView = () => {
 
                 <div className="row mt-6">
                     <div className="col">
-                        <h2 className="text-center font-weight-bold text-titillium">Nosso Trabalho</h2>
+                        <h2 className="text-center font-weight-bold text-titillium" id="work">Nosso Trabalho</h2>
                     </div>
                 </div>
                 
                 <div className="row mt-5">
-                    <div className="col-12 col-md-6 col-lg-3 px-md-0">
-                        <img src={woman_polaroid} className="w-100 h-100 border" alt=""/>
+                    <div className="col-12 col-md-6 col-lg-3 px-md-0 w-100">
+                        <img src={art} className="w-100 h-100 border" style={{objectFit: "cover"}} onMouseOver="" alt=""/>
                     </div>
-                    <div className="col-12 col-md-6 col-lg-2 px-md-0">
-                        <img src={woman_photoshoot} className="w-100 h-50 border" alt=""/>
-                        <img src={woman_photoshoot} className="w-100 h-50 border" alt=""/>
+                    <div className="col-12 col-md-6 col-lg-2 px-md-0 w-100">
+                        <img src={friends} className="w-100 h-100 border" style={{objectFit: "cover"}} alt=""/>
                     </div>
-                    <div className="col-12 col-md-6 col-lg-2 px-md-0 d-none d-lg-block">
-                        <img src={woman_photoshoot} className="w-100 h-50 border" alt=""/>
-                        <img src={woman_photoshoot} className="w-100 h-50 border" alt=""/>
+                    <div className="col-12 col-md-6 col-lg-2 px-md-0 d-none d-lg-block w-100">
+                        <img src={trip} className="w-100 h-50 border" style={{objectFit: "cover"}} alt=""/>
+                        <img src={city} className="w-100 h-50 border" style={{objectFit: "cover"}} alt=""/>
                     </div>
-                    <div className="col-12 col-md-6 col-lg-2 px-md-0 d-none d-lg-block">
-                        <img src={woman_photoshoot} className="w-100 h-50 border" alt=""/>
-                        <img src={woman_photoshoot} className="w-100 h-50 border" alt=""/>
+                    <div className="col-12 col-md-6 col-lg-2 px-md-0 d-none d-lg-block w-100">
+                        <img src={marriage} className="w-100 h-100 border" style={{objectFit: "cover"}} alt=""/>
                     </div>
-                    <div className="col-12 col-md-6 col-lg-3 px-md-0 d-block d-md-none d-lg-block">
-                        <img src={woman_polaroid} className="w-100 h-100 border" alt=""/>
+                    <div className="col-12 col-md-6 col-lg-3 px-md-0 d-block d-md-none d-lg-block w-100">
+                        <img src={model} className="w-100 h-100 border" style={{objectFit: "cover"}} alt=""/>
                     </div>
                 </div>
 
                 <div className="row mt-6">
                     <div className="col">
-                        <h2 className="text-center font-weight-bold text-titillium">Nossos Pacotes</h2>
+                        <h2 className="text-center font-weight-bold text-titillium" id="packages">Nossos Pacotes</h2>
                     </div>
                 </div>
 
                 <div className="row mt-5">
-                    <div className="col-12 col-lg-7">
+                    <div className="col-12 col-lg-7 mb-4">
                         <div className="col-12 text-titillium">
                                 <h4 className="pb-2 text-center text-lg-left">A <span className="text-primary font-weight-bold font-italic">Out Of Lens</span> disponibiliza uma série
                                 de pacotes com os mais diferentes focos. Além das áreas de atuação dos ensaios, a duração, quantidade de fotos e outros atributos individuais podem ser 
@@ -117,10 +122,10 @@ const HomeView = () => {
                                 <h4 className="mt-3 text-center text-lg-left">Sinta-se livre para explorar nossas possibilidades!</h4>
                         </div>
                     </div>
-                    <div className="col-12 col-lg-3 d-flex align-items-center mt-4 mt-lg-0">
-                        <img src={woman_polaroid} className="w-100" alt="" />
+                    <div className="col-12 col-lg-3 d-flex justify-content-center mt-4 mt-lg-0 mb-5">
+                        <img src={woman_polaroid} className="w-75 w-md-100" alt="" />
                     </div>
-                    <div className="col-12">
+                    <div className="col-12 mt-3">
                         <PackagesGrid setPack={setPack} />
                     </div>
                 </div>
