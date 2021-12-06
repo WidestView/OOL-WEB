@@ -13,8 +13,8 @@ const PackageModal = ({pack}) => {
                         <button type="button" className="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     </div>
                     <div className="modal-body">
-                    <h5 className="font-weight-bold text-uppercase text-center my-2">{pack.name}</h5>
-                        <img src={`${PackageAPI.getImageUrl(pack.id)}`} className="w-100" alt="" />
+                    <h4 className="font-weight-bold text-uppercase text-center mt-2 mb-3">{pack.name}</h4>
+                        <img src={`${PackageAPI.getImageUrl(pack.id)}`} className="w-100" alt=""/>
                         <p className="mx-3 mt-4">{pack.description}</p>
                         <div className="form-group col-5">
                             <label htmlFor="inputState" className="font-weight-bold">Quantidade de Fotos</label>
