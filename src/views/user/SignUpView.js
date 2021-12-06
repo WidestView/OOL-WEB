@@ -2,6 +2,7 @@ import UserAPI from "../../api/UserAPI";
 import FormLayout from "../../components/layouts/FormLayout";
 
 import lentinha from "../../assets/svgs/creatures/lentinha.svg";
+import InputField from "../../components/layouts/form_fields/InputField";
 
 const SignUpView = () => {
     return (
@@ -13,7 +14,21 @@ const SignUpView = () => {
                     <div className="d-flex justify-content-end position-absolute" style={{right:"2%", top:"12%"}}>
                         <img src={lentinha} className="prop" id="lentinha" alt=""/>
                     </div>
-                    <FormLayout api={UserAPI} successMessage="Seja bem vindo!"/>
+                    <FormLayout api={UserAPI}>
+                        <div className="form-row">
+                            <InputField name="Cpf" type="text" displayName="CPF" placeholder="O seu cpf" required className="col-5" />
+                        </div>
+                        <div className="form-row">
+                            <InputField name="Name" type="text" displayName="Nome" placeholder="O seu nome" required className="col-4" />
+                            <InputField name="SocialName" type="text" displayName="Nome social*" placeholder="Seu nome social*" className="col-4" />
+                            <InputField name="BirthDate" type="date" displayName="Data de Nascimento" placeholder="Sua data de nascimento" required className="col-3" />
+                        </div>
+                        <div className="form-row">
+                            <InputField name="Email" type="email" displayName="Email" placeholder="Seu email" required className="col-4" />
+                            <InputField name="Phone" type="text" displayName="Telefone Celular" placeholder="Seu telefone celular" required className="col-4" />                            
+                            <InputField name="Password" type="password" displayName="Senha" placeholder="Sua senha" required className="col-4" />
+                        </div>
+                    </FormLayout>
                     <p className="position-absolute mt-5 mt-sm-3 mt-md-auto" style={{top:"90%"}}>* Campo opcional.</p>
                 </div>
             </div>     
