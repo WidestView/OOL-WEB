@@ -16,7 +16,7 @@ const SignUpView = () => {
                     </div>
                     <FormLayout api={UserAPI}>
                         <div className="form-row">
-                            <InputField name="Cpf" type="text" displayName="CPF" placeholder="O seu cpf" required className="col-5" />
+                            <InputField name="Cpf" type="text" displayName="CPF" placeholder="O seu cpf" mask="999.999.999.99" required className="col-5" />
                         </div>
                         <div className="form-row">
                             <InputField name="Name" type="text" displayName="Nome" placeholder="O seu nome" required className="col-4" />
@@ -25,7 +25,7 @@ const SignUpView = () => {
                         </div>
                         <div className="form-row">
                             <InputField name="Email" type="email" displayName="Email" placeholder="Seu email" required className="col-4" />
-                            <InputField name="Phone" type="text" displayName="Telefone Celular" placeholder="Seu telefone celular" required className="col-4" />                            
+                            <InputField name="Phone" type="text" displayName="Telefone Celular" mask="99-999999999" placeholder="Seu telefone celular" required className="col-4" />                            
                             <InputField name="Password" type="password" displayName="Senha" placeholder="Sua senha" required className="col-4" />
                         </div>
                     </FormLayout>
