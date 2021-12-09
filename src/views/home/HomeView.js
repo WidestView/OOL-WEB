@@ -1,5 +1,4 @@
 import Banner from "../../components/Banner";
-import { Link } from "react-router-dom";
 import FAQ from "../../components/business/FAQ";
 
 import photo from "../../assets/svgs/photography/photo.svg";
