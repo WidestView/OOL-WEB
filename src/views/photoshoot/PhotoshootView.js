@@ -73,7 +73,7 @@ const PhotoshootView = ({employee, user, badLogin}) => {
             statusArray[index] = "UPLOADING";
             setImagesStatus(statusArray);
 
-            let res = await axios.post(PhotoshootAPI.getImageUploadUrl(photoshoot), formData); //FIXME: FIX BAD REQUEST
+            let res = await axios.post(PhotoshootAPI.getImageUploadUrl(photoshoot), formData);
             if (res.status === 201 || res.status === 200){
                 let statusArray = imagesStatus;
                 statusArray[index] = "UPLOADED";

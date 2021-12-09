@@ -88,7 +88,7 @@ const HomeView = () => {
                 
                 <div className="row mt-5">
                     <div className="col-12 col-md-6 col-lg-3 px-md-0 w-100">
-                        <img src={art} className="w-100 h-100 border" style={{objectFit: "cover"}} onMouseOver="" alt=""/>
+                        <img src={art} className="w-100 h-100 border" style={{objectFit: "cover"}} alt=""/>
                     </div>
                     <div className="col-12 col-md-6 col-lg-2 px-md-0 w-100">
                         <img src={friends} className="w-100 h-100 border" style={{objectFit: "cover"}} alt=""/>
