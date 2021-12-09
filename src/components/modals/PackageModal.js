@@ -1,8 +1,23 @@
+import { useState } from "react";
 import PackageAPI from "../../api/PackageAPI";
 
 const PackageModal = ({pack}) => {
 
     const Title = "Comprar Pacote";
+
+    const [imagesCount, setImagesCount] = useState(pack.imageQuantity?? 0);
+
+    const getPriceArray = () => {
+        let result = [];
+        for (let i = 0; i < pack.maxIterations; i++) {
+            result.push((i + 1) * pack.quantityMultiplier);
+        }
+        return result;
+    }
+
+    const handleBuy = () => {
+        // TODO: REDIRECT TO TAKEOUT WITH DATA
+    }
 
     return ( 
         <div className="modal fade" id="packageModal" tabIndex="-1" role="dialog" data-keyboard="false" data-backdrop="static">
@@ -18,12 +33,21 @@ const PackageModal = ({pack}) => {
                         <p className="mx-3 mt-4">{pack.description}</p>
                         <div className="form-group col-5">
                             <label htmlFor="inputState" className="font-weight-bold">Quantidade de Fotos</label>
-                            <select id="inputState" className="form-control" defaultValue={'Choose...'}>
-                                <option value="Choose..."> Choose...</option>
-                            </select>
+                            {
+                                pack.imageQuantity === null && 
+                                <select id="inputState" className="form-control" defaultValue={'Selecionar...'} onChange={(e)=> {setImagesCount(e.target.value)}}>
+                                    {getPriceArray().map( (price, i) => (
+                                        <option value={price} key={"value-" + i}>{price}</option>
+                                    ))}
+                                </select>
+                            }
+                            {
+                                pack.imageQuantity !== null && 
+                                <h3>{pack.imageQuantity} imagens</h3>
+                            }
                         </div>
-                        <h6 className="mx-3"><b>Valor final:</b> {pack.baseValue}</h6>
-                        <button type="button" className="btn btn-primary mx-3 mb-2 float-right">Comprar</button>
+                        <h6 className="mx-3"><b>Valor final:</b> R${pack.baseValue + (pack.pricePerPhoto * imagesCount)}</h6>
+                        <button type="button" className="btn btn-primary mx-3 mb-2 float-right" onClick={handleBuy}>Comprar</button>
                     </div>
                 </div>
             </div>
