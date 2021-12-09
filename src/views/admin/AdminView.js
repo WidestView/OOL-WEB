@@ -5,9 +5,9 @@ const AdminView = ({user, employee, badLogin}) => {
 
     const cadastroChoices = [
         {
-            name: "Usuários",
+            name: "Funcionários",
             icon: "person-fill",
-            uri: "/admin/users"
+            uri: "/admin/employees"
         },
         {
             name: "Pacotes",
