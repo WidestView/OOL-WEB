@@ -17,7 +17,7 @@ const SignUpView = ({loggedIn}) => {
             <div className="row pt-5 d-flex justify-content-center">
                 <div className="col-11 col-md-5 mb-5 mb-md-0">
                     <h1 className="text-center mb-4 font-weight-bold" style={{marginTop:"5vw"}}>Criação de conta</h1>
-                    <h5 className="text-center mb-5"> Comece sua jornada com a Out Of Lens através da criação de uma conta toda sua! Preencha os campos ao lado e complete seu cadastro.</h5>
+                    <h5 className="text-center mb-5 mt-4"> Comece sua jornada com a Out Of Lens através da criação de uma conta toda sua! Preencha os campos ao lado e complete seu cadastro.</h5>
                     <img src={Photographer} className="w-100" alt=""/>
                 </div>
                 <div className="col-0 col-md-1"/>

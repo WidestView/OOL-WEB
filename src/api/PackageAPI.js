@@ -45,31 +45,6 @@ class PackageAPI {
     }
 
     static getImageUrl = (id) => `${process.env.REACT_APP_API_URL}/api/package/${id}/image`;
-
-    static getFormStruct = () => [
-        [
-            { 
-                name: "Name", 
-                value: null, 
-                displayName: "Nome", 
-                type: "text", 
-                placeholder: "Nome do pacote", 
-                help: "Coloque o nome do pacote", 
-                required: false,
-                colSize: 5
-            },
-            { 
-                name: "Description", 
-                value: null, 
-                displayName: "Descrição", 
-                type: "text", 
-                placeholder: "Descrição do pacote", 
-                help: "Descreva o pacote", 
-                required: false,
-                colSize: 5
-            },
-        ]     
-    ]
 }
 
 export default PackageAPI;
