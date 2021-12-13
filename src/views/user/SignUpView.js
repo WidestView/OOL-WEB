@@ -1,14 +1,16 @@
+import { useState } from "react";
+import { Redirect } from "react-router-dom";
 import UserAPI from "../../api/UserAPI";
 import FormLayout from "../../components/layouts/FormLayout";
-
 import InputField from "../../components/layouts/form_fields/InputField";
-import { useState } from "react";
 
 import Photographer from "../../assets/svgs/photographer.svg";
 
-const SignUpView = () => {
+const SignUpView = ({loggedIn}) => {
 
     const [user, setUser] = useState();
+
+    if (loggedIn) return <Redirect to="/"/>;
 
     return (
         <div className="container text-titillium mb-3">

@@ -72,7 +72,9 @@ function App() {
           <Route exact path="/photoshoot/:id">
             <PhotoshootView user={user} employee={employee} badLogin={badLogin}/>
           </Route>
-          <Route exact path="/signup" component={SignUpView}/>
+          <Route exact path="/signup">
+            <SignUpView loggedIn={user !== undefined} />
+          </Route>
           <Route exact path="/info" component={InfoView}/>
           <Route exact path="/401" component={UnauthorizedView}/>
           <Route path="*" component={NotFoundView}/>
