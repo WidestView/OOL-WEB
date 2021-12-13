@@ -83,6 +83,7 @@ const HomeView = () => {
                 <div className="row mt-6">
                     <div className="col">
                         <h2 className="text-center font-weight-bold text-titillium" id="work">Nosso Trabalho</h2>
+                        <h4 className="text-center text-titillium mt-5">Esses são alguns exemplos de fotos tiradas anteriormente por nós!</h4>
                     </div>
                 </div>
                 

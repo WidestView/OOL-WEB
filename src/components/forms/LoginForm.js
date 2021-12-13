@@ -30,14 +30,14 @@ const LoginForm = ({callback}) => {
         <form className="px-4 py-3" onSubmit={handleSubmit}>
             <div className="form-group">
                 <label htmlFor="login-email">Email</label>
-                <input type="email" className={`form-control is-${validation_status}`} name="login" id="login-email" placeholder="lentinha@legas.com"/>
+                <input type="email" className={`form-control is-${validation_status}`} name="login" id="login-email" placeholder="email@email.com"/>
                 <div className="invalid-feedback">
                     Login ou senha inválidos!
                 </div>
             </div>
             <div className="form-group">
                 <label htmlFor="login-password">Senha</label>
-                <input type="password" className="form-control" name="password" id="login-password" placeholder="segredo..."/>
+                <input type="password" className="form-control" name="password" id="login-password" placeholder="Insira sua senha"/>
             </div>
             <button type="submit" className="btn btn-primary mt-2">Entrar</button>
         </form>
