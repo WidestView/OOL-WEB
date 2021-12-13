@@ -1,8 +1,8 @@
 import Inputmask from "inputmask";
 import { useEffect, useRef } from "react";
 
-const InputField = ({name, className, type, help, displayName, defaultValue, placeholder, required, mask}) => { 
-    // {name, className, type, ?help, ?displayName, ?defaultValue, ?placeholder, ?required, ?mask}
+const InputField = ({name, className, type, help, displayName, defaultValue, placeholder, required, prepend, mask}) => { 
+    // {name, className, type, ?help, ?displayName, ?defaultValue, ?placeholder, ?required, ?prepend ?mask}
 
     const inputRef = useRef();
 
@@ -13,6 +13,12 @@ const InputField = ({name, className, type, help, displayName, defaultValue, pla
 
     return (
         <div className={"form-group " + className}>
+            {
+                prepend !== undefined &&
+                <div className="input-group-prepend">
+                    <span className="input-group-text">{prepend}</span>
+                </div>
+            }
             <label htmlFor={name + "Input"}>{displayName?? name}</label>
             <input 
                 type={type} 
