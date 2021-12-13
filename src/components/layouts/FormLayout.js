@@ -4,21 +4,20 @@ import Loading from "../Loading";
 
 const FormLayout = (props) => {
 
-    const [data, setData] = useState(); // Any stored data, could be a previous version from the API
     const [validId, setValidId] = useState(); // Store valids ids for gathering existing data
 
     // Get already existing data if id not undefined
     useEffect(()=> {
         const fetch = async () => {
             try { 
-                setData(await props.api.get(props.id));
+                props.setData(await props.api.get(props.id));
                 setValidId(true);
             }
-            catch (e) { setData(); setValidId(false); }
+            catch (e) { props.setData(); setValidId(false); }
         }
 
         if(props.id !== undefined) fetch();
-    }, [props.id, props.api]);
+    }, [props, props.id, props.api]);
 
     // Validate form based on http response
     const ValidateForm = (errors) => {
@@ -105,7 +104,7 @@ const FormLayout = (props) => {
     const handleSubmitEvent = async (event) => {
         event.preventDefault();
 
-        let newData = data?? {};
+        let newData = props.data?? {};
         newData = BlendData(newData, event);
 
         ClearValidation();
@@ -116,7 +115,7 @@ const FormLayout = (props) => {
     // Submits data to API
     const submitAndFetch = async (newData) => {
         try {
-            if (data !== undefined && data.id !== undefined) await props.api.put(data.id, newData) // Update
+            if (props.data !== undefined && props.data.id !== undefined) await props.api.put(props.data.id, newData) // Update
             else await props.api.post(newData) // Create
         }
         catch(e) {
@@ -135,10 +134,10 @@ const FormLayout = (props) => {
 
         const fetch = async () => {
             try { 
-                setData(await props.api.get(props.id));
+                props.setData(await props.api.get(props.id));
                 setValidId(true);
             }
-            catch (e) { setData(); setValidId(false); }
+            catch (e) { props.setData(); setValidId(false); }
         }
 
         await fetch();
@@ -153,7 +152,7 @@ const FormLayout = (props) => {
         });
     }
 
-    if (props.id !== undefined && validId && !data) return <Loading/>;
+    if (props.id !== undefined && validId && !props.data) return <Loading/>;
 
     return ( 
         <form onSubmit={handleSubmitEvent} id={props.formId?? "DefaultForm"}>

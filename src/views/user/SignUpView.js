@@ -3,8 +3,12 @@ import FormLayout from "../../components/layouts/FormLayout";
 
 import lentinha from "../../assets/svgs/creatures/lentinha.svg";
 import InputField from "../../components/layouts/form_fields/InputField";
+import { useState } from "react";
 
 const SignUpView = () => {
+
+    const [user, setUser] = useState();
+
     return (
         <div className="container text-titillium">
             <div className="row pt-5">
@@ -14,7 +18,7 @@ const SignUpView = () => {
                     <div className="d-flex justify-content-end position-absolute" style={{right:"2%", top:"12%"}}>
                         <img src={lentinha} className="prop" id="lentinha" alt=""/>
                     </div>
-                    <FormLayout api={UserAPI}>
+                    <FormLayout api={UserAPI} data={user} setData={setUser}>
                         <div className="form-row">
                             <InputField name="Cpf" type="text" displayName="CPF" placeholder="O seu cpf" mask="999.999.999.99" required className="col-5" />
                         </div>

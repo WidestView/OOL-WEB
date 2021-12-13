@@ -1,8 +1,8 @@
 import Inputmask from "inputmask";
 import { useEffect, useRef } from "react";
 
-const InputField = ({name, className, type, help, displayName, placeholder, required, mask}) => { 
-    // {name, className, type, ?help, ?displayName, ?placeholder, ?required, ?mask}
+const InputField = ({name, className, type, help, displayName, defaultValue, placeholder, required, mask}) => { 
+    // {name, className, type, ?help, ?displayName, ?defaultValue, ?placeholder, ?required, ?mask}
 
     const inputRef = useRef();
 
@@ -22,7 +22,8 @@ const InputField = ({name, className, type, help, displayName, placeholder, requ
                 aria-describedby={help !== undefined? name + "Help" : undefined} 
                 placeholder={placeholder} 
                 required={required}
-                ref={inputRef}/>
+                ref={inputRef}
+                defaultValue={defaultValue}/>
             <div className="invalid-feedback" id={name + "Validation"}></div>
             {help !== undefined && <small id={name + "Help"} className="form-text text-muted">{help}</small> }
         </div>
