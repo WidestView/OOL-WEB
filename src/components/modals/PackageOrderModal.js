@@ -1,14 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import FormLayout from "../layouts/FormLayout";
+import InputField from "../layouts/form_fields/InputField";
 
 const PackageOrderModal = ({order}) => {
-    
-    const $ = window.$;
 
-    const [stage, setStage] = useState(1);
+    const [stage, setStage] = useState(1); // 1 Pagamento -> 2 Sessão -> 3 Resumo -> 4 SUBMIT
 
-    const renderSectionTitle = (stageRef, title) => {
-        if (stage >= stageRef) return ( <h3><i className="bi bi-check-circle text-success"></i> <span className="text-muted">{title}</span> </h3> );
-        return (<h3>{title}</h3>);
+    useEffect(()=> { if (stage >= 4) send() }, [stage]);
+
+    const send = () => {
+        //TODO: POST ORDER
+        //TODO: POST PHOTOSHOOT
+    }
+
+    const CardSubmit = (event) => {
+        setStage(stage + 1);
     }
 
     return ( 
@@ -20,15 +26,23 @@ const PackageOrderModal = ({order}) => {
                         <button type="button" className="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     </div>
                     <div className="modal-body">
-                        <Stage stage={stage} stageRef={1} title="Pagamento">
-                            <h1>Pagamento 💰</h1>
+                        <Stage stage={stage} stageRef={1} title="Pagamento 💰">
+                            <FormLayout onSubmit={CardSubmit}>
+                                <div className="form-row">
+                                <InputField name="CardNumber" type="text" displayName="Número cartão" placeholder="Número cartão de crédito" className="col-12" /> 
+                                </div>
+                                <div className="form-row">
+                                    <InputField name="CardExpire" type="date" displayName="Vencimento" placeholder="Data de vencimento" className="col-6" /> 
+                                    <InputField name="CardCVV" type="text" displayName="CVV" placeholder="Código de segurança" className="col-6" /> 
+                                </div>
+                            </FormLayout>
                         </Stage>
-                        <Stage stage={stage} stageRef={2} title="Sessão">
-                            <h1>Sessão 🐫</h1>
+                        <Stage stage={stage} stageRef={2} title="Sessão 📷">
+                            <FormLayout>
+                            </FormLayout>
                         </Stage>
-                        <Stage stage={stage} stageRef={3} title="Resumo">
-                            <h1>Resumo 🧻</h1>
-                        </Stage>                          
+                        <Stage stage={stage} stageRef={3} title="Resumo 📃">
+                        </Stage>                   
                     </div>
                 </div>
             </div>

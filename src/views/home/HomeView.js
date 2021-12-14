@@ -15,11 +15,13 @@ import trip from "../../assets/tests/trip.jpg"
 import city from "../../assets/tests/city.jpg"
 import marriage from "../../assets/tests/marriage.jpg"
 import model from "../../assets/tests/model.jpg"
+import PackageOrderModal from "../../components/modals/PackageOrderModal";
 
 
 const HomeView = () => {
 
     const [pack, setPack] = useState();
+    const [order, setOrder] = useState();
 
     return ( 
         <div className="home">
@@ -136,7 +138,8 @@ const HomeView = () => {
                     </div>
                 </div>
             </div>
-            { pack !== undefined ? <PackageModal pack={pack} /> : undefined}
+            { pack !== undefined ? <PackageModal pack={pack} setOrder={setOrder} /> : undefined}]
+            <PackageOrderModal kind={"Package"} order={order?? {}} />
         </div>
      );
 }

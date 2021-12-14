@@ -1,11 +1,13 @@
 import { useState } from "react";
 import PackageAPI from "../../api/PackageAPI";
 
-const PackageModal = ({pack}) => {
+const PackageModal = ({pack, setOrder}) => {
+
+    const $ = window.$;
 
     const Title = "Comprar Pacote";
 
-    const [imagesCount, setImagesCount] = useState(pack.imageQuantity?? 0);
+    const [imagesCount, setImagesCount] = useState(pack.imageQuantity? pack.imageQuantity : pack.quantityMultiplier);
 
     const getPriceArray = () => {
         let result = [];
@@ -16,8 +18,24 @@ const PackageModal = ({pack}) => {
     }
 
     const handleBuy = () => {
-        // TODO: REDIRECT TO TAKEOUT WITH DATA
+        registerOrder();
+        closeModal();
+        openOrderModal();
     }
+
+    const registerOrder = ()=> {
+        const order = {
+            packId: pack.id,
+            packName: pack.name,
+            imageQuantity: imagesCount
+        };
+        setOrder(order);
+    }
+
+    // TODO: GET DEFAULT VALUES
+
+    const closeModal = ()=> $('#packageModal').modal('hide');
+    const openOrderModal = ()=> { $('#orderModal').modal('show'); } 
 
     return ( 
         <div className="modal fade" id="packageModal" tabIndex="-1" role="dialog" data-keyboard="false" data-backdrop="static">
@@ -34,7 +52,7 @@ const PackageModal = ({pack}) => {
                         <div className="form-group col-5">
                             <label htmlFor="inputState" className="font-weight-bold">Quantidade de Fotos</label>
                             {
-                                pack.imageQuantity === null && 
+                                !pack.imageQuantity && 
                                 <select id="inputState" className="form-control" defaultValue={'Selecionar...'} onChange={(e)=> {setImagesCount(e.target.value)}}>
                                     {getPriceArray().map( (price, i) => (
                                         <option value={price} key={"value-" + i}>{price}</option>
@@ -42,8 +60,7 @@ const PackageModal = ({pack}) => {
                                 </select>
                             }
                             {
-                                pack.imageQuantity !== null && 
-                                <h3>{pack.imageQuantity} imagens</h3>
+                                pack.imageQuantity? <h3>{pack.imageQuantity} imagens</h3> : undefined
                             }
                         </div>
                         <h6 className="mx-3"><b>Valor final:</b> R${pack.baseValue + (pack.pricePerPhoto * imagesCount)}</h6>
