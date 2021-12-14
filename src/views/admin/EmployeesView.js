@@ -46,10 +46,9 @@ const EmployeesView = () => {
                     {employees.map((employee)=> (
                         <Link className="employee-link bg-white col-3 m-3 rounded border border-primary text-decoration-none text-reset" key={employee.cpf}
                             to={`/admin/employees/${employee.cpf}`}>
-                            <div className=" d-inline-block">
-                                <i className="bi bi-person-fill font-weight-bold h3 d-inline"></i><h3>{employee.socialName?? employee.name}</h3>
-                            </div>
-                            
+                            <h2 className="text-center"><i className="bi bi-person-fill"></i></h2>
+                            <h3 className="text-center">{employee.name}</h3>
+                            <h5 className="text-muted text-center">{employee.cpf}</h5>
                         </Link>
                     ))}
                 </div>

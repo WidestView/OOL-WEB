@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import EquipmentAPI from "../../api/EquipmentAPI";
 import NavigationLayout from "../../components/layouts/NavigationLayout";
 import Loading from "../../components/Loading";
@@ -7,27 +6,25 @@ import { swalError } from "../../util/ErrorHelper";
 
 const EquipmentsView = () => {
 
-    const [eqs, setEqs] = useState();
+    const [data, setData] = useState();
     const [error, setError] = useState();
 
-    const getEqs = () => {
-        const fetchEqs = async () => {
+    useEffect(() => {
+        const fetchData = async () => {
             try {
-                setEqs(await EquipmentAPI.get());
+                setData(await EquipmentAPI.get());
             }
             catch(error){
-                if (error.response && error.response.status === 401) setEqs(undefined);
+                if (error.response && error.response.status === 401) setData(undefined);
                 setError(error);
                 swalError(error);
             }
         }
-        return fetchEqs();
-    }
-
-    useEffect(getEqs, []);
+        fetchData();
+    }, []);
 
     if (error) return <h1 className="text-danger text-center">Algo deu errado....</h1>
-    if (!eqs) return <Loading/>
+    if (!data) return <Loading/>;
 
     return ( 
         <div className="container mt-5">
@@ -35,24 +32,18 @@ const EquipmentsView = () => {
                 <div className="row mt-3">
                     <div className="col-12">
                         <div className="d-flex justify-content-between align-items-baseline">
-                            <h3 className="font-weight-bold"><i className="bi bi-camera-fill mr-2"></i> Equipmantos</h3>
-                            <Link className="pointer text-secondary h4 text-decoration-none m-0 text-reset"
-                                to="/admin/equipments/add">
-                                Adicionar Equipamento<i className="bi bi-plus font-weight-bold h3"></i>
-                            </Link>
+                            <h3 className="font-weight-bold"><i className="bi bi-camera-fill mr-2"></i> Equipamentos</h3>
                         </div>
                         <hr />
                     </div>
                 </div>
                 <div className="row">
-                    {eqs.map((eq)=> (
-                        <Link className="equipment-link bg-white col-3 m-3 rounded border border-primary text-decoration-none text-reset" key={eq.id}
-                            to={`/admin/equipment/${eq.id}`}>
+                    {data.details.map((eq)=> (
+                        <div className="equipment-link bg-white col-3 m-3 rounded border border-primary text-decoration-none text-reset" key={eq.id}>
                             <h5 className="text-muted">{eq.id}</h5>
-                            <h2 className="text-center"><i className="bi bi-box"></i></h2>
+                            <h2 className="text-center"><i className="bi bi-camera-fill"></i></h2>
                             <h3 className="text-center">{eq.name}</h3>
-                            <p className="text-center">{eq.description}</p>
-                        </Link>
+                        </div>
                     ))}
                 </div>
             </NavigationLayout>

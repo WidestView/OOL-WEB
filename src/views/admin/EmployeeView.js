@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import EmployeeAPI from "../../api/EmployeeAPI";
 import FormLayout from "../../components/layouts/FormLayout";
@@ -13,6 +13,10 @@ const EmployeeView = () => {
     const [acessLevels, setAcessLevels] = useState();
     const [occupations, setOccupations] = useState();
 
+    const accessRef = useRef();
+    const occupationRef = useRef();
+    const genderRef = useRef();
+    
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -35,7 +39,7 @@ const EmployeeView = () => {
                     </div>
                     }
                     <div className="form-row">
-                    <InputField name="rg" type="text" displayName="RG" placeholder="Rg do funcionário" required className="col-5" defaultValue={employee !== undefined? employee.cpf : undefined} />
+                    <InputField name="rg" type="text" displayName="RG" placeholder="Rg do funcionário" required className="col-5" defaultValue={employee !== undefined? employee.rg : undefined} />
                     </div>
                     <div className="form-row">
                         <InputField name="name" type="text" displayName="Nome" placeholder="Nome do funcionário" required className="col-5" defaultValue={employee !== undefined? employee.name : undefined} />
@@ -51,12 +55,13 @@ const EmployeeView = () => {
                         <div className="col-6">
                             <p className="font-weight-bold mt-2">Ocupação</p>
                             <div className="form-row">
-                                <div className="form-group col-12">    
-                                    <select name="occupationId" className="form-control" defaultValue={'Selecionar...'} onChange={(e)=> {}}>
+                                <div className="form-group col-12">
+                                    <input name="occupationId" className="d-none" type="text" ref={occupationRef} defaultValue={employee !== undefined? employee.occupationId : undefined}/>
+                                    <select className="form-control" defaultValue={'Selecionar...'} onChange={(e) => { occupationRef.current.value = e.target.value; }}>
                                     {
-                                        Array.isArray(acessLevels) &&
-                                        acessLevels.map((level, i) => (
-                                            <option value={level.id} key={"level-" + i}>{level.name}</option>
+                                        Array.isArray(occupations) &&
+                                        occupations.map((o, i) => (
+                                            <option value={o.id} key={"oc-" + i}>{o.name}</option>
                                         ))
                                     }
                                     </select>
@@ -67,11 +72,12 @@ const EmployeeView = () => {
                             <p className="font-weight-bold mt-2">Nível de acesso</p>
                             <div className="form-row">
                                 <div className="form-group col-12">    
-                                    <select name="accessLevel" className="form-control" defaultValue={'Selecionar...'} onChange={(e)=> {}}>
+                                    <input name="accessLevel" className="d-none" type="text" ref={accessRef} defaultValue={employee !== undefined? employee.accessLevel : undefined}/>
+                                    <select className="form-control" defaultValue={'Selecionar...'} onChange={(e) => { console.log(e); }} >
                                     {
-                                        Array.isArray(occupations) &&
-                                        occupations.map((o, i) => (
-                                            <option value={o.id} key={"oc-" + i}>{o.name}</option>
+                                        Array.isArray(acessLevels) &&
+                                        acessLevels.map((level, i) => (
+                                            <option value={level.id} key={"level-" + i}>{level.name}</option>
                                         ))
                                     }
                                     </select>
@@ -84,6 +90,7 @@ const EmployeeView = () => {
                             <p className="font-weight-bold mt-2">Gênero</p>
                             <div className="form-row">
                                 <div className="form-group col-12">    
+                                    <input name="gender" className="d-none" type="text" ref={genderRef} defaultValue={employee !== undefined? employee.gender : undefined}/>
                                     <select name="gender" className="form-control" defaultValue={'male'} onChange={(e)=> {}}>
                                         <option value={"male"}>Homem</option>
                                         <option value={"female"}>Mulher</option>

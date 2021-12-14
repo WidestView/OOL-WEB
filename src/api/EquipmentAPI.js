@@ -4,41 +4,24 @@ import { isDev } from "../util/Env";
 class EquipmentAPI {
 
     static get = async (id)=> {
-        let data;
-        // data = await EquipmentAPI.getDetails(id);
-        return data;
+        let details = await EquipmentAPI.getDetails();
+        let equipments = await EquipmentAPI.getEquipment();
+        return {details, equipments};
     };
 
-    static post = async (equipmentInput) => {
+    static post = async (data) => {
 
-        let details = EquipmentAPI.parseDatails(equipmentInput);
-        let equipment = EquipmentAPI.parseEquipment(equipmentInput);
+        data.details = await EquipmentAPI.postDetails(data.details).data;
+        data.equipment = await EquipmentAPI.postEquipment(data.equipment).data;
 
-        let res = await EquipmentAPI.postDetails();
-        await EquipmentAPI.postEquipment();
-
-        details = res.data;
-
-        if(details !== undefined && isDev()){
+        if(data.details !== undefined && isDev()){
             console.info("POSTED DETAILS INFO:");
-            console.info(details);
+            console.info(data.details);
         }
 
-        if(equipment !== undefined && isDev()){
+        if(data.equipment !== undefined && isDev()){
             console.info("POSTED EQUIPMENT INFO:");
-            console.info(equipment);
-        }
-    }
-
-    static parseDetails = (data) => {
-        return {
-
-        }
-    }
-
-    static parseEquipment = (data) => {
-        return {
-            
+            console.info(data.equipment);
         }
     }
 
