@@ -56,7 +56,9 @@ function App() {
       <Router basename={routerBaseName}>
         <Navbar user={user} employee={employee} refreshLogin={() => Auth.refreshLogin(setUser, setBadLogin)}/>
         <Switch>
-          <Route exact path={["/", "/home"]} component={HomeView}/>
+          <Route exact path={["/", "/home"]} >
+            <HomeView user={user}/>
+          </Route>
           <Route exact path="/user">
             <ProfileView user={user} badLogin={badLogin}/>
           </Route>

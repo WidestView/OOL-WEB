@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import PackageAPI from "../api/PackageAPI";
 import Loading from './Loading';
 
-const PackagesGrid = ( {setPack} ) => {
+const PackagesGrid = ( {clickPack} ) => {
 
     const [packages, setPackages] = useState();
     const [error, setError] = useState();
@@ -27,8 +27,7 @@ const PackagesGrid = ( {setPack} ) => {
                 { packages === undefined && error === undefined && <Loading />}
                 { packages !== undefined && 
                     packages.map((pack, index) => (
-                        <div type="button" className={`package-preview-close col-7 col-md-2 m-3 p-0 d-${pack.available? "flex" : "none"} align-items-end rounded shadow-sm`} key={"pack-grid-" + index}
-                            data-toggle="modal" data-target="#packageModal" onClick={() => setPack(pack)}>
+                        <div type="button" className={`package-preview-close col-7 col-md-2 m-3 p-0 d-${pack.available? "flex" : "none"} align-items-end rounded shadow-sm`} key={"pack-grid-" + index} onClick={() => clickPack(pack)}>
                             <img src={`${PackageAPI.getImageUrl(pack.id)}`} className="w-100" alt=""/>
                             <h4 className="text-white text-left text-uppercase pl-2 pb-2 font-weight-bold position-absolute">{pack.name}</h4> 
                         </div>

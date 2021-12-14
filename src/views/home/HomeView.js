@@ -7,7 +7,7 @@ import woman_photoshoot from "../../assets/svgs/photography/woman_photoshoot.svg
 import woman_polaroid from "../../assets/svgs/photography/woman_polaroid.svg";
 import PackagesGrid from "../../components/PackagesGrid";
 import PackageModal from "../../components/modals/PackageModal";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import art from "../../assets/tests/art.jpg"
 import friends from "../../assets/tests/friends.jpg"
@@ -15,13 +15,25 @@ import trip from "../../assets/tests/trip.jpg"
 import city from "../../assets/tests/city.jpg"
 import marriage from "../../assets/tests/marriage.jpg"
 import model from "../../assets/tests/model.jpg"
-import PackageOrderModal from "../../components/modals/PackageOrderModal";
+import OrderModal from "../../components/modals/OrderModal";
 
 
-const HomeView = () => {
+const HomeView = ({user}) => {
 
     const [pack, setPack] = useState();
     const [order, setOrder] = useState();
+
+    const [packModalOpened, setPackModalOpened] = useState(false);
+    const [orderModalOpened, setOrderModalOpened] = useState(false);
+
+    useEffect(() => {
+        setPackModalOpened(pack !== undefined);
+    }, [pack]);
+
+    const handleClickPack = (pack) => {
+        setPack(pack);
+        if (!packModalOpened && pack !== undefined) setPackModalOpened(true); 
+    }
 
     return ( 
         <div className="home">
@@ -128,7 +140,7 @@ const HomeView = () => {
                         <img src={woman_polaroid} className="w-75 w-md-100" alt="" />
                     </div>
                     <div className="col-12 mt-3">
-                        <PackagesGrid setPack={setPack} />
+                        <PackagesGrid clickPack={handleClickPack} />
                     </div>
                 </div>
 
@@ -138,8 +150,8 @@ const HomeView = () => {
                     </div>
                 </div>
             </div>
-            { pack !== undefined ? <PackageModal pack={pack} setOrder={setOrder} /> : undefined}]
-            <PackageOrderModal kind={"Package"} order={order?? {}} />
+            <PackageModal pack={pack} opened={packModalOpened} setOpened={setPackModalOpened} setOrder={setOrder} setOrderModalOpened={setOrderModalOpened} />
+            <OrderModal order={order?? {}} user={user} opened={orderModalOpened} setOpened={setOrderModalOpened}/>
         </div>
      );
 }
