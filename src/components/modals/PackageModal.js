@@ -7,7 +7,6 @@ const PackageModal = ({pack, opened, setOpened, setOrder, setOrderModalOpened}) 
     const [imagesCount, setImagesCount] = useState();
 
     useEffect(()=> { 
-        console.log("AAA");
         if (opened) $('#packageModal').modal('show');
         else $('#packageModal').modal('hide');
     }, [opened, $]);

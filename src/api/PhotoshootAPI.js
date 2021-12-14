@@ -1,7 +1,7 @@
 import axios from "axios";
 import { isDev } from "../util/Env";
 
-class PhotoshootAPI { //TODO: POST PHOTOSHOOT
+class PhotoshootAPI {
 
     static get = async (id) => {
 
@@ -22,6 +22,16 @@ class PhotoshootAPI { //TODO: POST PHOTOSHOOT
             console.info(photoshoots);
         }
         return photoshoots;
+    }
+
+    static post = async (photoshoot) => {
+        let res = await axios.post(`${process.env.REACT_APP_API_URL}/api/PhotoShoot/add`, photoshoot);
+        photoshoot = res.data;
+        if(photoshoot && isDev()){
+            console.info("CREATED PHOTOSHOOT INFO:");
+            console.info(photoshoot);
+        }
+        return photoshoot;
     }
 
     static getCurrent = async () => {

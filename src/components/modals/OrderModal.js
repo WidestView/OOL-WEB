@@ -3,15 +3,34 @@ import { useHistory } from "react-router-dom";
 import Swal from "sweetalert2";
 import FormLayout from "../layouts/FormLayout";
 import InputField from "../layouts/form_fields/InputField";
+import PhotoshootAPI from "../../api/PhotoshootAPI";
+import OrderAPI from "../../api/OrderAPI";
+import { swalError } from "../../util/ErrorHelper";
 
 const OrderModal = ({user, order, opened, setOpened}) => {
     const $ = window.$;
     
     const [stage, setStage] = useState(3); // 1 Pagamento -> 2 Sessão -> 3 Resumo -> 4 SUBMIT
 
+    const [photoshoot, setPhotoshoot] = useState();
+
     const history = useHistory();
 
-    useEffect(()=> { if (stage >= 4) send() }, [stage]);
+    useEffect(()=> {  
+        const send = async () => {
+            try {
+                let orderRes = await OrderAPI.post(order);
+                await PhotoshootAPI.post({...photoshoot, ...{orderId: orderRes[0].id}});
+
+                Swal.fire("Sucesso", "Parabéns por sua aquisição!", "success").then(setOpened(false));
+            }
+            catch (error) {
+                swalError(error);
+                setStage(3);
+            }
+        }
+        if (stage === 4)  send();
+    }, [stage, order, photoshoot, setOpened]);
 
     useEffect(()=> { 
         if (opened) {
@@ -25,22 +44,27 @@ const OrderModal = ({user, order, opened, setOpened}) => {
         }
         else $('#orderModal').modal('hide');
     }, [opened, setStage, setOpened, user, $, history]);
-    
-    const send = () => {
-        //TODO: POST ORDER
-        //TODO: POST PHOTOSHOOT
-    }
 
     const CardSubmit = (event) => {
+
+        // VALIDATION CARD
+
         setStage(stage + 1);
     }
 
     const PhotoshootSubmit = (event) => {
-        // STORE DATA
-        
+        setPhotoshoot({
+            address: event.target.address.value,
+            start: event.target.startTime.value,
+            durationMinutes: Number(event.target.duration.value)
+        });
         setStage(stage + 1);
     }
 
+    const Submit = () => {
+        setStage(stage + 1);
+    }
+    
     return ( 
         <div className="modal fade" id="orderModal" tabIndex="-1" role="dialog" data-keyboard="false" data-backdrop="static">
             <div className="modal-dialog modal-dialog-centered" role="document">
@@ -71,11 +95,11 @@ const OrderModal = ({user, order, opened, setOpened}) => {
                                 </div>
                                 <div className="form-row">
                                     <InputField name="startTime" type="datetime-local" displayName="Data/Horário de Início" placeholder="Insira a Data e Horário" required className="col-6"/>
-                                    <InputField name="duration" type="datetime-local" displayName="Data/Horário de Fim" placeholder="Insira a Data e Horário" required className="col-6"/>
+                                    <InputField name="duration" type="number" displayName="Duração máxima da sessão" placeholder="Duração max. em minutos" required className="col-6"/>
                                 </div>
                             </FormLayout>
                         </Stage>
-                        <Stage stage={stage} stageRef={3} title="Resumo 📃" onSubmit={()=> setStage(stage + 1)}>
+                        <Stage stage={stage} stageRef={3} title="Resumo 📃">
                             <div className="container p-3">
                                 <h5 className="font-weight-bold text-uppercase">Nome do Pacote </h5> 
                                 <h6 className="font-weight-bold mb-4">X Imagens</h6>
@@ -101,7 +125,7 @@ const OrderModal = ({user, order, opened, setOpened}) => {
                                         <h6>Valor</h6>
                                     </div>
                                 </div>
-                                <button type="submit" className="btn btn-outline-primary float-right">Finalizar</button>
+                                <button type="submit" className="btn btn-outline-primary float-right" onClick={Submit}>Finalizar</button>
                             </div>
                         </Stage>                   
                     </div>
