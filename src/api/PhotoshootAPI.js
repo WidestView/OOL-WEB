@@ -37,6 +37,12 @@ class PhotoshootAPI {
     static getImageUploadUrl = (photoshoot) => `${process.env.REACT_APP_API_URL}/api/PhotoShootImage/upload/${photoshoot.id}`;
 
     static getImageUrl = (image) => `${process.env.REACT_APP_API_URL}/api/PhotoShootImage/${image.id}`;
+
+    static getStatus = (photoshoot) => {
+        if( photoshoot.images.length > 0 ) return "C";
+        if( photoshoot.images.length > 0 ) return "PC";
+        return "P";
+    }
 }
 
 export default PhotoshootAPI;

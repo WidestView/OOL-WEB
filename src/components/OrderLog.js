@@ -35,10 +35,10 @@ const OrderLog = () => {
                         orders.map((order, index) => (
                             <tr key={"order-" + index}>
                                 <td className="col-3">{order.package.name} <span className="text-muted font-italic">/ {order.imageQuantity} Imagens</span></td>
-                                <td className="col-3">{order.delivered? <span><i className="bi bi-check2-circle text-success"></i> <Link to="">Acessar Imagens Aqui</Link></span> : <span className="text-danger">Ainda não disponível</span>}</td>
+                                <td className="col-3">{order.delivered? <span><i className="bi bi-check2-circle text-success"></i> <Link to={`/order/${order.id}`}>Acessar Imagens Aqui</Link></span> : <span className="text-danger">Ainda não disponível</span>}</td>
                                 <td className="col-3">R$ {order.price}</td>
                                 <td className="col-3">{order.purchaseDate}</td>
-                            </tr> //TODO: ADD PROPER PHOTOSHOOT LINK
+                            </tr>
                         ))
                     }
                 </tbody>

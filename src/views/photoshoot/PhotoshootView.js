@@ -64,7 +64,6 @@ const PhotoshootView = ({employee, user, badLogin}) => {
     }
 
     const upload = async (index) => {
-        console.log(images[index]);
         let formData = new FormData();
         formData.append('file', images[index]);
 
@@ -78,6 +77,7 @@ const PhotoshootView = ({employee, user, badLogin}) => {
                 let statusArray = imagesStatus;
                 statusArray[index] = "UPLOADED";
                 setImagesStatus(statusArray);
+
                 try {
                     setPhotoshoot(await PhotoshootAPI.get(id));
                 }
@@ -120,15 +120,21 @@ const PhotoshootView = ({employee, user, badLogin}) => {
             </div>
             { employee !== undefined && 
                 <form method="post" action={photoshoot !== undefined? PhotoshootAPI.getImageUploadUrl(photoshoot) : ""} encType="multipart/form-data">
-                    <div className="row">
-                        <div className="col-8">
-                            <input type="file" onChange={onImageChange} className="form-control" accept="image/jpeg" multiple={true} style={{height: "4.5vh"}}/><br/>
+                    <div className="row mb-2">
+                        <div className="col-8 d-flex align-items-center">
+                            <input type="file" onChange={onImageChange} className="form-control h-100" accept="image/jpeg" multiple={true} style={{height: "4.5vh"}}/><br/>
                         </div>
-                        <div className="col-4 d-flex justify-content-end">
+                        <div className="col-4 d-flex justify-content-end align-items-center">
                             <div><input type="button" className={`btn btn-primary ${buttonDisabled? "disabled":""}`} value="Enviar todas" id="btn_upload" onClick={submitEvent}/></div>
                         </div>
                     </div>
+                    <div className="row">
+                        <div className="col-12">
+                            { images.length !== 0 && <h3 className="text-center">PREVIEW</h3> }
+                        </div>
+                    </div>
                     <div className="preview row">
+                        
                         {
                             images.map((image, index) => (
                                 <div className="col-2" key={"image-preview-" + index} >
@@ -145,6 +151,7 @@ const PhotoshootView = ({employee, user, badLogin}) => {
                             ))
                         }
                     </div>
+                    <hr />
                 </form>
             }
             { photoshoot !== undefined &&

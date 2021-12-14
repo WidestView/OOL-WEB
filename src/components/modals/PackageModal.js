@@ -32,8 +32,6 @@ const PackageModal = ({pack, setOrder}) => {
         setOrder(order);
     }
 
-    // TODO: GET DEFAULT VALUES
-
     const closeModal = ()=> $('#packageModal').modal('hide');
     const openOrderModal = ()=> { $('#orderModal').modal('show'); } 
 
