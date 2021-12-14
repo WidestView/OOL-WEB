@@ -12,7 +12,7 @@ const PhotographerWorkspace = ({employee}) => {
 
     useEffect(() => {
         const fetch = async () => { 
-            const photoshoots = await PhotoshootAPI.getCurrent();
+            const photoshoots = await PhotoshootAPI.get();
             const events = [];
             if(Array.isArray(photoshoots)) photoshoots.forEach(photoshoot => {
                 events.push({

@@ -19,8 +19,8 @@ const OrderModal = ({user, order, opened, setOpened}) => {
     useEffect(()=> {  
         const send = async () => {
             try {
-                let orderRes = await OrderAPI.post(order);
-                await PhotoshootAPI.post({...photoshoot, ...{orderId: orderRes[0].id}});
+                let orderRes = await OrderAPI.post({packageId: order.packId, imageQuantity: order.imageQuantity});
+                await PhotoshootAPI.post({...photoshoot, ...{orderId: orderRes.id}});
 
                 Swal.fire("Sucesso", "Parabéns por sua aquisição!", "success").then(setOpened(false));
             }

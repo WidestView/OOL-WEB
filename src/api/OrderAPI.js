@@ -24,9 +24,9 @@ class OrderAPI {
         return orders;
     }
 
-    static post = async () => {
-        let res = await axios.get(`${process.env.REACT_APP_API_URL}/api/Order`);
-        let order = res.data;
+    static post = async (order) => {
+        let res = await axios.post(`${process.env.REACT_APP_API_URL}/api/Order`, order);
+        order = res.data;
         if(order && isDev()){
             console.info("ORDER CREATED INFO:");
             console.info(order);

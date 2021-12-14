@@ -5,12 +5,41 @@ class EquipmentAPI { //TODO: PUT EQUIPMENT
 
     static get = async (id)=> {
         let data;
-        // data = await EquipmentAPI.getDetails(id)
+        // data = await EquipmentAPI.getDetails(id);
         return data;
     };
 
-    static post = async (data) => {
-        await EquipmentAPI.postDetails(data);
+    static post = async (equipmentInput) => {
+
+        let details = EquipmentAPI.parseDatails(equipmentInput);
+        let equipment = EquipmentAPI.parseEquipment(equipmentInput);
+
+        let res = await EquipmentAPI.postDetails();
+        await EquipmentAPI.postEquipment();
+
+        details = res.data;
+
+        if(details !== undefined && isDev()){
+            console.info("POSTED DETAILS INFO:");
+            console.info(details);
+        }
+
+        if(equipment !== undefined && isDev()){
+            console.info("POSTED EQUIPMENT INFO:");
+            console.info(equipment);
+        }
+    }
+
+    static parseDetails = (data) => {
+        return {
+
+        }
+    }
+
+    static parseEquipment = (data) => {
+        return {
+            
+        }
     }
 
     static getEquipment = async (id) => {
@@ -34,7 +63,7 @@ class EquipmentAPI { //TODO: PUT EQUIPMENT
         return equipments;
     }
 
-    static postDetails = async (equipment) => {
+    static postEquipment = async (equipment) => {
         let res = await axios.post(`${process.env.REACT_APP_API_URL}/api/Equipment`, equipment);
         equipment = res.data;
         if(equipment !== undefined && isDev()){
