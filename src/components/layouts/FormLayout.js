@@ -6,18 +6,24 @@ const FormLayout = (props) => {
 
     const [validId, setValidId] = useState(); // Store valids ids for gathering existing data
 
+    const [errorSummary, setErrorSummary] = useState();
+
+    const id = props.id;
+    const api = props.api;
+    const setData = props.setData;
+
     // Get already existing data if id not undefined
     useEffect(()=> {
         const fetch = async () => {
             try { 
-                props.setData(await props.api.get(props.id));
+                setData(await api.get(id));
                 setValidId(true);
             }
-            catch (e) { props.setData(); setValidId(false); }
+            catch (e) { setData(); setValidId(false); }
         }
 
-        if(props.id !== undefined) fetch();
-    }, [props, props.id, props.api]);
+        if(id !== undefined) fetch();
+    }, [id, api, setData]);
 
     // Validate form based on http response
     const ValidateForm = (errors) => {
@@ -44,6 +50,8 @@ const FormLayout = (props) => {
             for (let i = 0; i < groups.length; i++) {
                 validateGroup(groups[i]);
             }
+
+            setErrorSummary(errors[""]);
         }
         else {
             ClearValidation(groups);
@@ -158,6 +166,7 @@ const FormLayout = (props) => {
         <form onSubmit={handleSubmitEvent} id={props.formId?? "DefaultForm"}>
             <div className="bg-white rounded p-4">
                 {props.children}
+                <span className="text-danger">{errorSummary}</span>
             </div>
             <div className="d-flex justify-content-end">
                 <button type="submit" className="btn btn-outline-primary mt-3">Enviar</button>

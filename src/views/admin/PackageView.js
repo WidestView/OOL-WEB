@@ -21,17 +21,16 @@ const PackageView = () => {
                     </div>
                     <div className="form-row">
                         <InputField name="BaseValue" type="number" displayName="Valor base" placeholder="Valor base do pacote" required className="col-3" defaultValue={pack !== undefined? pack.baseValue : undefined} prepend="R$" />
-                        <InputField name="ImageQuantity" type="number" displayName="Qtd. de Imagens Inicial" placeholder="Qtd. de Imagens Inicial" required className="col-3" defaultValue={pack !== undefined? pack.imageQuantity : undefined} /> 
-                    </div>
-                    <div className="form-check form-check-inline mb-3 mt-4">
-                        <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"/>
-                        <label className="form-check-label" htmlFor="inlineCheckbox1">Quantidade de Imagens Variável</label>
-                    </div>
-                    <p className="font-weight-bold mt-2">Informações da Variação de Preço</p> 
-                    <div className="form-row">
                         <InputField name="PricePerPhoto" type="number" displayName="Preço por foto" placeholder="Valor de cada foto" required className="col-3" defaultValue={pack !== undefined? pack.baseValue : undefined} prepend="R$" />
-                        <InputField name="QuantityMultiplier" type="number" displayName="Multiplicador de Qtd." placeholder="Multiplicador" required className="col-2" defaultValue={pack !== undefined? pack.quantityMultiplier : undefined} /> 
-                        <InputField name="MaxIterations" type="number" displayName="Multiplicidade Máxima" placeholder="Multiplicidade" required className="col-2" defaultValue={pack !== undefined? pack.maxIterations : undefined} /> 
+                    </div>
+                    <p className="font-weight-bold mt-2">Pacotes com quantidade de imagens fixa</p> 
+                    <div className="form-row">
+                        <InputField name="ImageQuantity" type="number" displayName="Qtd. de Imagens" placeholder="Nulo" className="col-3" defaultValue={pack !== undefined? pack.imageQuantity : undefined} /> 
+                    </div>
+                    <p className="font-weight-bold mt-2">Pacotes com quantidade de imagens variada</p> 
+                    <div className="form-row">
+                        <InputField name="QuantityMultiplier" type="number" displayName="Multiplicador de Qtd." placeholder="Nulo" className="col-2" defaultValue={pack !== undefined? pack.quantityMultiplier : undefined} /> 
+                        <InputField name="MaxIterations" type="number" displayName="Multiplicidade Máxima" placeholder="Nulo" className="col-2" defaultValue={pack !== undefined? pack.maxIterations : undefined} /> 
                     </div>
                 </FormLayout>
             </NavigationLayout>
