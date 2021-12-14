@@ -1,4 +1,4 @@
-const EquipmentView = () => { //TODO: EQUIPMENT VIEW
+const EquipmentView = () => {
     return ( 
         <div>
             
