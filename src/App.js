@@ -13,6 +13,8 @@ import WorkspaceView from "./views/employee/WorkspaceView";
 import AdminView from "./views/admin/AdminView";
 import PackagesView from "./views/admin/PackagesView";
 import PackageView from "./views/admin/PackageView";
+import EquipmentsView from "./views/admin/EquipmentsView";
+import EquipmentView from "./views/admin/EquipmentView";
 import OrderView from "./views/order/OrderView";
 import PhotoshootView from "./views/photoshoot/PhotoshootView";
 import NotFoundView from "./views/errors/NotFoundView";
@@ -70,6 +72,9 @@ function App() {
           <Route exact path="/admin/packages" component={PackagesView}/>
           <Route exact path="/admin/packages/add" component={PackageView}/>
           <Route exact path="/admin/packages/:id" component={PackageView}/>
+          <Route exact path="/admin/equipments" component={EquipmentsView}/>
+          <Route exact path="/admin/equipments/add" component={EquipmentView}/>
+          <Route exact path="/admin/equipments/:id" component={EquipmentView}/>
           <Route exact path="/order/:id">
             <OrderView/>
           </Route>

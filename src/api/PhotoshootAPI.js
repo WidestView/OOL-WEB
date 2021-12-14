@@ -1,7 +1,7 @@
 import axios from "axios";
 import { isDev } from "../util/Env";
 
-class PhotoshootAPI {
+class PhotoshootAPI { //TODO: POST PHOTOSHOOT
 
     static get = async (id) => {
 

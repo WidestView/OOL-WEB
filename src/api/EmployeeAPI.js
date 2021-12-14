@@ -1,7 +1,7 @@
 import axios from "axios";
 import { isDev } from "../util/Env";
 
-class EmployeeAPI {
+class EmployeeAPI { //TODO: POST AND PUT EMPLOYEE
 
     static async getEmployee(){
         let res = await axios.get(`${process.env.REACT_APP_API_URL}/api/Employee/info`);
