@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 const OrderLog = () => {
 
     const [orders, setOrders] = useState();
-    const [photoShootIDs] = useState([]);
 
     useEffect(() => {
         const fetch = async () => {
