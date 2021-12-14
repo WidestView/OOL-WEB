@@ -42,7 +42,7 @@ const FormLayout = (props) => {
     
                 if (item === undefined) return;
     
-                const validator = document.getElementById(item.name + "Validation");
+                const validator = document.getElementById(item.name + "Validation")?? undefined;
                 const inputGroup = group.getElementsByClassName("input-group").length !== 0? group.getElementsByClassName("input-group")[0] : undefined;
 
                 const error = errors[Object.keys(errors).find(key => key.toLowerCase() === item.name.toLowerCase())];
