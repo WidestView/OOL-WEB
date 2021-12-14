@@ -33,7 +33,7 @@ const PageFormLayout = ({title, icon, api, id, successMessage = "Tudo certinho ð
         formStruct.forEach(row => {
             row.forEach(item => {
                 if (event.target[item.name]) {
-                    switch (item.type) { //TODO: ADD CHECKBOX AND SPINNER
+                    switch (item.type) {
                         case "number":
                             newData[item.name] = Number(event.target[item.name].value);
                             break;
