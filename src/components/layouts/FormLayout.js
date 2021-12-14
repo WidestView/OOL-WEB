@@ -220,7 +220,7 @@ const FormLayout = (props) => {
                 <span className="text-danger">{errorSummary}</span>
             </div>
             <div className="d-flex justify-content-end">
-                { typeof api.delete === "function" && <button type="button" className="btn btn-outline-danger mt-3 mr-3" onClick={deleteItem}>Deletar</button> } 
+                { api !== undefined && typeof api.delete === "function" && <button type="button" className="btn btn-outline-danger mt-3 mr-3" onClick={deleteItem}>Deletar</button> } 
                 <button type="submit" className="btn btn-outline-primary mt-3">Enviar</button>
             </div>
         </form>
