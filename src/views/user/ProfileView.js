@@ -1,4 +1,5 @@
 import ImageFromUrl from "../../components/ImageFromUrl";
+import OrderLog from "../../components/OrderLog";
 import UploadProfileModal from '../../components/UploadProfileModal';
 import Auth from "../../util/Auth";
 
@@ -31,24 +32,8 @@ const ProfileView = ({user, badLogin}) => {
                 </div>
             </div>
 
-            <div className="row text-titillium">
-                <div className="col-12">
-                    <h3 className="text-center mb-4 font-weight-bold">Histórico de compras</h3>
-                    <table className="table text-center">
-                    <thead>
-                        <tr>
-                        <th scope="col">Imagem</th>
-                        <th scope="col">Produto</th>
-                        <th scope="col">Descrição</th>
-                        <th scope="col">Preço</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                    </table>
-                </div>
+            <OrderLog />
 
-            </div>
             <UploadProfileModal url={`${process.env.REACT_APP_API_URL}/api/user/upload-image`}/>
         </div> );
 }
