@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import Swal from "sweetalert2";
 import Loading from "../Loading";
 
@@ -180,6 +181,36 @@ const FormLayout = (props) => {
         });
     }
 
+    const history = useHistory();
+
+    const deleteItem = async () => {
+        try {
+            await api.delete(data.id);
+        }
+        catch(e) {
+            const res = e.response;
+            if (res.status === 400 || res.status === 409) ValidateForm(res.data.errors); // Bad Request
+            if (res.status === 401) { // Unauthorized
+                Swal.fire({
+                    title: 'Parado ai!',
+                    text: 'Você não tem o direito de fazer isso',
+                    icon: 'error',
+                    confirmButtonText: 'Ok :('
+                }); 
+            }
+            return;
+        }
+
+        ClearValidation();
+
+        Swal.fire({
+            title: 'Deletado!',
+            text: "Ok",
+            icon: 'success',
+            confirmButtonText: 'Ebaa!!'
+        }).then(() => { history.push("/admin/packages/"); } );
+    }
+
     if (id !== undefined && validId && !data) return <Loading/>;
 
     return ( 
@@ -189,6 +220,7 @@ const FormLayout = (props) => {
                 <span className="text-danger">{errorSummary}</span>
             </div>
             <div className="d-flex justify-content-end">
+                { typeof api.delete === "function" && <button type="button" className="btn btn-outline-danger mt-3 mr-3" onClick={deleteItem}>Deletar</button> } 
                 <button type="submit" className="btn btn-outline-primary mt-3">Enviar</button>
             </div>
         </form>

@@ -44,6 +44,16 @@ class PackageAPI {
         return pack;
     }
 
+    static delete = async (id) => {
+        let res = await axios.delete(`${process.env.REACT_APP_API_URL}/api/package/${id}`);
+        let pack = res.data;
+        if(pack && isDev()){
+            console.info("PACKAGE DELETED INFO:");
+            console.info(pack);
+        }
+        return pack;
+    }
+
     static getImageUrl = (id) => `${process.env.REACT_APP_API_URL}/api/package/${id}/image`;
 }
 
