@@ -21,13 +21,13 @@ const AdminView = ({user, employee, badLogin}) => {
         }
     ];
 
-    const relatorioChoices = [
-        {
-            name: "Relatório 1",
-            icon: "file-earmark-text",
-            uri: "/users"
-        }
-    ];
+    // const relatorioChoices = [
+    //     {
+    //         name: "Relatório 1",
+    //         icon: "file-earmark-text",
+    //         uri: "/users"
+    //     }
+    // ];
 
     return Auth.adminAuth(user, employee, badLogin)?? ( 
         <div className="admin-authorized container">

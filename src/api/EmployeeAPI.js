@@ -16,7 +16,7 @@ class EmployeeAPI {
     static get = async (id) => {
 
         if (id !== undefined) {
-            let res = await axios.get(`YET TO IMPLEMENT`);
+            let res = await axios.get(`${process.env.REACT_APP_API_URL}/api/Employee/${id}`);
             let employee = res.data;
             if(employee !== undefined && isDev()){
                 console.info("EMPLOYEE INFO:");
@@ -52,6 +52,26 @@ class EmployeeAPI {
             console.info(employee);
         }
         return employee;
+    }
+
+    static getAcessLevels = async () => {
+        let res = await axios.get(`${process.env.REACT_APP_API_URL}/api/Employee/levels`);
+        let levels = res.data;
+        if(levels !== undefined && isDev()){
+            console.info("LEVELS INFO:");
+            console.info(levels);
+        }
+        return levels;
+    }
+
+    static getOccupations = async () => {
+        let res = await axios.get(`${process.env.REACT_APP_API_URL}/api/Employee/occupations`);
+        let occupations = res.data;
+        if(occupations !== undefined && isDev()){
+            console.info("OCCUPATIONS INFO:");
+            console.info(occupations);
+        }
+        return occupations;
     }
 
     static isAdmin = (employee) => (employee.acessLevel === 0)

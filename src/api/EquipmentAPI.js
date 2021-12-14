@@ -1,7 +1,7 @@
 import axios from "axios";
 import { isDev } from "../util/Env";
 
-class EquipmentAPI { //TODO: PUT EQUIPMENT
+class EquipmentAPI {
 
     static get = async (id)=> {
         let data;
