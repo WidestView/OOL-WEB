@@ -3,14 +3,18 @@ import Swal from "sweetalert2";
 import Loading from "../Loading";
 
 const FormLayout = (props) => {
+    // {id, api, data, setData, ?formId, ?onSubmit}
+
+    const id = props.id;
+    const api = props.api;
+    const data = props.data;
+    const setData = props.setData;
+    const formId = props.formId;
+    const onSubmit = props.onSubmit;
 
     const [validId, setValidId] = useState(); // Store valids ids for gathering existing data
 
     const [errorSummary, setErrorSummary] = useState();
-
-    const id = props.id;
-    const api = props.api;
-    const setData = props.setData;
 
     // Get already existing data if id not undefined
     useEffect(()=> {
@@ -27,7 +31,7 @@ const FormLayout = (props) => {
 
     // Validate form based on http response
     const ValidateForm = (errors) => {
-        const node = document.getElementById(props.formId?? "DefaultForm");
+        const node = document.getElementById(formId?? "DefaultForm");
         const groups = node.getElementsByClassName("form-group");
         
         if (errors) {
@@ -38,11 +42,19 @@ const FormLayout = (props) => {
                 if (item === undefined) return;
     
                 const validator = document.getElementById(item.name + "Validation");
-                const error = errors[item.name]
+                const inputGroup = group.getElementsByClassName("input-group").length !== 0? group.getElementsByClassName("input-group")[0] : undefined;
+
+                const error = errors[Object.keys(errors).find(key => key.toLowerCase() === item.name.toLowerCase())];
 
                 item.classList.remove(`is-valid`);
                 item.classList.remove(`is-invalid`);
                 item.classList.add(`is-${error? "invalid" : "valid"}`);
+
+                if (inputGroup !== undefined) {
+                    inputGroup.classList.remove(`is-valid`);
+                    inputGroup.classList.remove(`is-invalid`);
+                    inputGroup.classList.add(`is-${error? "invalid" : "valid"}`);
+                }
 
                 if (validator !== undefined) validator.innerHTML = error? error : "";
             }
@@ -61,17 +73,23 @@ const FormLayout = (props) => {
     // Clear Validation
     const ClearValidation = (groups) => {
         if (groups === undefined) {
-            const node = document.getElementById(props.formId?? "DefaultForm");
+            const node = document.getElementById(formId?? "DefaultForm");
             groups = node.getElementsByClassName("form-group");
         }
 
         const clearGroup = (group) => {
             const item = group.getElementsByTagName("input").length !== 0? group.getElementsByTagName("input")[0] : undefined;
+            const inputGroup = group.getElementsByClassName("input-group").length !== 0? group.getElementsByClassName("input-group")[0] : undefined;
 
             if (item === undefined) return;
 
             item.classList.remove(`is-valid`);
             item.classList.remove(`is-invalid`);
+
+            if (inputGroup !== undefined) {
+                inputGroup.classList.remove(`is-valid`);
+                inputGroup.classList.remove(`is-invalid`);
+            }
         }
 
         for (let i = 0; i < groups.length; i++) {
@@ -81,7 +99,7 @@ const FormLayout = (props) => {
 
     // Blends existing data with event data
     const BlendData = (newData, event) => {
-        const node = document.getElementById(props.formId?? "DefaultForm");
+        const node = document.getElementById(formId?? "DefaultForm");
         const groups = node.getElementsByClassName("form-group");
 
         const blendGroup = (group) => {
@@ -92,10 +110,10 @@ const FormLayout = (props) => {
             if (event.target[item.name]) {
                 switch (item.type) {
                     case "number":
-                        newData[item.name.toLowerCase()] = Number(event.target[item.name].value);
+                        newData[item.name] = Number(event.target[item.name].value);
                         break;
                     default:
-                        newData[item.name.toLowerCase()] = event.target[item.name].value;
+                        newData[item.name] = event.target[item.name].value;
                         break;
                 }
             }
@@ -112,7 +130,9 @@ const FormLayout = (props) => {
     const handleSubmitEvent = async (event) => {
         event.preventDefault();
 
-        let newData = props.data?? {};
+        if (onSubmit !== undefined) { onSubmit(event); return;}
+
+        let newData = data?? {};
         newData = BlendData(newData, event);
 
         ClearValidation();
@@ -123,8 +143,8 @@ const FormLayout = (props) => {
     // Submits data to API
     const submitAndFetch = async (newData) => {
         try {
-            if (props.data !== undefined && props.data.id !== undefined) await props.api.put(props.data.id, newData) // Update
-            else await props.api.post(newData) // Create
+            if (data !== undefined && data.id !== undefined) await api.put(data.id, newData) // Update
+            else await api.post(newData) // Create
         }
         catch(e) {
             const res = e.response;
@@ -142,10 +162,10 @@ const FormLayout = (props) => {
 
         const fetch = async () => {
             try { 
-                props.setData(await props.api.get(props.id));
+                setData(await api.get(id));
                 setValidId(true);
             }
-            catch (e) { props.setData(); setValidId(false); }
+            catch (e) { setData(); setValidId(false); }
         }
 
         await fetch();
@@ -160,10 +180,10 @@ const FormLayout = (props) => {
         });
     }
 
-    if (props.id !== undefined && validId && !props.data) return <Loading/>;
+    if (id !== undefined && validId && !data) return <Loading/>;
 
     return ( 
-        <form onSubmit={handleSubmitEvent} id={props.formId?? "DefaultForm"}>
+        <form onSubmit={handleSubmitEvent} id={formId?? "DefaultForm"}>
             <div className="bg-white rounded p-4">
                 {props.children}
                 <span className="text-danger">{errorSummary}</span>

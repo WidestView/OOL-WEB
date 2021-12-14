@@ -14,7 +14,7 @@ const InputField = ({name, className, type, help, displayName, defaultValue, pla
     return (
         <div className={"form-group " + className}>
             <label htmlFor={name + "Input"}>{displayName?? name}</label>
-                <div className="input-group">
+            <div className="input-group">
                 {
                     prepend !== undefined &&
                     <div className="input-group-prepend">
