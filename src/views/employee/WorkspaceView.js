@@ -5,7 +5,8 @@ const WorkspaceView = ({user, employee, badLogin}) => {
 
     const Workspaces = [
         null,                                           // 0
-        <PhotographerWorkspace employee={employee}/>    // 1
+        <PhotographerWorkspace employee={employee}/>,   // 1
+        <PhotographerWorkspace employee={employee}/>    // 2
     ]
 
     return Auth.employeeAuth(user, employee, badLogin)?? ( 
