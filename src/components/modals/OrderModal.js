@@ -122,7 +122,7 @@ const OrderModal = ({user, order, pack, opened, setOpened}) => {
                                 <div className="row">
                                     <div className="col-12">
                                         <h6 className="font-weight-bold text-uppercase">Valor Final</h6>
-                                        <h6>R${pack.baseValue + (pack.pricePerPhoto * order.imageQuantity)}</h6>
+                                        <h6>R${pack !== undefined? pack.baseValue + (pack.pricePerPhoto * order.imageQuantity) : ""}</h6>
                                     </div>
                                 </div>
                                 <button type="submit" className="btn btn-outline-primary float-right" onClick={Submit}>Finalizar</button>

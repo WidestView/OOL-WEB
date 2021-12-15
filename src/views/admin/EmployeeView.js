@@ -13,9 +13,9 @@ const EmployeeView = () => {
     const [accessLevels, setAccessLevels] = useState();
     const [occupations, setOccupations] = useState();
 
-    const [accessLevel, setAccessLevel] = useState();
-    const [occupationId, setOccupationId] = useState();
-    const [gender, setGender] = useState();
+    const [accessLevel, setAccessLevel] = useState(1);
+    const [occupationId, setOccupationId] = useState(1);
+    const [gender, setGender] = useState("other");
     
     useEffect(() => {
         const fetchData = async () => {
@@ -101,7 +101,7 @@ const EmployeeView = () => {
                             <div className="form-row">
                                 <div className="form-group col-12">    
                                     <input name="gender" className="d-none" type="text" value={gender} />
-                                    <select name="gender" className="form-control" defaultValue={employee !== undefined? employee.gender : undefined} onChange={(e)=> {setGender(e.target.value)}}>
+                                    <select className="form-control" defaultValue={employee !== undefined? employee.gender : undefined} onChange={(e)=> {setGender(e.target.value)}}>
                                         <option value={"Masculino"}>Masculino</option>
                                         <option value={"Feminino"}>Feminino</option>
                                         <option value={"Outro"}>Outro</option>
