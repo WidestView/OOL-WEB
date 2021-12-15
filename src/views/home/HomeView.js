@@ -151,7 +151,7 @@ const HomeView = ({user}) => {
                 </div>
             </div>
             <PackageModal pack={pack} opened={packModalOpened} setOpened={setPackModalOpened} setOrder={setOrder} setOrderModalOpened={setOrderModalOpened} />
-            <OrderModal order={order?? {}} user={user} opened={orderModalOpened} setOpened={setOrderModalOpened}/>
+            <OrderModal order={order?? {}} user={user} pack={pack} opened={orderModalOpened} setOpened={setOrderModalOpened}/>
         </div>
      );
 }

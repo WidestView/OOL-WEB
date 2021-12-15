@@ -7,7 +7,7 @@ import PhotoshootAPI from "../../api/PhotoshootAPI";
 import OrderAPI from "../../api/OrderAPI";
 import { swalError } from "../../util/ErrorHelper";
 
-const OrderModal = ({user, order, opened, setOpened}) => {
+const OrderModal = ({user, order, pack, opened, setOpened}) => {
     const $ = window.$;
     
     const [stage, setStage] = useState(3); // 1 Pagamento -> 2 Sessão -> 3 Resumo -> 4 SUBMIT
@@ -102,27 +102,27 @@ const OrderModal = ({user, order, opened, setOpened}) => {
                         <Stage stage={stage} stageRef={3} title="Resumo 📃">
                             <div className="container p-3">
                                 <h5 className="font-weight-bold text-uppercase">Nome do Pacote </h5> 
-                                <h6 className="font-weight-bold mb-4">X Imagens</h6>
+                                <h6 className="font-weight-bold mb-4">{order.imageQuantity} Imagens</h6>
                                 <div className="row mb-3">
                                     <div className="col-12">
                                         <h6 className="font-weight-bold text-uppercase">Endereço</h6>
-                                        <h6>Endereço da Sessão</h6>
+                                        <h6>{photoshoot !== undefined? photoshoot.address : "" }</h6>
                                     </div>
                                 </div>
                                 <div className="row mb-3">
                                     <div className="col-6">
                                         <h6 className="font-weight-bold text-uppercase">Data/Horário de início</h6>
-                                        <h6>Data do início</h6>
+                                        <h6>{photoshoot !== undefined? photoshoot.start : "" }</h6>
                                     </div>
                                     <div className="col-6">
-                                        <h6 className="font-weight-bold text-uppercase">Data/Horário de fim</h6>
-                                        <h6>Data do fim</h6>
+                                        <h6 className="font-weight-bold text-uppercase">Duração</h6>
+                                        <h6>{photoshoot !== undefined? photoshoot.durationMinutes : "" } minutos</h6>
                                     </div>
                                 </div>
                                 <div className="row">
                                     <div className="col-12">
                                         <h6 className="font-weight-bold text-uppercase">Valor Final</h6>
-                                        <h6>Valor</h6>
+                                        <h6>R${pack.baseValue + (pack.pricePerPhoto * order.imageQuantity)}</h6>
                                     </div>
                                 </div>
                                 <button type="submit" className="btn btn-outline-primary float-right" onClick={Submit}>Finalizar</button>
