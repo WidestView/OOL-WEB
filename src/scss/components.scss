@@ -1,28 +1,102 @@
-.package-preview{
-    transition: all 0.5s;
-    width: 100%;
-    .package-preview-close{
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center; 
-    }
-    .package-preview-open{
-      .image-preview{
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center; 
-      }
-    }
-}
-
 .banner{
-  height: 60vh;
+  height: 55vh;
   background-size: cover;
   background-position: center;
+}
+
+#banner_creature_body{
+  position: absolute;
+  width: 25vw;
+  bottom: 0;
+  right: 20%;
+}
+
+#banner_creature_arm1{
+  position: absolute;
+  width: 5vw;
+  bottom: -2%;
+  right: 40%; 
+  transform: rotate(-10deg);
+}
+
+#banner_creature_arm2{
+  position: absolute;
+  width: 5vw;
+  bottom: -2%;
+  right: 20%; 
+  transform: rotate(10deg);
+}
+
+@media screen and (max-width: 1200px) {
+  #banner_message{
+    margin-bottom: 20%;
+  }
+  .banner{
+    height: 80vh;
+  }
+  #banner_creature_body{
+    position: absolute;
+    width: 35vw;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  #banner_creature_arm1{
+    position: absolute;
+    width: 7vw;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: -2%;
+    left: 0;
+    right: 27%;
+  }
+  #banner_creature_arm2{
+    position: absolute;
+    width: 7vw;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: -2%;
+    left: 27%;
+    right: 0;
+  }
 }
 
 .navbar-brand{
   img{
     height: 3rem!important;
+  }
+}
+
+.choices-grid{
+  .choice{
+    transition: transform 0.4s ease-out;
+    &:hover{
+      transition: transform 0.4s ease-out;
+      transform: scale(1.1);
+    }
+  }
+}
+
+.userview{
+  .userImageButton{
+    .userimage{
+      opacity: 1;
+      position: relative;
+      z-index: 1;
+      transition: opacity 0.3s ease-in;
+    }
+    .upload-text{
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      z-index: 0;
+    }
+    &:hover{
+      .userimage{
+        opacity: 0.1;
+      }
+    }
   }
 }

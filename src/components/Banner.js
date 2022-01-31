@@ -1,11 +1,30 @@
-const Banner = () => {
+import BannerSVG from "../assets/svgs/newbanner.svg";
+import CreatureSVG from "../assets/svgs/banner_creature.svg";
+import CreatureFirstArm from "../assets/svgs/creature_arm.svg"
+import CreatureSecondArm from "../assets/svgs/creature_arm_flip.svg"
 
-    const banner_url = "https://images-ext-1.discordapp.net/external/x5I8sj-ah7IautJQ3fIuLkQInDUoK1bu5YjYliHKPwI/%3Fixlib%3Drb-1.2.1%26ixid%3DMnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8%26auto%3Dformat%26fit%3Dcrop%26w%3D1050%26q%3D80/https/images.unsplash.com/photo-1535540878298-a155c6d065ef?width=1014&height=676";
+const Banner = () => {
 
     return ( 
         <div className="banner d-flex justify-content-center align-items-center" style={{ 
-                        backgroundImage: `url("${banner_url}")`}}>
-            <h1 className="display-3 text-white text-center font-weight-bold text-uppercase">ESSE É O MALHA FUNK</h1>
+                        backgroundImage: `url("${BannerSVG}")`, backgroundPosition: 'left bottom'}}>
+            <div className="container-fluid mb-5">
+                <div className="row px-3 px-md-0">
+                    <div className="col-12 col-xl-10 offset-xl-2 pl-xl-5" id="banner_message">                             
+                        <div className="row d-flex justify-content-center justify-content-xl-start">
+                            <h1 className="display-2 text-titillium text-white text-center text-md-left font-weight-bold text-uppercase">Boas Vindas!</h1>
+                        </div>
+                        <div className="row d-flex justify-content-center justify-content-xl-start">
+                            <h2 className="display-5 text-titillium text-white text-center text-md-left text-uppercase font-italic">Nós somos a Out Of Lens</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="banner_creature">
+                <img src={CreatureSVG} className="position-absolute"  id="banner_creature_body" alt=""/>
+                <img src={CreatureFirstArm} className="position-absolute" id="banner_creature_arm1" alt=""/>
+                <img src={CreatureSecondArm} className="position-absolute" id="banner_creature_arm2" alt=""/>
+            </div>
         </div>
      );
 }

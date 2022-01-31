@@ -1,21 +1,21 @@
 import { Link } from "react-router-dom";
 
 // Environment
-import cloud2 from "../assets/svgs/environment/cloud2.svg";
-import cloud2_light from "../assets/svgs/environment/cloud2_light.svg";
-import cloud2_lighter from "../assets/svgs/environment/cloud2_lighter.svg";
-import cloud3 from "../assets/svgs/environment/cloud3.svg";
-import sun from "../assets/svgs/environment/sun.svg";
-import leaf from "../assets/svgs/environment/leaf.svg";
-import tree from "../assets/svgs/environment/tree.svg";
-import small_plant from "../assets/svgs/environment/small_plant.svg";
-import medium_plant from "../assets/svgs/environment/medium_plant.svg";
-import big_plant from "../assets/svgs/environment/big_plant.svg";
+import cloud2 from "../../assets/svgs/environment/cloud2.svg";
+import cloud2_light from "../../assets/svgs/environment/cloud2_light.svg";
+import cloud2_lighter from "../../assets/svgs/environment/cloud2_lighter.svg";
+import cloud3 from "../../assets/svgs/environment/cloud3.svg";
+import sun from "../../assets/svgs/environment/sun.svg";
+import leaf from "../../assets/svgs/environment/leaf.svg";
+import tree from "../../assets/svgs/environment/tree.svg";
+import small_plant from "../../assets/svgs/environment/small_plant.svg";
+import medium_plant from "../../assets/svgs/environment/medium_plant.svg";
+import big_plant from "../../assets/svgs/environment/big_plant.svg";
 
 // Creatures
-import calado from "../assets/svgs/creatures/calado.svg";
-import calado_arm from "../assets/svgs/creatures/calado_arm.svg";
-import lentinha from "../assets/svgs/creatures/lentinha.svg";
+import calado from "../../assets/svgs/creatures/calado.svg";
+import calado_arm from "../../assets/svgs/creatures/calado_arm.svg";
+import lentinha from "../../assets/svgs/creatures/lentinha.svg";
 
 
 const NotFound = () => {
@@ -54,16 +54,16 @@ const NotFound = () => {
                     <div id="ground"/>
                 </div>
                 <div className="col-12 h-100 scene-body d-flex justify-content-center">
-                    <div className="content col-12 col-lg-7 p-5 rounded">
+                    <div className="content col-12 col-lg-7 p-5 rounded text-titillium">
                         <h1 className="header text-primary text-center font-weight-bold mt-n3">404</h1>
                         <div className="col-12 col-lg-5 mx-auto">
                             <div className="d-flex justify-content-center">
-                                <h4 className="text-center font-weight-bold text-primary mb-0 pb-0">PROCURAMOS EM TODO CANTO</h4>
-                                <h4 className="text-center text-dark d-none d-md-block mb-0 pb-0">,</h4>
+                                <h4 className="text-center font-weight-bold text-primary mb-3 pb-0">PROCURAMOS EM TODO CANTO</h4>
+                                <h4 className="text-center text-dark d-none d-md-block pb-0">,</h4>
                             </div>
                             <h4 className="text-center text-dark mt-0 pt-0">mas essa página não foi encontrada</h4>
                         </div>
-                        <div className="d-flex justify-content-center mt-4">
+                        <div className="d-flex justify-content-center mt-5">
                             <Link to="/" className="btn btn-lg btn-primary rounded">Voltar</Link>
                         </div>
                     </div>

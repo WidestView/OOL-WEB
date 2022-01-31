@@ -1,5 +1,6 @@
 // Bootstrap first, scss second, js when hopeless ಥ_ಥ
 @import "./scss/mixins.scss";
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,400;0,600;1,600&display=swap');
 
 // SETTINGS
 
@@ -40,10 +41,54 @@ $theme-colors: (
   list-style-type: none;
 }
 
+.pfp { width: 50px; height: 50px;}
+
+.text-titillium{
+  font-family: 'Titillium Web', sans-serif;
+}
+
+::-webkit-scrollbar{
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb{
+  background-color: #333
+}
+
+::-webkit-scrollbar-track{
+  background-color: #878787;
+}
+
+::-webkit-scrollbar
+
+::selection{
+  background:#012840;
+  color:white;
+}
+
+.grey-image {
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+   -ms-filter: grayscale(100%);
+       filter: grayscale(100%); 
+}
+
+// Full Calendar
+
+.fc-event{
+  cursor: pointer;
+}
+
 @import "./scss/loader.scss";
 @import "./scss/components.scss";
 @import "./scss/svgs.scss";
 @import "./scss/scenes.scss";
+
+// Photoswipe
+
+@import '../node_modules/photoswipe/dist/photoswipe.css';
+@import '../node_modules/photoswipe/dist/default-skin/default-skin.css';
 
 // Boostrap
 

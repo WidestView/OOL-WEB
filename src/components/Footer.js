@@ -1,7 +1,6 @@
 const Footer = () => {
 
-    const phone_number = "5511900001111"; // WITH NO MASKS, STAIGHT UP ONLY NUMBERS 
-    /*TODO: Add Valid Number */
+    const phone_number = "5511963945845"; // PLEASE DONT CALL MEEE!!!! 
 
     return ( 
         <footer className="container">
@@ -25,14 +24,13 @@ const Footer = () => {
                 <div className="col-4 text-left">
                     <h6>Sobre</h6>
                     <ul className="no-bullet text-left p-0">
-                        <li className="mt-3 mb-2"><a href="/info/#PRIVACY">Política de privacidade</a></li>
-                        <li><a href="/info/#TERMS">Termos de serviço</a></li>
-                        
+                        <li className="mt-3 mb-2"><a href="/info/#TERMS">Termos de serviço</a></li>
+                        <li><a href="/info/#PRIVACY">Política de privacidade</a></li>
                     </ul>
                 </div>
             </div>
             <hr className="ml-0 mt-1" style={{width: "8vw"}}/>
-            <div className="d-flex justify-content-between pb-2">
+            <div className="d-flex justify-content-between pb-4">
                 <h6 className="text-left">
                         &copy; {new Date().getFullYear()} <a className=" " href="https://github.com/WidestView">WidestView</a>
                 </h6>
